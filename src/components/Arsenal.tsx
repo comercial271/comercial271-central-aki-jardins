@@ -31,7 +31,7 @@ const docs: Array<{ icon: React.ElementType; title: string; desc: string; link: 
     icon: List,
     title: 'Modelos de Contrato B2B',
     desc: 'Contratos para industriais, condomínios e manutenção recorrente — disponíveis nos Entregáveis da Selva.',
-    link: { label: 'Acessar modelos', href: 'https://app.greenn.club/home' },
+    link: { label: 'Acessar modelos', href: 'https://drive.google.com/drive/folders/1HtakX6CiU9ItFDsUfLj8BpDqefMCuS0V' },
   },
   {
     icon: Star,

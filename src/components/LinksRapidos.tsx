@@ -202,7 +202,7 @@ export default function LinksRapidos() {
             <div className="flex flex-col gap-2">
               {[
                 { label: 'Pasta Principal AKI Jardins', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
-                { label: 'Entregáveis da Selva (modelos e ferramentas)', href: 'https://app.greenn.club/home' },
+                { label: 'Entregáveis da Selva (modelos e ferramentas)', href: 'https://drive.google.com/drive/folders/1rzHORP4THJuLoBzM6h_Z0tcLNiqFX_tH' },
                 { label: 'Site AKI Jardins (publicado)', href: 'https://aki-jardins-digital.lovable.app' },
                 { label: 'Google Meu Negócio', href: 'https://business.google.com' },
               ].map(link => (
