@@ -60,7 +60,6 @@ const guides: Guide[] = [
     title: 'Corrigir Mensagem Automática WA Business',
     subtitle: 'A mensagem automática atual está com texto incorreto. Quando um cliente entra em contato e recebe uma mensagem sem sentido, perde a confiança imediatamente.',
     tempo: '~5 minutos',
-    cta: { label: 'Configurar WhatsApp Business', href: 'https://www.whatsapp.com/business/' },
     steps: [
       { n: 1, text: 'Abra o WhatsApp Business no celular.' },
       { n: 2, text: 'Acesse:', bold: 'Configurações (3 pontos) → Ferramentas comerciais → Mensagem de ausência.' },
