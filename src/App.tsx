@@ -14,6 +14,7 @@ import AbordagemComercial from './components/AbordagemComercial'
 import InstagramBraun from './components/InstagramBraun'
 import IcpBraun from './components/IcpBraun'
 import ProvaFocal from './components/ProvaFocal'
+import Manuais from './components/Manuais'
 import MinhaJornada from './components/MinhaJornada'
 import Footer from './components/Footer'
 import HelpButton from './components/HelpButton'
@@ -47,6 +48,7 @@ function AppContent() {
       <PlanoAcao />
       <Arsenal />
       <LinksRapidos />
+      <Manuais />
       <Alvos />
       <AbordagemComercial />
       <InstagramBraun />
