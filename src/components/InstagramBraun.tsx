@@ -122,7 +122,7 @@ André olha para câmera: "Se sua empresa quer área verde profissional em Rio d
 🏭 Industriais | Condomínios | Corporativo
 🔗 Link na bio
 
-#akijardins #paisagismocorporativo #riosdoulsc #jardinagem #paisagismo`,
+#akijardins #paisagismocorporativo #riodosulsc #jardinagem #paisagismo`,
   },
   {
     id: 'r2',
@@ -156,7 +156,7 @@ Manutenção industrial mensal concluída 🌿
 AKI Jardins Soluções e Paisagismo — LTDA
 📍 Rio do Sul / SC
 
-#akijardins #paisagismoindustrial #riosdoulsc #manutencaojardinagem`,
+#akijardins #paisagismoindustrial #riodosulsc #manutencaojardinagem`,
   },
   {
     id: 'r3',
@@ -182,7 +182,7 @@ André: "AKI Jardins. A empresa de Rio do Sul."
 Rio do Sul tem empresa de paisagismo 🌿
 13 anos de mercado. Empresa LTDA.
 
-#akijardins #riosdoul #paisagismoriosdosul #jardinagemsc`,
+#akijardins #riodosul #paisagismoriodosul #jardinagemsc`,
   },
   {
     id: 'r4',
@@ -217,16 +217,16 @@ Transformação completa 🌿✅
 📍 Rio do Sul / SC
 📋 Contrato mensal disponível
 
-#antesedepois #paisagismo #akijardins #riosdoulsc #jardinagem`,
+#antesedepois #paisagismo #akijardins #riodosulsc #jardinagem`,
   },
 ]
 
 // ─── Bio ──────────────────────────────────────────────────────────────────────
 
 const novaBio = `🌿 AKI Jardins Soluções e Paisagismo
-🏢 Empresa LTDA | Rio do Sul / SC
-🏭 Industrial · Condomínios · Corporativo
-✅ Fundisul | 13 anos de mercado
+📍 Rio do Sul / SC | 13 anos de mercado
+🏭 Jardinagem para as maiores empresas da região
+🌱 Industrial · Condomínios · Corporativo
 🔗 aki-jardins-digital.lovable.app`
 
 // ─── Destaques ────────────────────────────────────────────────────────────────
@@ -329,8 +329,8 @@ export default function InstagramBraun() {
           <pre className="bg-forest-900/50 rounded-xl p-4 text-white text-sm whitespace-pre-wrap font-sans leading-relaxed border border-forest-700">{novaBio}</pre>
           <div className="mt-4 grid sm:grid-cols-3 gap-3 text-xs">
             {[
-              { label: 'Empresa LTDA', desc: 'Credencial corporativa imediata' },
-              { label: 'Fundisul ✅',   desc: 'Prova social antes do 1º post' },
+              { label: '13 anos de mercado', desc: 'Autoridade local que ninguém questiona' },
+              { label: 'Maiores empresas',   desc: 'Prova social implícita — sem nomear cliente na bio' },
               { label: 'Link do site', desc: 'Conversão direta para orçamento' },
             ].map((item, i) => (
               <div key={i} className="bg-forest-700/50 rounded-xl p-3">

@@ -100,7 +100,7 @@ const guides: Guide[] = [
         bold: '"Mais uma manutenção concluída na Fundisul — Rio do Sul/SC. 13 anos cuidando das áreas verdes de quem leva sério. AKI Jardins Soluções e Paisagismo. LTDA ativa. Link na bio."',
         tip: 'Mencionar Fundisul pelo nome é a âncora de credibilidade. Empresas reconhecem outras empresas — esse post vai chamar atenção dos gestores que seguem o perfil.',
       },
-      { n: 8, text: 'Hashtags:', bold: '#jardinagem #paisagismo #riosdosul #riosdoulsc #jardimcorporativo #manutencaojardinagem #akijardins' },
+      { n: 8, text: 'Hashtags:', bold: '#jardinagem #paisagismo #riodosul #riodosulsc #jardimcorporativo #manutencaojardinagem #akijardins' },
       { n: 9, text: 'Poste no horário de pico:', bold: 'terça ou quarta entre 18h e 20h.', tip: 'Horário em que gestores e síndicos estão scrollando. Evite segunda de manhã e fim de semana.' },
     ],
     dica_final: 'Esse primeiro Reel prova três coisas ao mesmo tempo: você é profissional, tem cliente corporativo e entrega resultado visual. Quando um gestor de outra empresa ver esse post, a primeira coisa que vai pensar é: "quero isso para minha empresa também".',

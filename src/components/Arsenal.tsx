@@ -1,6 +1,8 @@
 import { Zap, PlayCircle, List, Star, FileText, FolderOpen, ExternalLink, Globe } from 'lucide-react'
 
-const docs = [
+interface DocLink { label: string; href: string; internal?: boolean }
+
+const docs: Array<{ icon: React.ElementType; title: string; desc: string; link: DocLink }> = [
   {
     icon: FileText,
     title: 'Diagnóstico 360° — AKI Jardins',
@@ -28,14 +30,14 @@ const docs = [
   {
     icon: List,
     title: 'Modelos de Contrato B2B',
-    desc: 'Contratos para industriais, condomínios e manutenção recorrente — LTDA pronto para assinar.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+    desc: 'Contratos para industriais, condomínios e manutenção recorrente — disponíveis nos Entregáveis da Selva.',
+    link: { label: 'Acessar modelos', href: 'https://app.greenn.club/home' },
   },
   {
     icon: Star,
     title: 'Tarefas e Acompanhamento',
     desc: 'Histórico de tarefas, checkpoints e evolução na mentoria. Check-in: 11/06/2026.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+    link: { label: 'Ver tarefas', href: '#tarefas', internal: true },
   },
 ]
 
@@ -76,10 +78,17 @@ export default function Arsenal() {
                 <div className="flex-1 min-w-0">
                   <h4 className="font-bold text-forest-900 text-sm leading-snug mb-0.5">{d.title}</h4>
                   <p className="text-gray-400 text-xs leading-relaxed mb-2">{d.desc}</p>
-                  <a href={d.link.href} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-forest-700 hover:text-forest-900 text-xs font-semibold transition-colors">
-                    {d.link.label} <ExternalLink size={10} />
-                  </a>
+                  {d.link.internal ? (
+                    <a href={d.link.href}
+                      className="inline-flex items-center gap-1 text-forest-700 hover:text-forest-900 text-xs font-semibold transition-colors">
+                      {d.link.label}
+                    </a>
+                  ) : (
+                    <a href={d.link.href} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-forest-700 hover:text-forest-900 text-xs font-semibold transition-colors">
+                      {d.link.label} <ExternalLink size={10} />
+                    </a>
+                  )}
                 </div>
               </div>
             )

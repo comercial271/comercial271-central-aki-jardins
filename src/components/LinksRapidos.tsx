@@ -202,11 +202,9 @@ export default function LinksRapidos() {
             <div className="flex flex-col gap-2">
               {[
                 { label: 'Pasta Principal AKI Jardins', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+                { label: 'Entregáveis da Selva (modelos e ferramentas)', href: 'https://app.greenn.club/home' },
                 { label: 'Site AKI Jardins (publicado)', href: 'https://aki-jardins-digital.lovable.app' },
                 { label: 'Google Meu Negócio', href: 'https://business.google.com' },
-                { label: 'Diagnóstico 360° — Pasta', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
-                { label: 'Sessão 1 — Gravação e Ata', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
-                { label: 'Sessão 2 — Gravação', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
               ].map(link => (
                 <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
                   className="flex items-center justify-between bg-white border border-gray-100 hover:border-forest-300 rounded-xl px-3 py-2.5 group transition-colors">
@@ -329,7 +327,7 @@ export default function LinksRapidos() {
 
           <div className="mt-3 flex items-start gap-2 text-xs text-gray-400">
             <Star size={11} className="text-gold-500 shrink-0 mt-0.5" />
-            <p>Para obter o link: acesse <span className="font-semibold">business.google.com</span> → clique em "Receber mais avaliações" → copie o link curto. O link pré-carregado é um placeholder — substitua pelo seu link real do GMB.</p>
+            <p>Confirme se este link leva ao seu perfil Google — teste abrindo em modo anônimo. Se não funcionar, acesse <span className="font-semibold">business.google.com</span> → clique em "Receber mais avaliações" → copie o novo link e cole no campo acima.</p>
           </div>
         </div>
       </div>
