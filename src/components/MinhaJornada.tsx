@@ -7,7 +7,7 @@ import { TrendingUp, DollarSign, Award, Plus, Trash2, Check, X, ChevronRight, Za
 const REVENUE_KEY  = 'alexandre_jornada_revenue_v1'
 const CONTRACT_KEY = 'alexandre_jornada_contratos_v1'
 
-const INVESTIMENTO = 997
+const INVESTIMENTO = 600
 const META = 15000
 
 interface RevenueEntry {
@@ -57,7 +57,7 @@ function RevenueChart({ entries }: { entries: RevenueEntry[] }) {
     <div className="relative">
       {/* Meta line */}
       <div className="absolute left-0 right-0 border-t-2 border-dashed border-gold-400 pointer-events-none" style={{ bottom: `${metaH}%`, top: 'auto' }}>
-        <span className="absolute right-0 -top-5 text-xs text-gold-600 font-bold bg-gold-100 px-1.5 py-0.5 rounded">Meta R$50k</span>
+        <span className="absolute right-0 -top-5 text-xs text-gold-600 font-bold bg-gold-100 px-1.5 py-0.5 rounded">Meta R$15k</span>
       </div>
       <div className="flex items-end gap-2" style={{ height: '120px' }}>
         {entries.map(e => {
@@ -154,7 +154,7 @@ export default function MinhaJornada() {
             </div>
             <div className="text-right shrink-0">
               <p className="text-white/60 text-sm">Meta 12 meses</p>
-              <p className="text-2xl font-bold text-gold-500">R$ 50.000</p>
+              <p className="text-2xl font-bold text-gold-500">R$ 15.000</p>
             </div>
           </div>
           <div className="w-full bg-forest-700 rounded-full h-5 mb-2 overflow-hidden">
@@ -322,9 +322,9 @@ export default function MinhaJornada() {
             </div>
             <div className="grid sm:grid-cols-3 gap-4">
               {[
-                { label: 'Investimento no programa', value: 'R$ 997', color: 'text-white' },
+                { label: 'Investimento no programa', value: 'R$ 600', color: 'text-white' },
                 { label: 'Se fechar Belvedere + 1 condomínio', value: 'R$ 138.000/ano', color: 'text-gold-400' },
-                { label: 'ROI potencial', value: '13.700%', color: 'text-green-400' },
+                { label: 'ROI potencial', value: '22.900%', color: 'text-green-400' },
               ].map(item => (
                 <div key={item.label} className="bg-forest-700/50 rounded-xl p-4">
                   <p className="text-white/60 text-xs mb-1">{item.label}</p>
@@ -363,7 +363,7 @@ export default function MinhaJornada() {
             </div>
             <div className="text-right">
               <p className="text-white/70 text-sm">Você investiu</p>
-              <p className="text-3xl font-bold text-gold-500">R$ 997</p>
+              <p className="text-3xl font-bold text-gold-500">R$ 600</p>
             </div>
             <div className="w-full border-t border-forest-700 pt-4 flex items-center justify-between">
               <p className="text-white/60 text-sm">Economia de</p>
