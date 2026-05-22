@@ -5,50 +5,50 @@ const movimentos = [
     icon: Smartphone,
     badge: 'URGENTE — SEM. 1',
     badgeColor: 'bg-red-100 text-red-700',
-    title: 'Formalizar e Digitalizar',
-    impact: 'Credibilidade imediata',
-    desc: 'Abrir MEI (CNPJ), criar Google Meu Negócio, configurar WhatsApp Business e Instagram Alexandre Jardins — do zero.',
+    title: 'Ativar Presença Digital',
+    impact: 'Visibilidade imediata no Google',
+    desc: 'GMB criado em 15/05 mas não otimizado. Mensagem automática WA Business incorreta. Instagram @akijardins sem estratégia. Três correções de alta visibilidade com impacto imediato.',
     steps: [
-      'Abrir MEI em gov.br/mei (gratuito, 15 min)',
-      'Criar conta Google Meu Negócio com região Itatiba/SP',
-      'WhatsApp Business: chip dedicado, nome "Alexandre Jardins"',
+      'Otimizar GMB: fotos reais, descrição com "jardinagem Rio do Sul SC", link WA e site',
+      'Corrigir mensagem automática WA Business (texto atual passa mensagem errada)',
+      'Instagram @akijardins: primeiros 3 posts corporativos — Fundisul como âncora de credibilidade',
     ],
   },
   {
     icon: Target,
     badge: 'PRIORIDADE — SEM. 2-3',
     badgeColor: 'bg-orange-100 text-orange-700',
-    title: 'Precificar com Margem',
-    impact: '+R$ 2.500–4.000/mês',
-    desc: 'Reajustar diária para R$800 em todos os clientes atuais. Mapear e enviar lista de clientes até 29/05.',
+    title: 'Construir Prova Social',
+    impact: '+credibilidade B2B instantânea',
+    desc: 'Fundisul é âncora — usar como case documentado. Solicitar depoimento formal. Fotografar o jardim da empresa como live case no Instagram e no site.',
     steps: [
-      'Mapear todos os clientes desde janeiro (planilha)',
-      'Reajustar preços: R$800/dia como piso — sem exceção',
-      'Retomar Belvedere: contatar síndico com proposta + margem',
+      'Solicitar depoimento Fundisul: gestor responsável pelo contrato de manutenção',
+      'Fotografar antes/depois da próxima manutenção Fundisul — documentar em alta qualidade',
+      'Integrar site aki-jardins-digital.lovable.app no GMB e Instagram como link único',
     ],
   },
   {
     icon: Users,
     badge: 'PARALELO — ATÉ 15/06',
     badgeColor: 'bg-yellow-100 text-yellow-700',
-    title: 'Prospectar Condomínios',
-    impact: 'Meta breakeven R$10.500',
-    desc: 'Ville Chamonix e Itatiba Country Club como alvos-chave. Bosque Di Fiori como canal de indicação.',
+    title: 'Prospectar Ativamente',
+    impact: 'Meta R$30.000/mês em 12m',
+    desc: 'Lista 20 empresas de Rio do Sul e região. Industriais, condomínios alto padrão, hospitais e universidades. Fundisul como referência de abertura em todas as abordagens.',
     steps: [
-      'Abordar síndico Ville Chamonix (lotes 1.500+ m²)',
-      'Itatiba Country Club: contato via portaria',
-      'Visitar Bosque Di Fiori pessoalmente — proposta de parceria',
+      'Listar 20 alvos: industriais + condomínios alto padrão + Hospital Regional + UNIDAVI',
+      'Abordar 3 empresas/semana com script que menciona Fundisul como cliente ativo',
+      'Shopping Rio Sul e empresas do polo industrial como expansão natural da carteira',
     ],
   },
 ]
 
 const projecoes = [
-  { situacao: 'Hoje (mai/2026)',              receita: '<R$ 3.000',    variacao: '—',     highlight: false },
-  { situacao: 'Após reajuste de diária',      receita: 'R$ 4.500–5.000', variacao: '+65%', highlight: false },
-  { situacao: '+ Belvedere (com margem)',     receita: 'R$ 6.000–6.500', variacao: '+120%', highlight: false },
-  { situacao: '+ 1 condomínio contrato',      receita: 'R$ 8.500–9.000', variacao: '+200%', highlight: false },
-  { situacao: 'Breakeven CLT (meta)',         receita: 'R$ 10.500',    variacao: '+250%', highlight: true  },
-  { situacao: 'Meta 12 meses',               receita: 'R$ 15.000+',   variacao: '+400%', highlight: false },
+  { situacao: 'Hoje (mai/2026)',               receita: '~R$ 3.000',        variacao: '—',      highlight: false },
+  { situacao: 'Após 1ª prospecção ativa',      receita: 'R$ 6.000–8.000',   variacao: '+150%',  highlight: false },
+  { situacao: '+ 1 contrato industrial novo',  receita: 'R$ 12.000+',       variacao: '+300%',  highlight: false },
+  { situacao: '+ 2 contratos condomínio',      receita: 'R$ 18.000–20.000', variacao: '+500%',  highlight: false },
+  { situacao: 'Meta 12 meses — Selva Premium', receita: 'R$ 30.000',        variacao: '+900%',  highlight: true  },
+  { situacao: 'Empresa estruturada (escala)',   receita: 'R$ 30.000+',       variacao: '+900%+', highlight: false },
 ]
 
 export default function PlanoAcao() {
@@ -62,21 +62,14 @@ export default function PlanoAcao() {
 
         <div className="bg-forest-800 rounded-2xl p-6 mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="flex-1">
-            <p className="text-gold-500 text-xs font-bold uppercase tracking-widest mb-1">Gerado em 21/05/2026</p>
-            <h3 className="text-white font-bold text-xl">Três movimentos para R$ 10.500/mês — sair do CLT com segurança</h3>
+            <p className="text-gold-500 text-xs font-bold uppercase tracking-widest mb-1">Sessões 1 + 2 — 13/05 e 14/05/2026</p>
+            <h3 className="text-white font-bold text-xl">Três movimentos para R$ 30.000/mês — empresa sólida, expansão digital</h3>
           </div>
-          <div className="flex flex-wrap gap-2 shrink-0">
-            <a href="https://docs.google.com/document/d/1jK0O7Z6XJ6PZu9S47LAc1BeOgW6wR9ahZtQ-wzSJvs0"
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-gold-500 hover:bg-gold-400 text-forest-900 font-bold px-4 py-2 rounded-xl text-sm transition-colors">
-              Ata da Sessão <ExternalLink size={12} />
-            </a>
-            <a href="https://drive.google.com/drive/folders/1ANWzuzZwS_mo13FQWIjpUHhTxr9Fcyvj"
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 border border-white/30 hover:border-white text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
-              Tarefas <ExternalLink size={12} />
-            </a>
-          </div>
+          <a href="https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz"
+            target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 bg-gold-500 hover:bg-gold-400 text-forest-900 font-bold px-4 py-2 rounded-xl text-sm transition-colors shrink-0">
+            Drive AKI Jardins <ExternalLink size={12} />
+          </a>
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 mb-10">

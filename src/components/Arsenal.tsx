@@ -1,41 +1,41 @@
-import { Zap, PlayCircle, Building, List, Star, FileText, FolderOpen, ExternalLink } from 'lucide-react'
+import { Zap, PlayCircle, List, Star, FileText, FolderOpen, ExternalLink, Globe } from 'lucide-react'
 
 const docs = [
   {
     icon: FileText,
-    title: 'Ata da Sessão 1',
-    desc: 'Transcrição completa + insights da sessão individual de diagnóstico (21/05/2026).',
-    link: { label: 'Abrir', href: 'https://docs.google.com/document/d/1jK0O7Z6XJ6PZu9S47LAc1BeOgW6wR9ahZtQ-wzSJvs0' },
+    title: 'Diagnóstico 360° — AKI Jardins',
+    desc: 'Perfil completo da empresa, trava identificada, plano de ação e estratégia de posicionamento digital.',
+    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
   },
   {
     icon: PlayCircle,
-    title: 'Gravação da Sessão 1',
-    desc: 'Vídeo completo da sessão 1 — diagnóstico, precificação e plano de saída do CLT.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/file/d/1QJKZ9dQZeFKySfg4N_ks128-15FqdYDY' },
+    title: 'Gravação — Sessão 1 (13/05)',
+    desc: 'Sessão individual de diagnóstico: GMB, WA Business, Instagram, portfólio e estratégia Fundisul.',
+    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+  },
+  {
+    icon: PlayCircle,
+    title: 'Gravação — Sessão 2 (14/05)',
+    desc: 'Sessão coletiva: mentalidade estratégica, precificação com margem real, gerador de propostas e posicionamento LTDA.',
+    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+  },
+  {
+    icon: Globe,
+    title: 'Site AKI Jardins — Publicado',
+    desc: 'Site institucional publicado em 15/05/2026. Integrar no GMB e Instagram como link principal.',
+    link: { label: 'Ver site', href: 'https://aki-jardins-digital.lovable.app' },
   },
   {
     icon: List,
-    title: 'Diagnóstico 360° Completo',
-    desc: 'Análise de mercado Itatiba, concorrentes, condomínios-alvo e estratégia de entrada.',
-    link: { label: 'Abrir', href: 'https://docs.google.com/document/d/11CnwqxHJuKfW-GxmwFkRrMmkYO2Kcb4hHK3S0k9KcZw' },
-  },
-  {
-    icon: Building,
-    title: 'Orçamento Belvedere',
-    desc: 'PDF do orçamento enviado — base para renegociação com 25% de margem (~R$8.500).',
-    link: { label: 'Abrir', href: 'https://drive.google.com/file/d/1jAWLele2a4U-X4alZUFpvi2PsKYtvJot' },
-  },
-  {
-    icon: FolderOpen,
-    title: 'Material da Mentoria',
-    desc: 'Pasta com todos os materiais enviados pela Selva ao longo do programa.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1rFWXAL_NznUe5AcmYzWx98W19qIx-x1C' },
+    title: 'Modelos de Contrato B2B',
+    desc: 'Contratos para industriais, condomínios e manutenção recorrente — LTDA pronto para assinar.',
+    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
   },
   {
     icon: Star,
     title: 'Tarefas e Acompanhamento',
-    desc: 'Histórico de tarefas, checkpoints e evolução na mentoria.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1ANWzuzZwS_mo13FQWIjpUHhTxr9Fcyvj' },
+    desc: 'Histórico de tarefas, checkpoints e evolução na mentoria. Check-in: 11/06/2026.',
+    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
   },
 ]
 
@@ -57,7 +57,7 @@ export default function Arsenal() {
               EXCLUSIVO SELVA PREMIUM
             </span>
             <h3 className="text-white font-bold text-lg">Gerador de Propostas Selva</h3>
-            <p className="text-white/60 text-sm mt-0.5">Propostas profissionais em minutos — posiciona você como empresa, não autônomo</p>
+            <p className="text-white/60 text-sm mt-0.5">Propostas corporativas em minutos — posiciona você como LTDA, não como prestador autônomo</p>
           </div>
           <a href="https://geradordepropostaselva.lovable.app" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-forest-900 font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shrink-0">
@@ -89,10 +89,10 @@ export default function Arsenal() {
         <div className="bg-white border border-gray-100 rounded-2xl p-4 flex items-center gap-3">
           <FolderOpen size={18} className="text-forest-600 shrink-0" />
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-forest-900 text-sm">Pasta Completa — Propostas e Portfólios</p>
-            <p className="text-gray-400 text-xs">Todos os arquivos organizados por categoria</p>
+            <p className="font-semibold text-forest-900 text-sm">Pasta Principal — AKI Jardins no Drive</p>
+            <p className="text-gray-400 text-xs">Todos os materiais da mentoria organizados por categoria</p>
           </div>
-          <a href="https://drive.google.com/drive/folders/1xPS3NLg9JR0q8smBiJylIkvvHKXBpwxK" target="_blank" rel="noopener noreferrer"
+          <a href="https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 bg-forest-800 hover:bg-forest-700 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors shrink-0">
             Abrir <ExternalLink size={10} />
           </a>

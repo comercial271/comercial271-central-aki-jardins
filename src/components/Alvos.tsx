@@ -1,21 +1,21 @@
-import { MapPin, TrendingUp, CheckCircle, Clock, AlertTriangle, ExternalLink, Building2, Factory } from 'lucide-react'
+import { MapPin, TrendingUp, CheckCircle, Clock, ExternalLink, Building2, Factory, Star } from 'lucide-react'
 
 const condominios = [
-  { name: 'Ville Chamonix',       desc: 'Lotes 1.500+ m² — alto padrão',     status: 'Prioridade' },
-  { name: 'Itatiba Country Club', desc: 'Campo + casas — área verde extensa', status: 'Prioridade' },
-  { name: 'Terras de Santa Cruz', desc: '154 terrenos — em implantação',      status: 'Abordagem' },
-  { name: 'Reserva Santa Rosa',   desc: 'Condomínio fechado — manutenção',    status: 'Abordagem' },
-  { name: 'Villa Ravenna',        desc: 'Perfil premium — Itatiba',           status: 'Mapeado' },
-  { name: 'Ville de France',      desc: 'Perfil premium — Itatiba',           status: 'Mapeado' },
+  { name: 'Condomínio Alto Padrão 1',  desc: 'Rio do Sul — área verde extensa',      status: 'Prioridade' },
+  { name: 'Condomínio Alto Padrão 2',  desc: 'Rio do Sul — condomínio fechado',      status: 'Prioridade' },
+  { name: 'Residencial Premium',       desc: 'Rio do Sul / Laurentino — manutenção', status: 'Abordagem'  },
+  { name: 'Condomínio Ituporanga',     desc: 'Ituporanga — ampla área verde',        status: 'Abordagem'  },
+  { name: 'Residencial Lontras',       desc: 'Lontras — alto padrão regional',       status: 'Mapeado'    },
+  { name: 'Empreendimento Lançamento', desc: 'Rio do Sul — implantação nova',        status: 'Mapeado'    },
 ]
 
 const industriais = [
-  { name: 'Mavalério',            desc: 'Indústria de tintas — grande porte' },
-  { name: 'FortLev',              desc: 'Caixas d\'água — área industrial'    },
-  { name: 'Valeo',                desc: 'Autopeças — multinacional'           },
-  { name: 'Bosch Rexroth',        desc: 'Hidráulica — multinacional'          },
-  { name: 'Covabra Supermercados',desc: 'Rede regional — áreas externas'      },
-  { name: 'Endress+Hauser',       desc: 'Instrumentação — multinacional'      },
+  { name: 'Hospital Regional Alto Vale', desc: 'Hospital de referência — área verde permanente'     },
+  { name: 'UNIDAVI',                     desc: 'Universidade — campus com amplas áreas verdes'      },
+  { name: 'Shopping Rio Sul',            desc: 'Shopping — paisagismo de alto padrão'               },
+  { name: 'Polo Industrial Rio do Sul',  desc: 'Indústrias diversas — manutenção recorrente'        },
+  { name: 'Empresa Têxtil Regional',     desc: 'Têxtil — área verde e imagem corporativa'           },
+  { name: 'Agroindústria Regional',      desc: 'Setor agro — jardim e área externa corporativa'     },
 ]
 
 const statusColor: Record<string, string> = {
@@ -33,22 +33,22 @@ export default function Alvos() {
           <h2 className="text-3xl font-bold text-forest-900 mt-1">Alvos Estratégicos</h2>
         </div>
 
-        {/* Belvedere — alvo imediato */}
+        {/* Fundisul — alvo ativo principal */}
         <div className="bg-forest-800 rounded-2xl overflow-hidden mb-6">
           <div className="p-6 text-white">
             <span className="inline-block bg-gold-500 text-forest-900 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-              PROCESSO ABERTO — RETOMADA IMEDIATA
+              CLIENTE ATIVO — ÂNCORA DE CREDIBILIDADE
             </span>
-            <h3 className="text-2xl font-bold mb-1">Condomínio Belvedere</h3>
+            <h3 className="text-2xl font-bold mb-1">Fundisul</h3>
             <div className="flex items-center gap-1.5 text-white/50 text-sm mb-5">
-              <MapPin size={12} /> Itatiba / SP — sem deslocamento
+              <MapPin size={12} /> Rio do Sul / SC — contrato de manutenção ativo
             </div>
 
             <div className="grid grid-cols-3 gap-3 text-center bg-forest-900/40 rounded-xl p-4 mb-5">
               {[
-                { v: 'R$ 8.500', l: 'Com 25% margem' },
-                { v: '25%',      l: 'Margem correta' },
-                { v: 'R$ 6.929', l: 'Cobrado hoje' },
+                { v: 'Ativo',      l: 'Contrato vigente'       },
+                { v: 'B2B',        l: 'Referência corporativa'  },
+                { v: '13+ anos',   l: 'Parceria consolidada'    },
               ].map(item => (
                 <div key={item.l}>
                   <div className="text-gold-500 text-lg font-bold">{item.v}</div>
@@ -58,15 +58,16 @@ export default function Alvos() {
             </div>
 
             <span className="inline-flex items-center gap-1 bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full mb-4">
-              <TrendingUp size={10} /> LOCAL — Sem custo de deslocamento
+              <TrendingUp size={10} /> USE EM TODA ABORDAGEM COMERCIAL
             </span>
 
             <ul className="flex flex-col gap-1.5 mb-5">
               {[
-                { text: 'Orçamento já entregue — síndico conhece você', ok: true },
-                { text: 'Custo calculado corretamente', ok: true },
-                { text: 'Contatar síndico para feedback do orçamento', gold: true },
-                { text: 'Reenviar com margem de 25%', gold: true },
+                { text: 'Contrato ativo — entrega mensal de manutenção', ok: true  },
+                { text: 'Empresa LTDA consolidada — credibilidade para industriais', ok: true },
+                { text: 'Solicitar depoimento formal do gestor responsável', gold: true },
+                { text: 'Documentar com fotos antes/depois da próxima manutenção', gold: true },
+                { text: 'Emitir NF mensal referente ao serviço prestado', gold: true },
               ].map((s, i) => (
                 <li key={i} className="flex items-center gap-2 text-xs text-white/80">
                   {s.gold
@@ -79,18 +80,18 @@ export default function Alvos() {
 
             <a href="https://geradordepropostaselva.lovable.app" target="_blank" rel="noopener noreferrer"
               className="w-full inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 text-forest-900 font-bold px-4 py-2.5 rounded-xl text-sm transition-colors">
-              Gerar Proposta <ExternalLink size={12} />
+              Gerar Proposta para Novo Alvo <ExternalLink size={12} />
             </a>
           </div>
         </div>
 
-        {/* Parceria Bosque Di Fiori */}
+        {/* Oportunidade local */}
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-8 flex items-start gap-3">
-          <AlertTriangle size={16} className="text-amber-600 shrink-0 mt-0.5" />
+          <Star size={16} className="text-amber-600 shrink-0 mt-0.5" />
           <div>
-            <p className="text-amber-900 text-sm font-bold mb-0.5">Parceria estratégica: Bosque Di Fiori</p>
+            <p className="text-amber-900 text-sm font-bold mb-0.5">Vantagem competitiva: digital zero em Rio do Sul/SC</p>
             <p className="text-amber-800 text-sm">
-              Garden center + cafeteria + cursos em Itatiba. Vende plantas mas <strong>não mantém jardins</strong>. Canal de indicação natural — clientes que compram plantas precisam de quem mantenha.
+              Nenhuma empresa de jardinagem local domina a busca "jardinagem Rio do Sul SC" ou "paisagismo Rio do Sul". Com GMB otimizado, você ocupa a primeira posição antes que qualquer concorrente perceba.
             </p>
           </div>
         </div>
@@ -99,7 +100,7 @@ export default function Alvos() {
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-4">
             <Building2 size={18} className="text-forest-700" />
-            <p className="font-bold text-forest-900">Condomínios de Alto Padrão — Itatiba</p>
+            <p className="font-bold text-forest-900">Condomínios e Residenciais — Rio do Sul e Região</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {condominios.map((c, i) => (
@@ -114,11 +115,11 @@ export default function Alvos() {
           </div>
         </div>
 
-        {/* Distrito Industrial */}
+        {/* Industriais e Institucionais */}
         <div>
           <div className="flex items-center gap-2 mb-4">
             <Factory size={18} className="text-forest-700" />
-            <p className="font-bold text-forest-900">Distrito Industrial Alfredo Rela — 38 empresas</p>
+            <p className="font-bold text-forest-900">Industriais e Institucionais — Rio do Sul e Região</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {industriais.map((e, i) => (

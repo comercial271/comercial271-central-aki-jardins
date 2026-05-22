@@ -73,65 +73,62 @@ function EtapasList({ etapas }: { etapas: { titulo: string; prazo?: string; desc
   )
 }
 
-const etapasBelvedere = [
-  { titulo: 'WhatsApp de retomada', prazo: 'Urgente', desc: 'Contatar síndico referenciando o orçamento já entregue. Tom: parceiro, não vendedor. Objetivo: obter feedback e agendar revisão.' },
-  { titulo: 'Follow-up se silêncio em 48h', prazo: '48h depois', desc: 'Mensagem curta — perguntar diretamente se houve dúvida no orçamento.' },
-  { titulo: 'Reunião de revisão', prazo: 'Na semana', desc: 'Apresentar proposta corrigida com margem. Mostrar cronograma de manutenção detalhado.' },
-  { titulo: 'Envio da proposta final', prazo: '24h após reunião', desc: 'Usar o Gerador Selva. Incluir portfólio de condomínios se já tiver.' },
-]
-
-const etapasCondominio = [
-  { titulo: 'Pesquisa prévia', prazo: '30 min antes', desc: 'Google Maps, Instagram do condomínio. Ver fotos das áreas verdes atuais. Identificar se há jardineiro visível.' },
-  { titulo: 'Contato via portaria / síndico', prazo: 'Primeiro contato', desc: 'Apresentar Alexandre Jardins. Solicitar contato do síndico ou responsável pelo espaço externo.', detalhe: '"Bom dia! Aqui é o Alexandre, da Alexandre Jardins. Gostaria de falar com o síndico sobre manutenção das áreas verdes. Pode me passar o contato?"' },
-  { titulo: 'WhatsApp ao síndico', prazo: 'No mesmo dia', desc: 'Primeiro contato formal. Tom empresarial. Mencionar especialização em condomínios de alto padrão em Itatiba.' },
-  { titulo: 'Visita diagnóstica', prazo: 'Na semana', desc: 'Sem falar de preço. Portfólio físico se já tiver. Perguntas SPIN: frequência atual, histórico, o que incomoda hoje.' },
-  { titulo: 'Proposta personalizada', prazo: '24h após visita', desc: 'Gerador Selva com base no que foi visto. Enviar pelo WhatsApp com mensagem referenciando o que foi visto.' },
+const etapasIndustrial = [
+  { titulo: 'Pesquisa prévia', prazo: '30 min antes', desc: 'Google Maps, site da empresa, LinkedIn. Ver fotos das áreas externas. Identificar responsável por facilities ou manutenção predial.' },
+  { titulo: 'Primeiro contato por WhatsApp ou portaria', prazo: 'Primeiro contato', desc: 'Apresentar AKI Jardins com credencial Fundisul. Solicitar contato do responsável por serviços externos.', detalhe: '"Bom dia! Aqui é o André, da AKI Jardins. Gostaria de falar com o responsável por facilities ou manutenção. Poderia me passar o contato?"' },
+  { titulo: 'WhatsApp ao decisor', prazo: 'No mesmo dia', desc: 'Primeiro contato formal. Tom empresarial. Mencionar Fundisul como cliente corporativo ativo.' },
+  { titulo: 'Visita diagnóstica', prazo: 'Na semana', desc: 'Sem falar de preço. Portfólio com fotos Fundisul. Perguntas: frequência atual, histórico, o que incomoda hoje na área verde.' },
+  { titulo: 'Proposta via Gerador Selva', prazo: '24h após visita', desc: 'Proposta em PDF com base no que foi visto. Enviar pelo WhatsApp referenciando o que foi levantado na visita.' },
   { titulo: 'Follow-up pós-proposta', prazo: '48–72h depois', desc: 'Máximo 2 follow-ups. Após isso, retomar em 30 dias.' },
 ]
 
-const scriptBelvedereRetomada = `Bom dia, [Nome do Síndico]! Tudo bem?
+const etapasCondominio = [
+  { titulo: 'Pesquisa prévia', prazo: '20 min antes', desc: 'Google Maps para ver o estado das áreas verdes. Identificar se há portaria para chegar ao síndico.' },
+  { titulo: 'Contato via portaria', prazo: 'Primeiro contato', desc: 'Apresentar AKI Jardins. Solicitar nome e contato do síndico ou responsável pelo espaço externo.', detalhe: '"Bom dia! Aqui é a AKI Jardins, empresa de paisagismo de Rio do Sul. Gostaria de falar com o síndico sobre as áreas verdes do condomínio."' },
+  { titulo: 'WhatsApp ao síndico', prazo: 'No mesmo dia', desc: 'Tom empresarial. Mencionar especialização em condomínios de alto padrão e a referência Fundisul.' },
+  { titulo: 'Visita + proposta', prazo: 'Na semana', desc: 'Proposta detalhada com cronograma de manutenção. Usar Gerador Selva.' },
+  { titulo: 'Follow-up', prazo: '48–72h depois', desc: 'Máximo 2 follow-ups. Após isso, retomar em 30 dias.' },
+]
 
-Aqui é o Alexandre, da Alexandre Jardins. Passando para acompanhar o orçamento que enviei para as áreas verdes do condomínio.
+const scriptFundisulAlavanca = `Bom dia, [NOME]! Tudo bem?
 
-Ficou alguma dúvida ou posso ajustar algum ponto? Estou à disposição para uma conversa rápida se preferir.
+Aqui é o André, da AKI Jardins Soluções e Paisagismo — empresa de jardinagem corporativa de Rio do Sul/SC.
 
-Alexandre | Alexandre Jardins
+Trabalhamos atualmente com a Fundisul na manutenção das áreas verdes e gostaríamos de apresentar nossa solução para [NOME DA EMPRESA].
+
+Temos experiência em industriais e áreas corporativas. Posso enviar nosso portfólio e uma proposta personalizada?
+
+André | AKI Jardins
 📱 [seu número]`
-
-const scriptBelvedereFollowUp = `Bom dia!
-
-Passando novamente sobre o orçamento de paisagismo. Caso prefira, posso passar aí pessoalmente para detalhar a proposta.
-
-Alexandre | Alexandre Jardins`
 
 const scriptCondominioNovo = `Bom dia! Tudo bem?
 
-Aqui é o Alexandre, da Alexandre Jardins — empresa de jardinagem especializada em condomínios de alto padrão em Itatiba.
+Aqui é o André, da AKI Jardins Soluções e Paisagismo — empresa LTDA de jardinagem especializada em condomínios e áreas corporativas em Rio do Sul e região.
 
-Gostaria de apresentar nossa solução de manutenção para o [Nome do Condomínio]. Trabalhamos com cronograma, equipe uniformizada e relatório fotográfico mensal.
+Gostaria de apresentar nossa solução de manutenção para o [NOME DO CONDOMÍNIO]. Trabalhamos com cronograma fixo, equipe e relatório fotográfico mensal.
 
-Posso agendar uma visita rápida para apresentar nosso trabalho?
+Posso agendar uma visita rápida para apresentar o trabalho?
 
-Alexandre | Alexandre Jardins
+André | AKI Jardins
 📱 [seu número]`
 
-const scriptCondominioFollowUp = `Bom dia!
+const scriptFollowUp = `Bom dia!
 
 Passando para retomar o contato sobre a manutenção das áreas verdes.
 
-Podemos marcar uma visita de 20 minutos sem compromisso — assim você vê o que fazemos antes de qualquer decisão.
+Podemos marcar uma visita de 20 minutos sem compromisso — assim você vê o que entregamos antes de qualquer decisão.
 
-Alexandre | Alexandre Jardins`
+André | AKI Jardins`
 
-const scriptIndustria = `Bom dia! Tudo bem?
+const scriptInstitucional = `Bom dia! Tudo bem?
 
-Aqui é o Alexandre, da Alexandre Jardins — empresa de jardinagem em Itatiba.
+Aqui é o André, da AKI Jardins Soluções e Paisagismo — empresa LTDA de Rio do Sul/SC.
 
-Passando a conhecer as empresas do Distrito Industrial e gostaria de apresentar nossa solução de manutenção de áreas verdes e paisagismo corporativo.
+Trabalhamos com manutenção de áreas verdes corporativas e gostaríamos de apresentar nossa solução para [NOME DA INSTITUIÇÃO]. Nossa referência ativa é a Fundisul.
 
-Trabalhamos com cronograma fixo, equipe unifomizada e relatório fotográfico. Posso enviar nosso portfólio?
+Posso enviar nosso portfólio?
 
-Alexandre | Alexandre Jardins
+André | AKI Jardins
 📱 [seu número]`
 
 export default function AbordagemComercial() {
@@ -148,15 +145,16 @@ export default function AbordagemComercial() {
           <div className="flex items-start gap-4">
             <Shield size={22} className="text-gold-500 shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-bold text-lg mb-2">Você é o setor comercial da Alexandre Jardins</h3>
+              <h3 className="font-bold text-lg mb-2">Você já tem a âncora — use ela</h3>
+              <p className="text-white/70 text-sm mb-4">A Fundisul não é só um cliente: é um argumento de vendas. Toda abordagem nova começa com ela.</p>
               <div className="grid md:grid-cols-2 gap-3 mt-3">
                 <div className="bg-red-500/15 border border-red-400/30 rounded-xl p-3">
                   <p className="text-red-300 text-xs font-bold uppercase tracking-wide mb-1">Não fazer</p>
-                  <p className="text-white/70 text-sm">"Oi, sou o Alexandre, faço jardinagem nos fins de semana, queria saber se precisam de alguém..."</p>
+                  <p className="text-white/70 text-sm">"Oi, faço jardinagem em Rio do Sul, queria saber se precisa de serviço..."</p>
                 </div>
                 <div className="bg-green-500/15 border border-green-400/30 rounded-xl p-3">
                   <p className="text-green-300 text-xs font-bold uppercase tracking-wide mb-1">Fazer</p>
-                  <p className="text-white/70 text-sm">"Bom dia, aqui é o comercial da Alexandre Jardins. Somos especializados em condomínios de alto padrão em Itatiba e gostaríamos de apresentar nossa solução..."</p>
+                  <p className="text-white/70 text-sm">"Bom dia, aqui é o André, da AKI Jardins. Trabalhamos com a Fundisul na manutenção das áreas verdes e gostaríamos de apresentar nossa solução para vocês."</p>
                 </div>
               </div>
             </div>
@@ -180,8 +178,8 @@ export default function AbordagemComercial() {
               <ul className="flex flex-col gap-1.5">
                 {[
                   { icon: Smartphone, text: 'Chip separado ou segundo número de app' },
-                  { icon: User,       text: 'Nome: "Alexandre | Alexandre Jardins"' },
-                  { icon: Building2,  text: 'Foto: logo ou foto profissional em serviço' },
+                  { icon: User,       text: 'Nome: "André | AKI Jardins"' },
+                  { icon: Building2,  text: 'Foto: logo da empresa ou foto em serviço' },
                   { icon: MessageSquare, text: 'Conta: WhatsApp Business (gratuito)' },
                 ].map((item, i) => {
                   const Icon = item.icon
@@ -196,55 +194,55 @@ export default function AbordagemComercial() {
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-2">
               <AlertTriangle size={14} className="text-amber-600 shrink-0 mt-0.5" />
               <p className="text-amber-800 text-sm">
-                <strong>Por quê?</strong> Quando o síndico salvar o contato, aparece "Alexandre Jardins" — reforça que há empresa por trás, não um jardineiro autônomo.
+                <strong>Por quê?</strong> Quando o gestor da indústria salvar o contato, aparece "AKI Jardins" — reforça que há empresa por trás, não um prestador autônomo.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Belvedere */}
+        {/* Industrial com Fundisul */}
         <div className="bg-white rounded-2xl border border-gray-100 mb-4 overflow-hidden">
           <div className="bg-forest-800 px-6 py-4 flex items-center gap-3">
             <div className="bg-gold-500/20 p-1.5 rounded-lg shrink-0">
               <Building2 size={16} className="text-gold-500" />
             </div>
             <div className="flex-1">
-              <p className="text-gold-400 text-xs font-bold uppercase tracking-widest">Alvo 1 — Retomada</p>
-              <p className="text-white font-bold text-lg leading-tight">Condomínio Belvedere</p>
+              <p className="text-gold-400 text-xs font-bold uppercase tracking-widest">Alvo 1 — Alavancagem</p>
+              <p className="text-white font-bold text-lg leading-tight">Industriais e Corporativos — Rio do Sul</p>
             </div>
-            <span className="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full border border-green-500/30">PROCESSO ABERTO</span>
+            <span className="bg-gold-500/20 text-gold-400 text-xs font-bold px-3 py-1 rounded-full border border-gold-500/30">FUNDISUL COMO ÂNCORA</span>
           </div>
           <div className="p-6">
             <p className="text-gray-600 text-sm mb-5 bg-blue-50 border-l-4 border-blue-400 px-4 py-3 rounded-r-xl">
-              <strong className="text-blue-800">Contexto:</strong> Orçamento já entregue. Síndico já te conhece. <strong>Não é cold call — é follow-up de proposta.</strong> Retomar pedindo feedback.
+              <strong className="text-blue-800">Contexto:</strong> Você já tem o case corporativo mais forte da região. Toda abordagem industrial começa mencionando a Fundisul — isso elimina a barreira de credibilidade antes de qualquer visita.
             </p>
-            <EtapasList etapas={etapasBelvedere} />
+            <EtapasList etapas={etapasIndustrial} />
             <div className="flex items-center gap-2 mb-3">
               <MessageSquare size={14} className="text-forest-600" />
               <p className="font-bold text-forest-900 text-sm">Scripts Prontos</p>
             </div>
             <div className="flex flex-col gap-2">
-              <Script label="Retomada — feedback do orçamento" canal="WhatsApp" texto={scriptBelvedereRetomada} />
-              <Script label="Follow-up sem resposta (48h)" canal="WhatsApp" texto={scriptBelvedereFollowUp} />
+              <Script label="Primeiro contato — alavancagem Fundisul" canal="WhatsApp" texto={scriptFundisulAlavanca} />
+              <Script label="Follow-up sem resposta (48h)" canal="WhatsApp" texto={scriptFollowUp} />
             </div>
           </div>
         </div>
 
-        {/* Condomínio novo */}
+        {/* Condomínios */}
         <div className="bg-white rounded-2xl border border-gray-100 mb-4 overflow-hidden">
           <div className="bg-forest-700 px-6 py-4 flex items-center gap-3">
             <div className="bg-gold-500/20 p-1.5 rounded-lg shrink-0">
               <Building2 size={16} className="text-gold-500" />
             </div>
             <div className="flex-1">
-              <p className="text-gold-400 text-xs font-bold uppercase tracking-widest">Alvo 2 — Novo contato</p>
-              <p className="text-white font-bold text-lg leading-tight">Condomínios Alto Padrão Itatiba</p>
+              <p className="text-gold-400 text-xs font-bold uppercase tracking-widest">Alvo 2 — Expansão</p>
+              <p className="text-white font-bold text-lg leading-tight">Condomínios Alto Padrão — Rio do Sul e Região</p>
             </div>
             <span className="bg-amber-500/20 text-amber-400 text-xs font-bold px-3 py-1 rounded-full border border-amber-500/30">PROSPECÇÃO ATIVA</span>
           </div>
           <div className="p-6">
             <p className="text-gray-600 text-sm mb-5 bg-amber-50 border-l-4 border-amber-400 px-4 py-3 rounded-r-xl">
-              <strong className="text-amber-800">Vantagem:</strong> Concorrência digital zero em Itatiba. Nenhum autônomo domina a busca "jardineiro Itatiba SP" — a primeira posição no GMB está disponível para quem chegar primeiro.
+              <strong className="text-amber-800">Vantagem:</strong> Nenhuma empresa de jardinagem domina o digital em Rio do Sul. Com GMB otimizado e a credencial Fundisul, você chega antes de qualquer concorrente.
             </p>
             <EtapasList etapas={etapasCondominio} />
             <div className="flex items-center gap-2 mb-3">
@@ -253,42 +251,42 @@ export default function AbordagemComercial() {
             </div>
             <div className="flex flex-col gap-2">
               <Script label="Primeiro contato — síndico" canal="WhatsApp" texto={scriptCondominioNovo} />
-              <Script label="Follow-up sem resposta (48h)" canal="WhatsApp" texto={scriptCondominioFollowUp} />
+              <Script label="Follow-up sem resposta (48h)" canal="WhatsApp" texto={scriptFollowUp} />
             </div>
             <div className="mt-4 bg-forest-50 border border-forest-100 rounded-2xl p-4 flex items-start gap-2">
               <Phone size={14} className="text-forest-700 shrink-0 mt-0.5" />
               <div>
-                <p className="text-forest-900 font-semibold text-sm mb-1">Script de abordagem — portaria</p>
+                <p className="text-forest-900 font-semibold text-sm mb-1">Script na portaria</p>
                 <p className="text-gray-600 text-sm italic">
-                  "Bom dia! Aqui é o Alexandre, da Alexandre Jardins. Gostaria de falar com o síndico sobre a manutenção das áreas verdes do condomínio. Poderia me passar o contato dele?"
+                  "Bom dia! Aqui é o André, da AKI Jardins. Gostaria de falar com o síndico sobre a manutenção das áreas verdes do condomínio. Poderia me passar o contato?"
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Distrito Industrial */}
+        {/* Hospitais e Instituições */}
         <div className="bg-white rounded-2xl border border-gray-100 mb-6 overflow-hidden">
           <div className="bg-forest-600 px-6 py-4 flex items-center gap-3">
             <div className="bg-gold-500/20 p-1.5 rounded-lg shrink-0">
               <Building2 size={16} className="text-gold-500" />
             </div>
             <div className="flex-1">
-              <p className="text-gold-400 text-xs font-bold uppercase tracking-widest">Alvo 3 — Expansão</p>
-              <p className="text-white font-bold text-lg leading-tight">Distrito Industrial Alfredo Rela</p>
+              <p className="text-gold-400 text-xs font-bold uppercase tracking-widest">Alvo 3 — Institucional</p>
+              <p className="text-white font-bold text-lg leading-tight">Hospital Regional + UNIDAVI + Shopping Rio Sul</p>
             </div>
-            <span className="bg-blue-500/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">38 EMPRESAS</span>
+            <span className="bg-blue-500/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">MÉDIO PRAZO</span>
           </div>
           <div className="p-6">
             <p className="text-gray-600 text-sm mb-5 bg-blue-50 border-l-4 border-blue-400 px-4 py-3 rounded-r-xl">
-              <strong className="text-blue-800">Oportunidade:</strong> Multinacionais como Bosch Rexroth, Valeo e Endress+Hauser têm padrão de ESG e imagem corporativa — áreas verdes bem mantidas são obrigatórias.
+              <strong className="text-blue-800">Oportunidade:</strong> Instituições públicas e privadas de grande porte têm orçamento fixo para manutenção de áreas verdes e valorizam empresa formalizada (LTDA + NF) por questão de conformidade.
             </p>
             <div className="flex items-center gap-2 mb-3">
               <MessageSquare size={14} className="text-forest-600" />
-              <p className="font-bold text-forest-900 text-sm">Script Prontos</p>
+              <p className="font-bold text-forest-900 text-sm">Script Pronto</p>
             </div>
             <div className="flex flex-col gap-2">
-              <Script label="Primeiro contato — empresa" canal="WhatsApp" texto={scriptIndustria} />
+              <Script label="Primeiro contato — institucional" canal="WhatsApp" texto={scriptInstitucional} />
             </div>
           </div>
         </div>
@@ -296,9 +294,9 @@ export default function AbordagemComercial() {
         {/* Princípios */}
         <div className="grid md:grid-cols-3 gap-3">
           {[
-            { icon: Shield,       title: 'Sempre "nós", nunca "eu"',    desc: '"Nossa equipe", "nosso portfólio", "trabalhamos com" — posiciona empresa, não autônomo.' },
-            { icon: Send,         title: 'GMB antes de tudo',           desc: 'Google Meu Negócio ativo é sua âncora de credibilidade antes de qualquer cold call.' },
-            { icon: CheckCircle,  title: 'Máximo 2 follow-ups',         desc: 'Após 2 tentativas sem resposta, arquivar e retomar em 30 dias.' },
+            { icon: Shield,      title: 'Sempre "nós", nunca "eu"',  desc: '"Nossa empresa", "nosso portfólio", "trabalhamos com" — posiciona LTDA, não prestador.' },
+            { icon: Send,        title: 'Fundisul em toda abertura', desc: 'A referência corporativa elimina o ceticismo antes que ele apareça. Mencione sempre.' },
+            { icon: CheckCircle, title: 'Máximo 2 follow-ups',       desc: 'Após 2 tentativas sem resposta, arquivar e retomar em 30 dias.' },
           ].map((p, i) => {
             const Icon = p.icon
             return (

@@ -6,32 +6,32 @@ const cards = [
     badge: 'FORMULÁRIO ✅',
     badgeColor: 'bg-green-100 text-green-700',
     title: 'Diagnóstico 360° — Perfil Completo',
-    desc: 'Tempo de mercado, faturamento, equipe, reserva financeira, presença digital e trava central identificada. Clientes chegam sem negociar preço — diferencial raro.',
-    link: { label: 'Abrir', href: 'https://docs.google.com/document/d/11CnwqxHJuKfW-GxmwFkRrMmkYO2Kcb4hHK3S0k9KcZw' },
-  },
-  {
-    icon: BarChart2,
-    badge: '21/05/2026',
-    badgeColor: 'bg-blue-100 text-blue-700',
-    title: 'Orçamento Belvedere — Lucro Zerado',
-    desc: 'Implantação paisagística R$6.299,69 calculada corretamente — mas campo "Lucro: 0%". Com 25% de margem seria R$8.500. Retomar contato com o síndico.',
-    link: { label: 'Ver PDF', href: 'https://drive.google.com/file/d/1jAWLele2a4U-X4alZUFpvi2PsKYtvJot' },
+    desc: 'Empresa LTDA ativa, Simples Nacional, Fundisul como cliente corporativo, 13+ anos de mercado. Experiência técnica sólida — trava está no posicionamento digital e prospecção ativa.',
+    link: { label: 'Abrir no Drive', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
   },
   {
     icon: FileText,
-    badge: 'SESSÃO 1 — 21/05',
+    badge: 'SESSÃO 1 — 13/05',
     badgeColor: 'bg-purple-100 text-purple-700',
-    title: 'Ata da Sessão 1 (Gemini)',
-    desc: 'Transição para R$10.500/mês, diária R$800, abertura de MEI, GMB e Instagram Alexandre Jardins, mapeamento de clientes até 29/05.',
-    link: { label: 'Abrir ata', href: 'https://docs.google.com/document/d/1jK0O7Z6XJ6PZu9S47LAc1BeOgW6wR9ahZtQ-wzSJvs0' },
+    title: 'Sessão Individual — Digitalização e Contratos',
+    desc: 'Diagnóstico do GMB criado (15/05), portfólio inexistente digitalmente, WhatsApp com mensagem automática incorreta, ausência de contratos padrão. Fundisul como alavanca de credibilidade.',
+    link: { label: 'Ver no Drive', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
   },
   {
     icon: Video,
-    badge: 'GRAVAÇÃO — 21/05',
+    badge: 'SESSÃO 2 — 14/05',
     badgeColor: 'bg-gold-100 text-yellow-700',
-    title: 'Gravação da Sessão 1',
-    desc: 'Formalização, precificação com margem, digitalização (GMB + Instagram), condomínios Itatiba como alvo principal.',
-    link: { label: 'Assistir', href: 'https://drive.google.com/file/d/1QJKZ9dQZeFKySfg4N_ks128-15FqdYDY' },
+    title: 'Sessão Coletiva — Mentalidade Estratégica',
+    desc: 'Modelo mental de empresa, precificação com margem real, gerador de propostas com IA, posicionamento como LTDA corporativa vs. jardineiro autônomo.',
+    link: { label: 'Ver no Drive', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+  },
+  {
+    icon: BarChart2,
+    badge: 'PUBLICADO ✅',
+    badgeColor: 'bg-blue-100 text-blue-700',
+    title: 'Site AKI Jardins — Publicado',
+    desc: 'Site institucional publicado em 15/05/2026. Apresentação da empresa, serviços e contato. Integrar no GMB e Instagram como link principal.',
+    link: { label: 'Ver site', href: 'https://aki-jardins-digital.lovable.app' },
   },
 ]
 
@@ -74,10 +74,10 @@ export default function Diagnostico() {
             <div>
               <p className="text-white font-bold mb-1">Trava Central Identificada</p>
               <p className="text-white/80 text-sm leading-relaxed">
-                <span className="text-gold-500 font-semibold">Estabilidade pública como âncora psicológica</span> — sabe calcular custo, trava no momento de colocar margem. Prova: orçamento Belvedere com lucro literal de 0%. Segurança do CLT vira justificativa para não crescer.
+                <span className="text-gold-500 font-semibold">Empresa sólida, cliente corporativo, 13 anos de experiência — mas posicionamento digital zero.</span> Fundisul é âncora financeira e risco ao mesmo tempo: depender de um único cliente expõe a operação. O próximo contrato não vai chegar por indicação — vai te encontrar no Google. Ou não vai te encontrar.
               </p>
               <p className="text-gold-400 text-sm italic mt-3">
-                A decisão não é "sair do CLT" — é chegar em R$10.500/mês e deixar o número decidir por você.
+                A janela de vantagem em Rio do Sul/SC está aberta agora. Nenhum concorrente local domina o digital. Você chega primeiro ou chega tarde.
               </p>
             </div>
           </div>

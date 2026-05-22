@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { MapPin, MessageCircle, ShoppingBag, ChevronDown, ChevronUp, CheckCircle2, AlertTriangle, Lightbulb, ExternalLink } from 'lucide-react'
-
-// ─── Types ────────────────────────────────────────────────────────────────────
+import { MapPin, MessageCircle, Clapperboard, ChevronDown, ChevronUp, CheckCircle2, AlertTriangle, Lightbulb, ExternalLink } from 'lucide-react'
 
 interface Step {
   n: number
@@ -26,108 +24,88 @@ interface Guide {
   dica_final?: string
 }
 
-// ─── Guides data ──────────────────────────────────────────────────────────────
-
 const guides: Guide[] = [
   {
     id: 'gmb',
     icon: MapPin,
     iconBg: 'bg-blue-100',
     iconColor: 'text-blue-700',
-    badge: 'Prioridade Máxima',
+    badge: 'Urgente — essa semana',
     badgeBg: 'bg-red-100 text-red-700',
-    title: 'Google Meu Negócio',
-    subtitle: 'Sua vitrine no Google. Quando alguém buscar "jardineiro Itatiba", você aparece. Gratuito.',
-    tempo: '~15 minutos',
+    title: 'Otimizar o GMB (já criado em 15/05)',
+    subtitle: 'O perfil foi criado mas está incompleto. Sem fotos e sem a descrição certa, você não aparece nas buscas "jardinagem Rio do Sul SC".',
+    tempo: '~20 minutos',
     cta: { label: 'Abrir Google Meu Negócio', href: 'https://business.google.com' },
     steps: [
-      { n: 1, text: 'Acesse business.google.com e faça login com sua conta Google pessoal (Gmail).' },
-      { n: 2, text: 'Clique em "Gerenciar agora" ou "Adicionar meu negócio".' },
-      { n: 3, text: 'Digite o nome da empresa:', bold: 'Alexandre Jardins', tip: 'Use exatamente este nome — é sua marca. Não coloque "Jardinagem" nem seu nome pessoal.' },
-      { n: 4, text: 'Na categoria, busque e selecione:', bold: '"Paisagista"', tip: 'Se não encontrar, use "Serviço de paisagismo" ou "Jardineiro". A categoria principal define em quais buscas você aparece.' },
-      { n: 5, text: 'Selecione "Não" para loja física — você vai até o cliente.' },
-      { n: 6, text: 'Na área de atendimento, adicione as cidades:', bold: 'Itatiba, Atibaia, Jarinu, Jundiaí', tip: 'Adicione no máximo 20 cidades em um raio realista. Mais cidades não significam mais clientes — significam relevância menor.' },
-      { n: 7, text: 'Adicione o número do seu WhatsApp Business (quando criado). Pode pular e editar depois.' },
-      { n: 8, text: 'Clique em "Próxima" e escolha o método de verificação.', tip: 'Prefira verificação por vídeo ou por telefone — é mais rápido que esperar carta.' },
-      { n: 9, text: 'Após verificado, volte ao perfil e complete:', bold: 'Descrição, Horários e Fotos', warn: 'Perfil sem foto fica nos últimos resultados. Suba ao menos 5 fotos de trabalhos antes/depois.' },
-      { n: 10, text: 'Na descrição, use exatamente:', bold: '"Paisagismo profissional em Itatiba e região. Manutenção de condomínios, residências e empresas. Serviço com qualidade, compromisso e pontualidade."', tip: 'As palavras "jardineiro Itatiba" e "paisagismo Itatiba" precisam estar na descrição para você aparecer nas buscas locais.' },
-      { n: 11, text: 'Solicite as primeiras avaliações para os 2–3 clientes mais próximos usando os scripts da seção Links Rápidos.' },
+      { n: 1, text: 'Acesse business.google.com e faça login com a conta Google vinculada ao perfil AKI Jardins.' },
+      { n: 2, text: 'Clique em "Editar perfil" → vá até a aba Informações.' },
+      { n: 3, text: 'Verifique se o nome está exatamente:', bold: 'AKI Jardins Soluções e Paisagismo', tip: 'Nome diferente do CNPJ pode causar problema na verificação. Use o nome da empresa.' },
+      { n: 4, text: 'Na categoria principal, confirme:', bold: '"Paisagista"', tip: 'Se não aparecer, use "Empresa de jardinagem" ou "Serviço de paisagismo".' },
+      { n: 5, text: 'Na área de atendimento, adicione:', bold: 'Rio do Sul, Laurentino, Ituporanga, Lontras, Rio do Campo', tip: 'Adicione cidades no raio real de operação. Mais cidades não ajudam se você não atende.' },
+      { n: 6, text: 'Preencha a descrição com exatamente:', bold: '"Empresa de jardinagem e paisagismo corporativo em Rio do Sul e região. Especialistas em industriais, condomínios e áreas verdes de alto padrão. 13 anos de mercado. Empresa LTDA. CNPJ ativo."', tip: 'As palavras "jardinagem Rio do Sul", "paisagismo Rio do Sul SC" precisam estar aqui para você aparecer nas buscas locais.' },
+      { n: 7, text: 'Adicione o link do site:', bold: 'https://aki-jardins-digital.lovable.app' },
+      { n: 8, text: 'Adicione o número do WhatsApp Business.', tip: 'Use o número que tem WA Business configurado — clientes vão clicar direto para conversar.' },
+      { n: 9, text: 'Suba fotos reais:', bold: 'mínimo 5 fotos de serviços reais', warn: 'Perfil sem foto aparece no final dos resultados. A Fundisul é uma âncora de credibilidade — fotografe o próximo serviço lá.' },
+      { n: 10, text: 'Depois de salvar: abra o Maps no celular e busque "jardinagem Rio do Sul SC". Verifique se aparece.', tip: 'Pode levar até 72h para o perfil aparecer após atualização.' },
     ],
-    dica_final: 'Perfil completo com pelo menos 10 avaliações coloca você na primeira posição quando alguém buscar "jardineiro Itatiba" — e nenhum concorrente seu tem isso ainda.',
+    dica_final: 'Nenhuma empresa de jardinagem domina o Google de Rio do Sul/SC hoje. Com o perfil completo e 5+ fotos reais, você ocupa a primeira posição antes que qualquer concorrente perceba — e o próximo contrato chega sem você prospectar.',
   },
   {
-    id: 'wabusiness',
+    id: 'wa',
     icon: MessageCircle,
     iconBg: 'bg-green-100',
     iconColor: 'text-green-700',
-    badge: 'Fazer esta semana',
+    badge: 'Urgente — essa semana',
     badgeBg: 'bg-amber-100 text-amber-700',
-    title: 'WhatsApp Business',
-    subtitle: 'Separa o pessoal do profissional. Passa credibilidade. Permite catálogo, mensagens automáticas e respostas rápidas.',
-    tempo: '~20 minutos',
-    cta: { label: 'Baixar WhatsApp Business', href: 'https://www.whatsapp.com/business/' },
+    title: 'Corrigir Mensagem Automática WA Business',
+    subtitle: 'A mensagem automática atual está com texto incorreto. Quando um cliente entra em contato e recebe uma mensagem sem sentido, perde a confiança imediatamente.',
+    tempo: '~5 minutos',
+    cta: { label: 'Configurar WhatsApp Business', href: 'https://www.whatsapp.com/business/' },
     steps: [
-      { n: 1, text: 'Baixe o app', bold: 'WhatsApp Business', text2: '(ícone verde com "B") na Play Store ou App Store. É gratuito.', warn: 'Não instale no mesmo celular que usa para o WhatsApp pessoal — use um chip dedicado ao negócio.' } as Step & { text2: string },
-      { n: 2, text: 'Abra o app e insira o número do chip dedicado ao negócio. Valide com o código SMS.' },
-      { n: 3, text: 'Toque em "Configurar perfil da empresa".' },
-      { n: 4, text: 'Nome da empresa:', bold: 'Alexandre Jardins' },
-      { n: 5, text: 'Categoria:', bold: 'Serviços' },
-      { n: 6, text: 'Adicione uma foto de perfil profissional:', bold: 'você uniformizado em campo', tip: 'Foto sua vale mais que logo. Quem compra serviço compra pessoa.' },
-      { n: 7, text: 'Preencha a descrição:', bold: '"Paisagismo profissional em Itatiba e região. Condomínios, residências e empresas. Alexandre — (11) 97492-3992"' },
-      { n: 8, text: 'Configure a mensagem de boas-vindas (Ferramentas Comerciais → Mensagem de Boas-vindas):', bold: '"Olá! Sou o Alexandre, da Alexandre Jardins. Atendo condomínios e residências em Itatiba e região. Como posso te ajudar?"' },
-      { n: 9, text: 'Configure a mensagem de ausência (Ferramentas Comerciais → Mensagem de Ausência):', bold: '"Obrigado pelo contato! Estou em campo agora. Retorno em breve. Para urgências: (11) 97492-3992."' },
-      { n: 10, text: 'Crie respostas rápidas (Ferramentas Comerciais → Respostas Rápidas). Sugestões:', tip: '"/orcamento" → "Para enviar uma proposta preciso saber: endereço, tipo de espaço (residência/condomínio) e frequência desejada. Pode me mandar essas infos?"\n"/area" → "Atendo Itatiba, Atibaia, Jarinu e Jundiaí."\n"/catalogo" → [link do catálogo após criar]"' },
-      { n: 11, text: 'Adicione o número no Google Meu Negócio, no Instagram e na sua assinatura de e-mail.' },
+      { n: 1, text: 'Abra o WhatsApp Business no celular.' },
+      { n: 2, text: 'Acesse:', bold: 'Configurações (3 pontos) → Ferramentas comerciais → Mensagem de ausência.' },
+      { n: 3, text: 'Desative a mensagem atual e apague o texto existente.' },
+      { n: 4, text: 'Digite a nova mensagem de ausência:', bold: '"Obrigado pelo contato com a AKI Jardins! Estou em campo agora. Retorno em breve. Para orçamentos: envie o endereço e tipo de espaço que atendo você com rapidez."', tip: 'Pedir as informações de orçamento na mensagem automática filtra o cliente e reduz idas e vindas.' },
+      { n: 5, text: 'Ative o horário de ausência:', bold: 'fora do horário comercial (18h às 8h) e fins de semana', tip: 'Durante o horário comercial, tente responder em até 2h — velocidade de resposta afeta o ranking do GMB.' },
+      { n: 6, text: 'Configure também a mensagem de boas-vindas (novo contato):', bold: '"Olá! Aqui é a AKI Jardins Soluções e Paisagismo — Rio do Sul/SC. Atendemos industriais, condomínios e áreas verdes corporativas. Como posso te ajudar?"' },
+      { n: 7, text: 'Salve e faça um teste:', bold: 'peça para alguém te mandar mensagem fora do horário comercial para confirmar que aparece certo.' },
     ],
-    dica_final: 'Com o WhatsApp Business configurado, você parece uma empresa — não um autônomo. Isso justifica cobrar R$800/dia antes mesmo de mostrar o portfólio.',
+    dica_final: 'Uma mensagem de ausência bem feita transforma o "sumiu" em "profissional". Quando o síndico ou gestor de uma empresa manda mensagem à noite e recebe uma resposta automática clara, a confiança sobe antes de qualquer conversa real.',
   },
   {
-    id: 'catalogo',
-    icon: ShoppingBag,
+    id: 'reel',
+    icon: Clapperboard,
     iconBg: 'bg-forest-100',
     iconColor: 'text-forest-700',
-    badge: 'Após criar o WA Business',
+    badge: 'Fazer na próxima visita',
     badgeBg: 'bg-forest-100 text-forest-700',
-    title: 'Catálogo de Serviços (WA Business)',
-    subtitle: 'Lista seus serviços com preço, foto e descrição. O cliente visualiza antes de pedir orçamento — filtra quem não é seu ICP.',
-    tempo: '~30 minutos',
+    title: 'Primeiro Reel — Jardim da Empresa como Live Case',
+    subtitle: 'Na próxima manutenção na Fundisul, você tem a oportunidade perfeita: filmar antes da manutenção, trabalhar, filmar depois. Isso vale mais que qualquer copy.',
+    tempo: '~30 minutos de filmagem',
     steps: [
-      { n: 1, text: 'No WhatsApp Business, acesse:', bold: 'Configurações (3 pontos) → Ferramentas comerciais → Catálogo' },
-      { n: 2, text: 'Toque no ícone "+" para adicionar o primeiro serviço.' },
+      { n: 1, text: 'Antes de começar a manutenção:', bold: 'filme 3 a 5 cenas do jardim no estado atual', tip: 'Câmera estável. Horizontal. Devagar. Mostra: canteiros, grama, bordas, detalhes que vão mudar.' },
+      { n: 2, text: 'Durante o serviço:', bold: 'grave 2 ou 3 trechos de 15 segundos trabalhando', tip: 'Equipamento em uso, mãos na ferramenta, equipe uniformizada. Bastidores reais.' },
       {
         n: 3,
-        text: 'Serviço 1 —',
-        bold: 'Manutenção de Jardim Residencial',
-        tip: 'Preço: R$ 800,00 /diária\nDescrição: "Manutenção completa de jardins residenciais: corte, poda, adubação, limpeza e cuidados preventivos. Itatiba e região."\nFoto: jardim residencial limpo e bem cuidado (seu trabalho real)'
+        text: 'Depois do serviço:',
+        bold: 'filme os mesmos ângulos do antes — exatamente a mesma posição',
+        warn: 'Esse é o passo mais importante. A transformação visual é o que para o scroll.',
       },
+      { n: 4, text: 'No celular, abra o Instagram → Reels → clique no "+" para criar. Selecione os vídeos antes e depois.' },
+      { n: 5, text: 'Monte no formato:', bold: 'ANTES (5s) → TRABALHO (10s) → DEPOIS (10s)', tip: 'Total de 25-30 segundos. Curto converte mais.' },
+      { n: 6, text: 'Adicione música (instrumental ou trending do Instagram — tente evitar letra para não competir com a legenda).' },
       {
-        n: 4,
-        text: 'Serviço 2 —',
-        bold: 'Implantação Paisagística',
-        tip: 'Preço: Sob consulta\nDescrição: "Projeto e implantação de jardins do zero. Seleção de espécies, preparo de solo, plantio e acompanhamento inicial."\nFoto: resultado de implantação (antes + depois se tiver)'
+        n: 7,
+        text: 'Na legenda, use exatamente:',
+        bold: '"Mais uma manutenção concluída na Fundisul — Rio do Sul/SC. 13 anos cuidando das áreas verdes de quem leva sério. AKI Jardins Soluções e Paisagismo. LTDA ativa. Link na bio."',
+        tip: 'Mencionar Fundisul pelo nome é a âncora de credibilidade. Empresas reconhecem outras empresas — esse post vai chamar atenção dos gestores que seguem o perfil.',
       },
-      {
-        n: 5,
-        text: 'Serviço 3 —',
-        bold: 'Contrato de Manutenção — Condomínios',
-        tip: 'Preço: Sob consulta\nDescrição: "Contratos mensais para condomínios residenciais em Itatiba. Equipe uniformizada, supervisão, relatório fotográfico mensal."\nFoto: área comum de condomínio (jardim de entrada, canteiros)',
-        warn: 'Este é o serviço mais importante. Se tiver apenas uma foto boa, use aqui.'
-      },
-      {
-        n: 6,
-        text: 'Serviço 4 —',
-        bold: 'Revitalização de Jardim',
-        tip: 'Preço: Sob consulta\nDescrição: "Para jardins abandonados ou em mal estado. Limpeza profunda, substituição de plantas danificadas, reestruturação do espaço."\nFoto: antes e depois de uma revitalização'
-      },
-      { n: 7, text: 'Toque em "Salvar" após cada serviço. Revise nome, preço e foto antes de confirmar.' },
-      { n: 8, text: 'Para compartilhar com um cliente:', bold: 'abra a conversa → toque no clipe 📎 → "Catálogo" → selecione o serviço → enviar', tip: 'Envie o serviço específico que o cliente perguntou, não o catálogo inteiro. Mensagem cirúrgica converte melhor.' },
-      { n: 9, text: 'Atualize os preços conforme você aumenta as diárias. O catálogo é sua tabela de preços pública — mantenha-o atual.' },
+      { n: 8, text: 'Hashtags:', bold: '#jardinagem #paisagismo #riosdosul #riosdoulsc #jardimcorporativo #manutencaojardinagem #akijardins' },
+      { n: 9, text: 'Poste no horário de pico:', bold: 'terça ou quarta entre 18h e 20h.', tip: 'Horário em que gestores e síndicos estão scrollando. Evite segunda de manhã e fim de semana.' },
     ],
-    dica_final: 'Quando o cliente ver "R$800/diária" antes de perguntar, os que reclamam de preço eliminam-se sozinhos. Você só recebe contato de quem já aceita o valor.',
+    dica_final: 'Esse primeiro Reel prova três coisas ao mesmo tempo: você é profissional, tem cliente corporativo e entrega resultado visual. Quando um gestor de outra empresa ver esse post, a primeira coisa que vai pensar é: "quero isso para minha empresa também".',
   },
 ]
-
-// ─── Step renderer ────────────────────────────────────────────────────────────
 
 function StepItem({ step }: { step: Step & { text2?: string } }) {
   return (
@@ -142,7 +120,6 @@ function StepItem({ step }: { step: Step & { text2?: string } }) {
         <p className="text-sm text-gray-700 leading-relaxed">
           {step.text}{' '}
           {step.bold && <strong className="text-forest-900">{step.bold}</strong>}
-          {(step as Step & { text2?: string }).text2 && ` ${(step as Step & { text2?: string }).text2}`}
         </p>
         {step.tip && (
           <div className="mt-2 flex gap-2 bg-blue-50 border border-blue-100 rounded-xl p-3">
@@ -161,8 +138,6 @@ function StepItem({ step }: { step: Step & { text2?: string } }) {
   )
 }
 
-// ─── Section ──────────────────────────────────────────────────────────────────
-
 export default function Manuais() {
   const [open, setOpen] = useState<string | null>('gmb')
 
@@ -170,9 +145,9 @@ export default function Manuais() {
     <section id="manuais" className="py-20 bg-[#F4F6F0]">
       <div className="max-w-6xl mx-auto px-4">
         <div className="mb-10">
-          <span className="text-forest-700 text-xs font-bold uppercase tracking-widest">Setup digital</span>
+          <span className="text-forest-700 text-xs font-bold uppercase tracking-widest">Ações prioritárias</span>
           <h2 className="text-3xl font-bold text-forest-900 mt-1">Guias Práticos</h2>
-          <p className="text-gray-500 mt-2">Passo a passo para montar sua presença digital do zero — sem precisar contratar ninguém.</p>
+          <p className="text-gray-500 mt-2">Três ações que podem mudar a percepção da AKI Jardins esta semana — passo a passo.</p>
         </div>
 
         <div className="space-y-3">
@@ -180,15 +155,10 @@ export default function Manuais() {
             const Icon = guide.icon
             const isOpen = open === guide.id
             return (
-              <div
-                key={guide.id}
-                className={`bg-white rounded-2xl border transition-all overflow-hidden ${isOpen ? 'border-forest-300 shadow-md' : 'border-gray-100 hover:border-forest-200'}`}
-              >
-                {/* Header */}
-                <button
-                  onClick={() => setOpen(isOpen ? null : guide.id)}
-                  className="w-full text-left px-6 py-5 flex items-center gap-4"
-                >
+              <div key={guide.id}
+                className={`bg-white rounded-2xl border transition-all overflow-hidden ${isOpen ? 'border-forest-300 shadow-md' : 'border-gray-100 hover:border-forest-200'}`}>
+                <button onClick={() => setOpen(isOpen ? null : guide.id)}
+                  className="w-full text-left px-6 py-5 flex items-center gap-4">
                   <div className={`w-11 h-11 rounded-xl ${guide.iconBg} flex items-center justify-center shrink-0`}>
                     <Icon size={20} className={guide.iconColor} />
                   </div>
@@ -201,14 +171,10 @@ export default function Manuais() {
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
                     <span className="hidden sm:block text-xs text-gray-400 font-medium">{guide.tempo}</span>
-                    {isOpen
-                      ? <ChevronUp size={18} className="text-forest-600" />
-                      : <ChevronDown size={18} className="text-gray-400" />
-                    }
+                    {isOpen ? <ChevronUp size={18} className="text-forest-600" /> : <ChevronDown size={18} className="text-gray-400" />}
                   </div>
                 </button>
 
-                {/* Content */}
                 {isOpen && (
                   <div className="px-6 pb-6">
                     <div className="border-t border-gray-100 pt-6">
@@ -216,27 +182,18 @@ export default function Manuais() {
                         <CheckCircle2 size={15} className="text-forest-600" />
                         <p className="text-xs font-bold text-forest-700 uppercase tracking-wider">Passo a passo — {guide.tempo}</p>
                       </div>
-
                       <div>
-                        {guide.steps.map(step => (
-                          <StepItem key={step.n} step={step as Step & { text2?: string }} />
-                        ))}
+                        {guide.steps.map(step => <StepItem key={step.n} step={step as Step & { text2?: string }} />)}
                       </div>
-
                       {guide.dica_final && (
                         <div className="mt-2 bg-forest-800 rounded-2xl p-4 flex gap-3">
                           <Lightbulb size={16} className="text-gold-500 shrink-0 mt-0.5" />
                           <p className="text-white/80 text-sm leading-relaxed">{guide.dica_final}</p>
                         </div>
                       )}
-
                       {guide.cta && (
-                        <a
-                          href={guide.cta.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-4 inline-flex items-center gap-2 bg-forest-700 hover:bg-forest-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-colors"
-                        >
+                        <a href={guide.cta.href} target="_blank" rel="noopener noreferrer"
+                          className="mt-4 inline-flex items-center gap-2 bg-forest-700 hover:bg-forest-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-colors">
                           {guide.cta.label} <ExternalLink size={13} />
                         </a>
                       )}

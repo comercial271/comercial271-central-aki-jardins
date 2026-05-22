@@ -2,8 +2,8 @@ import { useState, useCallback } from 'react'
 import { useMemberStorage } from '../hooks/useMemberStorage'
 import { CheckCircle, XCircle, AlertCircle, Target, Trash2, Clock, ChevronDown, ChevronUp } from 'lucide-react'
 
-const ICP_LEADS_KEY    = 'alexandre_icp_leads_v1'
-const ICP_BUILDER_KEY  = 'alexandre_icp_builder_v1'
+const ICP_LEADS_KEY    = 'andre_icp_leads_v1'
+const ICP_BUILDER_KEY  = 'andre_icp_builder_v1'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -33,48 +33,48 @@ const builderQuestions: BuilderQ[] = [
     num: 1,
     titulo: 'Seus melhores clientes hoje',
     pergunta: 'Pense nos 2 ou 3 clientes que você mais gosta de atender. O que eles têm em comum — tipo de espaço, perfil do responsável, localização, tamanho?',
-    dica: 'Não pense no ticket ainda. Pense em quem você atende com orgulho e que indica seu trabalho.',
-    placeholder: 'Ex: São residências premium em Itatiba, com proprietários que valorizam a aparência. Têm jardins grandes e recebem visitas frequentes...',
+    dica: 'A Fundisul é a âncora. O que esse tipo de cliente (industrial, LTDA, com área verde permanente) tem que outros não têm?',
+    placeholder: 'Ex: Industriais de Rio do Sul com área verde extensa que precisam de manutenção recorrente. O gestor entende que o jardim é imagem da empresa...',
   },
   {
     id: 'segmento_ideal',
     num: 2,
     titulo: 'O segmento que faz mais sentido',
-    pergunta: 'Qual tipo de espaço combina com o que você entrega de melhor: residencial premium, condomínio, hotel/pousada, empresa ou misto? Por que esse e não os outros?',
-    dica: 'Considere sua experiência, seus casos de sucesso e onde você consegue cobrar o preço justo.',
-    placeholder: 'Ex: Condomínios de alto padrão em Itatiba, porque o jardim valoriza o imóvel dos moradores. Eles entendem que paisagismo é parte da imagem do condomínio...',
+    pergunta: 'Qual tipo de espaço combina com o que você entrega de melhor: industrial/corporativo, condomínio, hospital, shopping, misto? Por que esse e não os outros?',
+    dica: 'Considere sua experiência na Fundisul, seus equipamentos e onde você consegue cobrar o preço justo sem negociar.',
+    placeholder: 'Ex: Industriais e corporativos em Rio do Sul e região. Eles têm área verde permanente, entendem contrato LTDA, não regateiam como residencial...',
   },
   {
     id: 'dor_principal',
     num: 3,
     titulo: 'A dor que você resolve',
     pergunta: 'O que o seu cliente ideal tinha de problema antes de te contratar? Que situação ele não suportava mais ou que risco ele queria eliminar?',
-    dica: 'Vá além do "jardim feio". Pense em vergonha, perda de clientes, síndico pressionado, hóspede reclamando...',
-    placeholder: 'Ex: Jardim mal cuidado afastando hóspedes. Fornecedor anterior que sumia, não aparecia, não avisava. Síndico que recebia reclamação toda reunião...',
+    dica: 'Vá além do "jardim feio". Pense em imagem corporativa, auditoria de fornecedores, fornecedor que sumia, area verde vira problema de segurança...',
+    placeholder: 'Ex: Fornecedor anterior irregular que sumia e não emitia NF. Área verde vira problema de imagem na auditoria. Gestores sem tempo para checar presença...',
   },
   {
     id: 'diferencial',
     num: 4,
     titulo: 'Por que te escolhem',
-    pergunta: 'Por que o cliente ideal escolhe a Braun e não alguém mais barato? O que você entrega que é difícil de copiar?',
-    dica: 'Pode ser confiabilidade, apresentação, proposta visual, empresa registrada, follow-up... o que você ouviu de clientes satisfeitos?',
-    placeholder: 'Ex: Confiança e pontualidade, clientes chegam por indicação, equipamentos próprios, local de Itatiba — zero deslocamento, proposta no papel antes de começar...',
+    pergunta: 'Por que o cliente ideal escolhe a AKI Jardins e não alguém mais barato? O que você entrega que é difícil de copiar?',
+    dica: 'LTDA + Simples Nacional + 13 anos + Fundisul como referência. O que você ouviu de clientes satisfeitos?',
+    placeholder: 'Ex: Empresa LTDA com CNPJ ativo — auditoria aprovada. NF mensal. 13 anos de mercado. Referência Fundisul que qualquer industrial conhece...',
   },
   {
     id: 'ticket_minimo',
     num: 5,
     titulo: 'Ticket e modelo de contrato',
-    pergunta: 'Qual é o valor mensal mínimo que faz sentido para sua operação hoje, considerando deslocamento, equipe e margem? E qual modelo você prefere — mensal recorrente, por visita, ou misto?',
-    dica: 'Não coloque o que o mercado aceita. Coloque o que paga suas contas + gera lucro + te deixa dormir bem.',
-    placeholder: 'Ex: Mínimo R$ 1.800/mês para clientes no raio de 30km. Prefiro recorrente mensal porque planejo minha equipe com 2 semanas de antecedência...',
+    pergunta: 'Qual é o valor mensal mínimo que faz sentido para sua operação hoje, considerando equipe, equipamentos e margem? E qual modelo você prefere — mensal recorrente, trimestral ou por visita?',
+    dica: 'Não coloque o que o mercado aceita. Coloque o que paga sua equipe + amortiza seus equipamentos + gera lucro + te deixa dormir bem.',
+    placeholder: 'Ex: Mínimo R$ 2.500/mês para contratos recorrentes em Rio do Sul. Prefiro recorrente mensal — estabilidade de caixa e planejamento de equipe...',
   },
   {
     id: 'localizacao',
     num: 6,
     titulo: 'Onde ele está',
-    pergunta: 'Qual é o raio de distância viável para você? Que cidades ou regiões fazem parte da rota ideal da sua operação?',
-    dica: 'Considere: deslocamento de ida e volta + tempo da equipe. Acima de quanto km o contrato deixa de valer a pena?',
-    placeholder: 'Ex: Itatiba, Atibaia, Jarinu, Jundiaí — dentro de 30km. Acima disso só vale se for um contrato acima de R$ 2.000...',
+    pergunta: 'Qual é o raio de distância viável para a AKI Jardins? Que cidades ou regiões fazem parte da rota ideal da sua operação?',
+    dica: 'Rio do Sul é o núcleo. Laurentino, Ituporanga, Lontras, Rio do Campo são razoáveis. Acima de quanto km o contrato deixa de valer a pena?',
+    placeholder: 'Ex: Rio do Sul é o foco. Aceito Laurentino e Ituporanga. Lontras apenas para contratos acima de R$ 3.000. Fora do raio de 50km só com proposta especial...',
   },
   {
     id: 'anti_icp',
@@ -82,29 +82,29 @@ const builderQuestions: BuilderQ[] = [
     titulo: 'Quem você NÃO quer mais',
     pergunta: 'Descreva o perfil de cliente que te dá mais dor de cabeça, não valoriza o trabalho ou simplesmente não vale a energia. Quais características te fazem querer recusar?',
     dica: 'Seja honesto. Anti-ICP bem definido te protege de aceitar contratos ruins por medo de não ter demanda.',
-    placeholder: 'Ex: Residencial pequeno que só quer uma roçada. Cliente que negocia na hora de pagar. Quem pede desconto antes de ver o serviço. Distância > 70km sem rota...',
+    placeholder: 'Ex: Residencial pequeno sem recorrência. Cliente que negocia NF ou pede serviço informal. Distância acima de 80km sem rota. Quem só quer uma roçada avulsa...',
   },
   {
     id: 'canal',
     num: 8,
     titulo: 'Como ele te encontra',
-    pergunta: 'Como o seu cliente ideal chega até você hoje — Google, indicação, Instagram, prospecção ativa? E onde você deveria estar mais presente para que ele te encontre?',
-    dica: 'Pense nas últimas 5 origens de prospect. Qual canal trouxe os melhores contratos?',
-    placeholder: 'Ex: Indicação de outros clientes é o principal. Google às vezes. Instagram raramente converte mas posiciona. Prospecção ativa no LinkedIn seria o próximo passo...',
+    pergunta: 'Como o seu cliente ideal chega até você hoje — indicação, Google, prospecção ativa? E onde você deveria estar mais presente para que ele te encontre?',
+    dica: 'Com GMB zerado em Rio do Sul/SC, o Google tem potencial imediato. Indicação da Fundisul é o segundo canal mais valioso.',
+    placeholder: 'Ex: Hoje vem por indicação. Com GMB otimizado, Google Maps vai ser o principal. Prospecção ativa em industriais do polo de Rio do Sul é o próximo passo...',
   },
 ]
 
 // ─── Qualifier questions ───────────────────────────────────────────────────────
 
 const perguntas: Pergunta[] = [
-  { id: 'tipo',        texto: 'É empresa, hotel, condomínio ou estabelecimento comercial?', dica: 'Não residencial pequeno — B2B é o foco', peso: 2 },
-  { id: 'area',        texto: 'A área verde importa para a imagem do negócio deles?',       dica: 'Hotéis, spas, condos premium, lojas de moda', peso: 2 },
-  { id: 'localizacao', texto: 'Fica dentro do raio de distância viável?',                   dica: 'Deslocamento não pode comer a margem', peso: 2 },
-  { id: 'ticket',      texto: 'Ticket estimado acima do seu mínimo?',                       dica: 'Contrato abaixo do mínimo não cobre fixo + deslocamento', peso: 2 },
-  { id: 'decisor',     texto: 'Você fala direto com quem aprova o contrato?',               dica: 'Intermediário = proposta some sem resposta', peso: 1 },
-  { id: 'historico',   texto: 'Eles já tiveram serviço de paisagismo antes?',               dica: 'Já educados para pagar — negociação mais fácil', peso: 1 },
-  { id: 'interesse',   texto: 'Demonstraram interesse real (não só curiosidade)?',          dica: 'Pediu proposta, marcou visita, fez pergunta específica', peso: 1 },
-  { id: 'recorrencia', texto: 'Precisam de manutenção recorrente, não serviço pontual?',   dica: 'Contrato mensal é o modelo ideal para estabilidade', peso: 1 },
+  { id: 'tipo',        texto: 'É empresa, condomínio, hospital, shopping ou industrial?',    dica: 'Não residencial pequeno — B2B corporativo é o foco', peso: 2 },
+  { id: 'area',        texto: 'A área verde importa para a imagem do negócio deles?',        dica: 'Industrial com visitantes, condomínio premium, hospital, shopping', peso: 2 },
+  { id: 'localizacao', texto: 'Fica dentro do raio de atuação (Rio do Sul e região)?',       dica: 'Deslocamento fora da rota come a margem', peso: 2 },
+  { id: 'ticket',      texto: 'Ticket estimado acima do mínimo de R$ 2.500/mês?',            dica: 'Contrato abaixo do mínimo não cobre equipe + equipamentos', peso: 2 },
+  { id: 'decisor',     texto: 'Você fala direto com quem aprova o contrato?',                dica: 'Gestor ou diretor — intermediário some com a proposta', peso: 1 },
+  { id: 'historico',   texto: 'Eles já tiveram serviço de jardinagem/paisagismo antes?',     dica: 'Já educados para pagar — negociação mais fácil', peso: 1 },
+  { id: 'interesse',   texto: 'Demonstraram interesse real (não só curiosidade)?',           dica: 'Pediu proposta, marcou visita, fez pergunta específica', peso: 1 },
+  { id: 'recorrencia', texto: 'Precisam de manutenção recorrente, não serviço pontual?',    dica: 'Contrato mensal é o modelo ideal para estabilidade', peso: 1 },
 ]
 
 const MAX_SCORE = perguntas.reduce((s, p) => s + p.peso, 0)
@@ -200,7 +200,7 @@ function IcpBuilder({ respostas, setRespostas }: {
         <div className="mt-6 bg-forest-800 text-white rounded-2xl p-5">
           <p className="text-gold-500 text-xs font-bold uppercase tracking-widest mb-1">Seu ICP — construído por você</p>
           <p className="text-white/70 text-sm">Você respondeu as 8 perguntas. Use as suas respostas como filtro em toda prospecção: se o prospect não encaixar no que você descreveu, qualifique pelo score antes de avançar.</p>
-          <p className="text-white/50 text-xs mt-3">Respostas salvas na nuvem. No check-in de 11/06, traga este ICP revisado.</p>
+          <p className="text-white/50 text-xs mt-3">Respostas salvas na nuvem. No próximo check-in, traga este ICP revisado com os primeiros resultados da prospecção ativa.</p>
         </div>
       )}
     </div>
@@ -245,13 +245,13 @@ function IcpQualifier({ onLeadSaved }: { onLeadSaved: (lead: Lead) => void }) {
   return (
     <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
       <p className="font-bold text-forest-900 mb-1">Qualificador de Prospect</p>
-      <p className="text-gray-500 text-sm mb-5">Avalie um prospect específico contra o seu ICP.</p>
+      <p className="text-gray-500 text-sm mb-5">Avalie um prospect específico contra o seu ICP corporativo.</p>
 
       <input type="text" value={nome} onChange={e => setNome(e.target.value)}
         placeholder="Nome do prospect / empresa"
         className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm mb-2 focus:outline-none focus:border-forest-400 transition-colors" />
       <input type="text" value={tipo} onChange={e => setTipo(e.target.value)}
-        placeholder="Segmento (ex: Condomínio, Hotel, Empresa)"
+        placeholder="Segmento (ex: Industrial, Condomínio, Hospital)"
         className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm mb-5 focus:outline-none focus:border-forest-400 transition-colors" />
 
       <div className="space-y-2.5 mb-5">
@@ -363,8 +363,8 @@ export default function IcpBraun() {
           <span className="text-forest-700 text-xs font-bold uppercase tracking-widest">Clareza de mercado</span>
           <h2 className="text-3xl font-bold text-forest-900 mt-1">ICP — Perfil do Cliente Ideal</h2>
           <p className="text-gray-500 mt-2 max-w-2xl">
-            Construa o seu ICP pelas suas próprias respostas — ninguém conhece melhor seus clientes do que você.
-            Depois use o qualificador para avaliar cada novo prospect.
+            Construa o seu ICP pelas suas próprias respostas — ninguém conhece melhor seus clientes corporativos do que você.
+            Depois use o qualificador para avaliar cada novo prospect antes de montar proposta.
           </p>
         </div>
 
@@ -373,8 +373,8 @@ export default function IcpBraun() {
           <div className="mb-6">
             <p className="font-bold text-forest-900 text-lg">Construtor de ICP</p>
             <p className="text-gray-500 text-sm mt-0.5">
-              8 perguntas para você sair com clareza total sobre quem é o seu cliente ideal.
-              Reserve 15 minutos, responda com honestidade — não existe resposta errada.
+              8 perguntas para você sair com clareza total sobre quem é o seu cliente corporativo ideal.
+              Reserve 15 minutos, responda com honestidade — a Fundisul é o modelo, mas não o limite.
             </p>
           </div>
           <IcpBuilder respostas={builderRespostas} setRespostas={setBuilderRespostas} />
@@ -388,7 +388,7 @@ export default function IcpBraun() {
             <p className="text-amber-700 text-sm mt-1">
               Liste todos os orçamentos enviados nos últimos 12 meses que não fecharam.{' '}
               <strong>Esses leads já demonstraram interesse</strong> — são os mais fáceis de converter.{' '}
-              Script de reativação: <em>"Alexandre aqui, da Alexandre Jardins. Ainda tenho aquela proposta disponível. Teria espaço para iniciarmos em junho?"</em> — simples, sem pressão.
+              Script de reativação: <em>"André aqui, da AKI Jardins. Ainda tenho aquela proposta disponível e a agenda aberta para junho. Podemos retomar?"</em> — direto, sem pressão.
             </p>
           </div>
         </div>
@@ -396,7 +396,7 @@ export default function IcpBraun() {
         {/* ── Bloco 2: Qualificador + Lista ── */}
         <div className="mb-4">
           <p className="font-bold text-forest-900 text-lg">Qualificador de Prospect</p>
-          <p className="text-gray-500 text-sm mt-0.5">Com o ICP definido acima, use este score para avaliar cada novo prospect antes de montar a proposta.</p>
+          <p className="text-gray-500 text-sm mt-0.5">Com o ICP definido acima, use este score para avaliar cada novo prospect corporativo antes de montar a proposta.</p>
         </div>
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <IcpQualifier onLeadSaved={(lead) => setLeads(prev => [lead, ...prev])} />

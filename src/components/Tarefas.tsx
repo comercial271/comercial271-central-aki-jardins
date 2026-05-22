@@ -9,7 +9,7 @@ interface Anexo {
   nome: string
   tipo: string
   tamanho: number
-  dataUrl: string | null // null = muito grande, só metadado
+  dataUrl: string | null
   addedAt: string
 }
 
@@ -21,7 +21,7 @@ interface TarefaState {
 
 // ─── Storage helpers ──────────────────────────────────────────────────────────
 
-const STORAGE_KEY = 'alexandre_tarefas_v1'
+const STORAGE_KEY = 'andre_tarefas_v1'
 
 type AllState = Record<string, TarefaState>
 type SetAllState = (v: AllState | ((p: AllState) => AllState)) => void
@@ -30,57 +30,57 @@ type SetAllState = (v: AllState | ((p: AllState) => AllState)) => void
 
 const tarefas = [
   {
-    id: 'formalizar',
+    id: 'nf-fundisul',
     prazo: '29/05 — URGENTE',
     urgencia: 'red',
-    titulo: 'Formalizar o negócio — MEI, GMB, WhatsApp Business e Instagram',
-    descricao: 'Quatro ações que transformam um autônomo em empresa. Sem CNPJ, sem credibilidade para fechar condomínio. O síndico precisa contratar uma empresa registrada, não um jardineiro avulso.',
-    nota: 'MEI é gratuito e leva 15 min em gov.br/mei. Google Meu Negócio coloca você no radar de Itatiba. WhatsApp Business + @alexandre.jardins completam a presença digital.',
-    link: { label: 'Abrir MEI em gov.br/mei', href: 'https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/formalize-se-mei' },
-  },
-  {
-    id: 'mapeamento-clientes',
-    prazo: '29/05 — URGENTE',
-    urgencia: 'red',
-    titulo: 'Mapear todos os clientes desde janeiro na planilha',
-    descricao: 'Liste nome, frequência, dias trabalhados por mês, valor cobrado e valor correto a R$800/dia. Esta planilha vai mostrar exatamente quem está gerando lucro e quem está te custando dinheiro.',
-    nota: 'Dado crítico do seu diagnóstico: você sabe calcular o custo, mas trava na hora de colocar margem. A planilha vai tornar o problema visível demais para ignorar.',
+    titulo: 'Emitir NF + comprar insumos para Fundisul',
+    descricao: 'Formalizar a operação com a Fundisul: emitir a nota fiscal do serviço, comprar os insumos necessários para a próxima visita e garantir a continuidade do contrato ativo.',
+    nota: 'Fundisul é sua âncora de credibilidade. Ter tudo documentado e com NF emitida é o que te permite usar essa referência para fechar os próximos contratos.',
     link: null,
   },
   {
-    id: 'reajuste-diaria',
+    id: 'wa-mensagem',
+    prazo: '29/05 — URGENTE',
+    urgencia: 'red',
+    titulo: 'Corrigir mensagem automática do WhatsApp Business',
+    descricao: 'A mensagem de ausência atual está incorreta — não representa a AKI Jardins profissionalmente. Substituir pela mensagem padrão definida na Sessão 1 e configurar boas-vindas.',
+    nota: 'Cada mensagem automática é a primeira impressão de um prospect que veio pelo GMB ou Instagram. Mensagem errada = lead perdido antes de responder.',
+    link: { label: 'Ver guia de configuração', href: '#manuais' },
+  },
+  {
+    id: 'gmb-otimizar',
     prazo: '05/06 — SEM. 2',
     urgencia: 'orange',
-    titulo: 'Reajustar a diária para R$800 em todos os clientes',
-    descricao: 'Sem exceção. Quem não aceita a diária correta está pagando menos do que custa atender. O reajuste não é opcional — é a diferença entre crescer e continuar estagnado.',
-    nota: 'Seu diferencial: clientes chegam sem negociar preço. Use isso. A maioria dos seus clientes vai aceitar. O medo é seu, não deles.',
-    link: null,
+    titulo: 'Otimizar GMB — fotos, descrição e link WA',
+    descricao: 'O GMB foi criado em 15/05 mas ainda está incompleto. Subir ao menos 10 fotos de trabalhos (antes/depois, equipe, jardim da empresa), atualizar a descrição com palavras-chave de Rio do Sul/SC e adicionar o número do WA Business.',
+    nota: 'GMB completo com fotos = posição de destaque no Google Maps. Primeiro resultado orgânico para "jardineiro Rio do Sul SC" — esse espaço está vago.',
+    link: { label: 'Acessar Google Meu Negócio', href: 'https://business.google.com' },
   },
   {
-    id: 'belvedere-retomada',
+    id: 'depoimento-fundisul',
     prazo: '10/06 — SEM. 2-3',
     urgencia: 'orange',
-    titulo: 'Retomar Condomínio Belvedere — proposta com 25% de margem',
-    descricao: 'O orçamento foi entregue com lucro de 0%. Reenviar com 25% de margem: R$8.500 (era R$6.929). O síndico já conhece você e o processo está aberto — isso é retomada, não prospecção fria.',
-    nota: 'Belvedere é local — sem custo de deslocamento. Fechar este contrato já representa R$8.500/mês e coloca você no caminho dos R$10.500/mês.',
-    link: { label: 'Gerar Proposta Belvedere', href: 'https://geradordepropostaselva.lovable.app' },
+    titulo: 'Solicitar depoimento da Fundisul + documentar case',
+    descricao: 'Fotografar antes/depois da área verde da Fundisul (com permissão) e pedir um depoimento ao gestor responsável. Este material é seu argumento de venda mais forte para as próximas propostas.',
+    nota: '"Atendemos a Fundisul há X meses" vale mais do que qualquer texto na proposta. Um depoimento escrito ou em vídeo multiplica a conversão em novos clientes corporativos.',
+    link: { label: 'Gerar proposta atualizada', href: 'https://geradordepropostaselva.lovable.app' },
   },
   {
-    id: 'condominios-itatiba',
-    prazo: '15/06 — PARALELO',
-    urgencia: 'yellow',
-    titulo: 'Abordagem Ville Chamonix + Itatiba Country Club',
-    descricao: 'Dois alvos de alto padrão em Itatiba. Ville Chamonix tem lotes 1.500+ m² e perfil premium. Itatiba Country Club tem campo e área verde extensa. Aborde o síndico pessoalmente com proposta formal e empresa registrada.',
-    nota: 'Cada um desses condomínios pode valer R$3.000–5.000/mês recorrente. Junto com Belvedere você chega no breakeven CLT.',
-    link: { label: 'Gerar Proposta Condomínio', href: 'https://geradordepropostaselva.lovable.app' },
+    id: 'live-case-jardim',
+    prazo: '10/06 — SEM. 2-3',
+    urgencia: 'orange',
+    titulo: 'Jardim da empresa como live case — primeiro Reel',
+    descricao: 'Filmar o jardim da própria AKI Jardins sendo mantido/implantado como primeiro conteúdo para o @akijardins. É o case mais fácil de documentar e demonstra qualidade de forma imediata.',
+    nota: 'O jardim da empresa é seu showroom gratuito. Cada vídeo postado com localização Rio do Sul/SC aumenta a cobertura de busca local.',
+    link: { label: 'Ver estratégia de conteúdo', href: '#instagram' },
   },
   {
-    id: 'bosque-parceria',
+    id: 'prospeccao-lista',
     prazo: '15/06 — PARALELO',
     urgencia: 'yellow',
-    titulo: 'Visitar Bosque Di Fiori — proposta de parceria de indicação',
-    descricao: 'Garden center em Itatiba. Vende plantas mas não mantém jardins. Canal de indicação natural — clientes que compram plantas precisam de quem mantenha. Uma visita pode gerar leads qualificados sem custo.',
-    nota: 'Parceria de indicação tem custo zero de aquisição. O cliente que chega via Bosque Di Fiori já está com intenção de compra — é o lead mais quente que existe.',
+    titulo: 'Listar 20 empresas para prospecção ativa',
+    descricao: 'Criar documento Word com 20 empresas de Rio do Sul/SC que têm área verde e perfil corporativo — indústrias, hospitais, shoppings, condomínios. Incluir nome, contato e observação sobre a área verde atual.',
+    nota: 'Com Fundisul na carteira você já tem o argumento de entrada. Prospecção ativa com referência corporativa real é mais eficiente que qualquer anúncio.',
     link: null,
   },
 ]
@@ -95,7 +95,6 @@ const urgenciaConfig: Record<string, { bg: string; text: string }> = {
 
 function AnexoChip({ anexo, onRemove }: { anexo: Anexo; onRemove: () => void }) {
   const isImage = anexo.tipo.startsWith('image/')
-  const isPdf = anexo.tipo === 'application/pdf'
   const kb = (anexo.tamanho / 1024).toFixed(0)
 
   const handleOpen = () => {
@@ -177,7 +176,6 @@ function TarefaPanel({ tarefaId, allState, setAllState }: {
 
   return (
     <div className="mt-3 pt-3 border-t border-gray-100 flex flex-col gap-3">
-      {/* Anotações */}
       <div>
         <label className="flex items-center gap-1.5 text-xs font-semibold text-forest-700 mb-1.5">
           <StickyNote size={12} /> Anotações
@@ -194,7 +192,6 @@ function TarefaPanel({ tarefaId, allState, setAllState }: {
         )}
       </div>
 
-      {/* Anexos */}
       <div>
         <label className="flex items-center gap-1.5 text-xs font-semibold text-forest-700 mb-1.5">
           <Paperclip size={12} /> Anexos
@@ -327,7 +324,7 @@ export default function Tarefas() {
           <AlertTriangle className="text-gold-500 shrink-0 mt-0.5" size={22} />
           <div className="flex-1">
             <p className="font-bold text-lg">Seus 6 movimentos — maio a junho/2026</p>
-            <p className="text-white/70 text-sm mt-1">Seis ações que vão de autônomo informal a empresa com condomínio fechado. Não adie.</p>
+            <p className="text-white/70 text-sm mt-1">NF + WA correto + GMB otimizado + Fundisul documentada + primeiro Reel + lista de prospects. Nessa ordem.</p>
             <div className="mt-3 flex items-center gap-3">
               <div className="flex-1 bg-forest-700 rounded-full h-2">
                 <div
@@ -348,7 +345,7 @@ export default function Tarefas() {
           <Calendar size={20} className="text-amber-600 shrink-0 mt-0.5" />
           <div>
             <p className="font-bold text-amber-900">Check-in com a Juliana: 11/06/2026</p>
-            <p className="text-amber-700 text-sm mt-0.5">Chegue com o resultado das 5 ações. O próximo passo depende do que você fizer esta semana.</p>
+            <p className="text-amber-700 text-sm mt-0.5">Chegue com NF emitida para Fundisul, WA corrigido, pelo menos 3 fotos no GMB e primeiro Reel gravado. O próximo passo depende do que você fizer agora.</p>
           </div>
         </div>
       </div>

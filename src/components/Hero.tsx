@@ -1,12 +1,12 @@
 import { TrendingUp, Target, DollarSign, Clock, Award, Building2 } from 'lucide-react'
 
 const metrics = [
-  { value: '<R$ 3.000', label: 'Faturamento atual', sub: 'Mês de referência: mai/2026', icon: DollarSign },
-  { value: 'R$ 10.500', label: 'Meta breakeven', sub: 'Para sair do serviço público', icon: Target },
-  { value: 'R$ 15.000', label: 'Meta 12 meses', sub: 'Crescimento necessário: +400%', icon: TrendingUp },
-  { value: 'R$ 800', label: 'Diária reajustada', sub: 'Definido na Sessão 1 (21/05)', icon: TrendingUp },
-  { value: '3–7 anos', label: 'No mercado', sub: 'Metalúrgica → fins de semana → full-time', icon: Clock },
-  { value: 'Condomínios', label: 'Posicionamento', sub: 'Alto padrão + empresas Itatiba', icon: Building2 },
+  { value: 'LTDA Ativa',  label: 'Empresa formalizada',  sub: 'Simples Nacional — CNPJ 53.108.649/0001-97', icon: Building2 },
+  { value: 'Fundisul',    label: 'Cliente corporativo',  sub: 'Contrato ativo — referência B2B real',        icon: Award },
+  { value: 'R$ 30.000',  label: 'Meta 12 meses',        sub: 'Crescimento: +900% no faturamento',           icon: TrendingUp },
+  { value: '2 Sessões',  label: 'Concluídas',           sub: 'Individual 13/05 + Coletiva 14/05/2026',      icon: Clock },
+  { value: '13+ anos',   label: 'No mercado',            sub: 'Experiência técnica consolidada',             icon: Clock },
+  { value: 'Rio do Sul/SC', label: 'Posicionamento',    sub: 'Industrial + condomínios alto padrão',         icon: Target },
 ]
 
 export default function Hero() {
@@ -18,19 +18,19 @@ export default function Hero() {
             SELVA PREMIUM — MEMBRO ATIVO
           </span>
           <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-3">
-            Central Alexandre Jardins
+            Central AKI Jardins
           </h1>
-          <p className="text-white/70 text-lg mb-2">Alexandre Nunes — Itatiba / SP</p>
+          <p className="text-white/70 text-lg mb-2">André Krieger — Rio do Sul / SC</p>
           <p className="text-gold-500 text-xl italic font-medium mb-6">
-            "De jardineiro de fim de semana a empresário.<br />O número está na mesa: R$ 10.500/mês."
+            "Empresa registrada, Fundisul na carteira, 13 anos de mercado.<br />Agora é posicionamento digital e prospecção ativa."
           </p>
           <p className="text-white/60 text-sm leading-relaxed max-w-lg">
             Aqui está tudo que foi construído na sua mentoria — diagnóstico, plano de ação,
-            documentos, propostas e o arsenal que comprova quem você já é. Use como referência diária.
+            documentos, estratégias e o arsenal que mostra quem você já é. Use como referência diária.
           </p>
           <div className="mt-8 flex items-center gap-2">
             <Award size={16} className="text-gold-500" />
-            <span className="text-white/50 text-xs">Mentoria: Jean Francis | Sessão 1: 21/05/2026 | Mapear clientes: 29/05/2026</span>
+            <span className="text-white/50 text-xs">Mentoria: Jean Francis | Sessão 1: 13/05/2026 | Sessão 2: 14/05/2026 | Check-in: 11/06/2026</span>
           </div>
         </div>
 

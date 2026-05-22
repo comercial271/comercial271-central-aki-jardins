@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { useMemberStorage } from '../hooks/useMemberStorage'
-import { ExternalLink, FolderOpen, Star, Zap, Edit3, Check, Home, Building, Briefcase, X, Copy, CheckCheck, MessageSquare, Link } from 'lucide-react'
+import { ExternalLink, FolderOpen, Star, Zap, Edit3, Check, Building2, Briefcase, X, Copy, CheckCheck, MessageSquare, Link } from 'lucide-react'
 
-const MIDIAKIT_KEY = 'alexandre_midiakit_links_v1'
-const REVIEW_LINK_KEY = 'alexandre_review_link_v1'
+const MIDIAKIT_KEY   = 'andre_midiakit_links_v1'
+const REVIEW_LINK_KEY = 'andre_review_link_v1'
 
 interface MidiaKitLinks {
-  residencial: string
+  industriais: string
   condominios: string
-  empresas: string
+  manutencao: string
 }
 
-const DEFAULT_MIDIAKIT: MidiaKitLinks = { residencial: '', condominios: '', empresas: '' }
+const DEFAULT_MIDIAKIT: MidiaKitLinks = { industriais: '', condominios: '', manutencao: '' }
 
 function EditableLink({ label, icon: Icon, value, onChange }: { label: string; icon: React.ElementType; value: string; onChange: (v: string) => void }) {
   const [editing, setEditing] = useState(false)
@@ -63,41 +63,41 @@ function EditableLink({ label, icon: Icon, value, onChange }: { label: string; i
   )
 }
 
-
 const REVIEW_MSGS = [
   {
     id: 'formal',
-    label: 'Para gestores B2B (condomínios, hotéis, empresas)',
+    label: 'Para gestores B2B (indústrias, hospitais, condomínios)',
     tag: 'Formal',
     tagColor: 'bg-forest-700 text-white',
-    text: `Bom dia, [NOME]! Tudo certo por aí?
+    text: `Bom dia, [NOME]! Tudo bem por aí?
 
-Passando para agradecer a confiança no nosso trabalho e perguntar se ficou satisfeito com o serviço da Alexandre Jardins.
+Passando para agradecer a confiança no trabalho da AKI Jardins e perguntar se ficou satisfeito com o serviço.
 
-Se quiser nos ajudar a crescer, deixar uma avaliação no Google faz toda a diferença para que mais empresas sérias como a sua nos encontrem:
+Se quiser nos ajudar a crescer, uma avaliação no Google faz toda a diferença para que mais empresas sérias nos encontrem:
 
 👉 [LINK DO GOOGLE MEU NEGÓCIO]
 
 É rápido — menos de 2 minutos. Qualquer feedback é muito bem-vindo.
 
-Obrigado, Alexandre — Alexandre Jardins`,
+Att, André | AKI Jardins
+📱 [seu número]`,
   },
   {
     id: 'informal',
-    label: 'Para clientes próximos (residencial, indicados)',
-    tag: 'Informal',
+    label: 'Para contatos próximos (indicados, clientes antigos)',
+    tag: 'Próximo',
     tagColor: 'bg-gold-500 text-forest-900',
     text: `Oi [NOME]! Tudo bem?
 
-Espero que o jardim esteja ficando ainda mais bonito haha
+Espero que o jardim esteja impecável!
 
-Te peço um favor rápido: se você ficou satisfeito com o trabalho, me ajuda com uma avaliação no Google? Leva só 1 minutinho e faz uma diferença enorme pra mim:
+Te peço um favor rápido: se ficou satisfeito com o trabalho da AKI Jardins, me ajuda com uma avaliação no Google? Leva 1 minutinho e faz uma diferença enorme pra empresa:
 
 ⭐ [LINK DO GOOGLE MEU NEGÓCIO]
 
-Qualquer coisa que eu possa melhorar, pode falar também — fico grato!
+Qualquer feedback também serve — fico grato!
 
-Abraço, Alexandre — Alexandre Jardins`,
+Abs, André | AKI Jardins`,
   },
 ]
 
@@ -122,9 +122,7 @@ function CopyButton({ text }: { text: string }) {
     <button
       onClick={copy}
       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-        copied
-          ? 'bg-green-500 text-white'
-          : 'bg-forest-800 hover:bg-forest-700 text-white'
+        copied ? 'bg-green-500 text-white' : 'bg-forest-800 hover:bg-forest-700 text-white'
       }`}
     >
       {copied ? <><CheckCheck size={12} /> Copiado!</> : <><Copy size={12} /> Copiar</>}
@@ -134,7 +132,7 @@ function CopyButton({ text }: { text: string }) {
 
 export default function LinksRapidos() {
   const [midiaKit, setMidiaKit] = useMemberStorage<MidiaKitLinks>(MIDIAKIT_KEY, DEFAULT_MIDIAKIT)
-  const [reviewLink, setReviewLink] = useMemberStorage<string>(REVIEW_LINK_KEY, '')
+  const [reviewLink, setReviewLink] = useMemberStorage<string>(REVIEW_LINK_KEY, 'https://g.page/r/Cc6n_Rr9T_WGEAE/review')
   const [editingReviewLink, setEditingReviewLink] = useState(false)
   const [reviewLinkDraft, setReviewLinkDraft] = useState('')
 
@@ -164,7 +162,7 @@ export default function LinksRapidos() {
           <p className="text-gray-500 mt-2">Tudo que você acessa com frequência — em um lugar só</p>
         </div>
 
-        {/* ── Recursos Selva Premium ── */}
+        {/* Recursos Selva Premium */}
         <div className="bg-forest-800 rounded-2xl p-5 mb-6 flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <div className="bg-gold-500/20 p-2.5 rounded-xl shrink-0">
@@ -176,50 +174,42 @@ export default function LinksRapidos() {
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
-            <a
-              href="https://www.notion.so/COMUNIDADE-SELVA-Premium-35693140ded28010970af4105ed41660"
+            <a href="https://www.notion.so/COMUNIDADE-SELVA-Premium-35693140ded28010970af4105ed41660"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors"
-            >
-              📅 Cronograma de Aulas (Notion) <ExternalLink size={11} />
+              className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors">
+              Cronograma de Aulas (Notion) <ExternalLink size={11} />
             </a>
-            <a
-              href="https://app.greenn.club/home"
+            <a href="https://app.greenn.club/home"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-gold-500 hover:bg-gold-400 text-forest-900 text-xs font-bold px-4 py-2 rounded-xl transition-colors"
-            >
-              🎓 Área de Membros <ExternalLink size={11} />
+              className="inline-flex items-center gap-1.5 bg-gold-500 hover:bg-gold-400 text-forest-900 text-xs font-bold px-4 py-2 rounded-xl transition-colors">
+              Área de Membros <ExternalLink size={11} />
             </a>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          {/* Drive e Pastas */}
+          {/* Drive */}
           <div className="bg-[#F4F6F0] rounded-2xl p-5">
             <div className="flex items-center gap-3 mb-5">
               <div className="bg-forest-800 p-2.5 rounded-xl shrink-0">
                 <FolderOpen size={18} className="text-gold-500" />
               </div>
               <div>
-                <p className="font-bold text-forest-900 text-sm">Drive Alexandre</p>
-                <p className="text-gray-500 text-xs">Pastas principais da Mentoria</p>
+                <p className="font-bold text-forest-900 text-sm">Drive AKI Jardins</p>
+                <p className="text-gray-500 text-xs">Pastas principais da mentoria</p>
               </div>
             </div>
             <div className="flex flex-col gap-2">
               {[
-                { label: 'Pasta Principal Alexandre', href: 'https://drive.google.com/drive/folders/1xPS3NLg9JR0q8smBiJylIkvvHKXBpwxK' },
-                { label: 'Sessões e Gravações', href: 'https://drive.google.com/drive/folders/1_OktaDlVtrm05N_s94i2Ce49bwYXQ06F' },
-                { label: 'Material da Mentoria', href: 'https://drive.google.com/drive/folders/1rFWXAL_NznUe5AcmYzWx98W19qIx-x1C' },
-                { label: 'Diagnóstico 360°', href: 'https://drive.google.com/drive/folders/10kbb36JnFD0Uj-YvhFadvXfKNc4GT1u1' },
-                { label: 'Tarefas e Acompanhamento', href: 'https://drive.google.com/drive/folders/1ANWzuzZwS_mo13FQWIjpUHhTxr9Fcyvj' },
-                { label: 'Ata Sessão 1 (Doc)', href: 'https://docs.google.com/document/d/1jK0O7Z6XJ6PZu9S47LAc1BeOgW6wR9ahZtQ-wzSJvs0' },
+                { label: 'Pasta Principal AKI Jardins', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+                { label: 'Site AKI Jardins (publicado)', href: 'https://aki-jardins-digital.lovable.app' },
+                { label: 'Google Meu Negócio', href: 'https://business.google.com' },
+                { label: 'Diagnóstico 360° — Pasta', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+                { label: 'Sessão 1 — Gravação e Ata', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
+                { label: 'Sessão 2 — Gravação', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
               ].map(link => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-white border border-gray-100 hover:border-forest-300 rounded-xl px-3 py-2.5 group transition-colors"
-                >
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-between bg-white border border-gray-100 hover:border-forest-300 rounded-xl px-3 py-2.5 group transition-colors">
                   <span className="text-sm text-forest-800 font-medium group-hover:text-forest-600 truncate pr-2 transition-colors">{link.label}</span>
                   <ExternalLink size={12} className="text-gray-300 group-hover:text-forest-500 shrink-0 transition-colors" />
                 </a>
@@ -238,20 +228,16 @@ export default function LinksRapidos() {
                 <p className="text-gray-500 text-xs">Propostas e Mídia Kits por nicho</p>
               </div>
             </div>
-            <a
-              href="https://geradordepropostaselva.lovable.app"
-              target="_blank" rel="noopener noreferrer"
-              className="w-full bg-forest-800 hover:bg-forest-700 text-white text-sm font-bold px-4 py-3 rounded-xl flex items-center justify-center gap-2 mb-5 transition-colors"
-            >
+            <a href="https://geradordepropostaselva.lovable.app" target="_blank" rel="noopener noreferrer"
+              className="w-full bg-forest-800 hover:bg-forest-700 text-white text-sm font-bold px-4 py-3 rounded-xl flex items-center justify-center gap-2 mb-5 transition-colors">
               Abrir Gerador de Propostas <ExternalLink size={13} />
             </a>
-
-            <p className="text-xs font-bold text-forest-800 uppercase tracking-wide mb-1">Mídia Kit por Nicho</p>
+            <p className="text-xs font-bold text-forest-800 uppercase tracking-wide mb-1">Mídia Kit por Segmento</p>
             <p className="text-xs text-gray-500 mb-3">Gere → salve PDF no Drive → cole o link aqui para acesso rápido</p>
             <div className="flex flex-col gap-2">
-              <EditableLink label="Mídia Kit Residencial" icon={Home} value={midiaKit.residencial} onChange={v => updateMidiaKit('residencial', v)} />
-              <EditableLink label="Mídia Kit Condomínios" icon={Building} value={midiaKit.condominios} onChange={v => updateMidiaKit('condominios', v)} />
-              <EditableLink label="Mídia Kit Condomínios / Empresas" icon={Briefcase} value={midiaKit.empresas} onChange={v => updateMidiaKit('empresas', v)} />
+              <EditableLink label="Mídia Kit Industriais" icon={Building2} value={midiaKit.industriais} onChange={v => updateMidiaKit('industriais', v)} />
+              <EditableLink label="Mídia Kit Condomínios" icon={Building2} value={midiaKit.condominios} onChange={v => updateMidiaKit('condominios', v)} />
+              <EditableLink label="Mídia Kit Manutenção Recorrente" icon={Briefcase} value={midiaKit.manutencao} onChange={v => updateMidiaKit('manutencao', v)} />
             </div>
           </div>
 
@@ -263,24 +249,20 @@ export default function LinksRapidos() {
               </div>
               <div>
                 <p className="font-bold text-forest-900 text-sm">Presença Digital</p>
-                <p className="text-gray-500 text-xs">Canais ativos da Alexandre Jardins</p>
+                <p className="text-gray-500 text-xs">Canais ativos da AKI Jardins</p>
               </div>
             </div>
             <div className="flex flex-col gap-2">
               {[
-                { label: 'Instagram @alexandre.nunes.98', href: 'https://www.instagram.com/alexandre.nunes.98' },
-                { label: 'Google Meu Negócio (configurar)', href: 'https://business.google.com' },
-                { label: 'Orçamento Belvedere (PDF)', href: 'https://drive.google.com/file/d/1jAWLele2a4U-X4alZUFpvi2PsKYtvJot' },
-                { label: 'Ata da Sessão 1', href: 'https://docs.google.com/document/d/1jK0O7Z6XJ6PZu9S47LAc1BeOgW6wR9ahZtQ-wzSJvs0' },
-                { label: 'Gravação da Sessão 1', href: 'https://drive.google.com/file/d/1QJKZ9dQZeFKySfg4N_ks128-15FqdYDY' },
-                { label: 'Diagnóstico 360° Completo', href: 'https://docs.google.com/document/d/11CnwqxHJuKfW-GxmwFkRrMmkYO2Kcb4hHK3S0k9KcZw' },
+                { label: 'Instagram @akijardins', href: 'https://www.instagram.com/akijardins' },
+                { label: 'Site AKI Jardins', href: 'https://aki-jardins-digital.lovable.app' },
+                { label: 'Google Meu Negócio (otimizar)', href: 'https://business.google.com' },
+                { label: 'Gerador de Propostas Selva', href: 'https://geradordepropostaselva.lovable.app' },
+                { label: 'Área de Membros Selva', href: 'https://app.greenn.club/home' },
+                { label: 'Drive — Pasta AKI Jardins', href: 'https://drive.google.com/drive/folders/1SRtvql2L6jnXuaMTqisVUNdX1CnxXlkz' },
               ].map(link => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-white border border-gray-100 hover:border-forest-300 rounded-xl px-3 py-2.5 group transition-colors"
-                >
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-between bg-white border border-gray-100 hover:border-forest-300 rounded-xl px-3 py-2.5 group transition-colors">
                   <span className="text-sm text-forest-800 font-medium group-hover:text-forest-600 truncate pr-2 transition-colors">{link.label}</span>
                   <ExternalLink size={12} className="text-gray-300 group-hover:text-forest-500 shrink-0 transition-colors" />
                 </a>
@@ -289,7 +271,7 @@ export default function LinksRapidos() {
           </div>
         </div>
 
-        {/* ── Solicitar Avaliação no Google ── */}
+        {/* Solicitar Avaliação no Google */}
         <div className="mt-8">
           <div className="flex items-center gap-3 mb-5">
             <div className="bg-gold-100 p-2.5 rounded-xl shrink-0">
@@ -301,7 +283,6 @@ export default function LinksRapidos() {
             </div>
           </div>
 
-          {/* Link de avaliação editável */}
           <div className="bg-[#F4F6F0] rounded-2xl p-4 mb-5 flex items-center gap-3">
             <div className="bg-forest-800 p-2 rounded-xl shrink-0">
               <Link size={14} className="text-gold-500" />
@@ -310,10 +291,7 @@ export default function LinksRapidos() {
               <p className="text-xs font-bold text-forest-900 mb-0.5">Link de Avaliação Google</p>
               {editingReviewLink ? (
                 <div className="flex gap-1.5 items-center mt-1">
-                  <input
-                    autoFocus
-                    type="url"
-                    value={reviewLinkDraft}
+                  <input autoFocus type="url" value={reviewLinkDraft}
                     onChange={e => setReviewLinkDraft(e.target.value)}
                     onKeyDown={e => { if (e.key === 'Enter') commitReviewLink(); if (e.key === 'Escape') setEditingReviewLink(false) }}
                     placeholder="https://g.page/r/..."
@@ -323,16 +301,12 @@ export default function LinksRapidos() {
                   <button onClick={() => setEditingReviewLink(false)} className="text-gray-400 hover:text-gray-600 p-1"><X size={11} /></button>
                 </div>
               ) : (
-                <p className="text-xs text-gray-400 truncate">
-                  {reviewLink ? reviewLink : 'Nenhum link salvo — clique em Editar para colar o seu'}
-                </p>
+                <p className="text-xs text-gray-400 truncate">{reviewLink || 'Nenhum link salvo — clique em Editar para colar o seu'}</p>
               )}
             </div>
             {!editingReviewLink && (
-              <button
-                onClick={() => { setReviewLinkDraft(reviewLink); setEditingReviewLink(true) }}
-                className="text-xs border border-gray-200 text-gray-400 hover:border-forest-300 hover:text-forest-600 px-3 py-1.5 rounded-lg transition-colors font-semibold shrink-0"
-              >
+              <button onClick={() => { setReviewLinkDraft(reviewLink); setEditingReviewLink(true) }}
+                className="text-xs border border-gray-200 text-gray-400 hover:border-forest-300 hover:text-forest-600 px-3 py-1.5 rounded-lg transition-colors font-semibold shrink-0">
                 {reviewLink ? 'Editar' : '+ Colar link'}
               </button>
             )}
@@ -353,12 +327,10 @@ export default function LinksRapidos() {
             ))}
           </div>
 
-          {!reviewLink && (
-            <div className="mt-3 flex items-start gap-2 text-xs text-gray-400">
-              <Star size={11} className="text-gold-500 shrink-0 mt-0.5" />
-              <p>Para obter o link: acesse <span className="font-semibold">business.google.com</span> → clique em "Receber mais avaliações" → copie o link curto.</p>
-            </div>
-          )}
+          <div className="mt-3 flex items-start gap-2 text-xs text-gray-400">
+            <Star size={11} className="text-gold-500 shrink-0 mt-0.5" />
+            <p>Para obter o link: acesse <span className="font-semibold">business.google.com</span> → clique em "Receber mais avaliações" → copie o link curto. O link pré-carregado é um placeholder — substitua pelo seu link real do GMB.</p>
+          </div>
         </div>
       </div>
     </section>
