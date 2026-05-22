@@ -8,7 +8,7 @@ const REVENUE_KEY  = 'alexandre_jornada_revenue_v1'
 const CONTRACT_KEY = 'alexandre_jornada_contratos_v1'
 
 const INVESTIMENTO = 997
-const META = 50000
+const META = 15000
 
 interface RevenueEntry {
   id: string
@@ -26,24 +26,23 @@ interface Contrato {
 }
 
 const DEFAULT_REVENUE: RevenueEntry[] = [
-  { id: 'base', mes: 'mai/2026', faturamento: 15945, nota: 'Faturamento na entrada da Selva Premium', locked: true }
+  { id: 'base', mes: 'mai/2026', faturamento: 3000, nota: 'Faturamento na entrada da Selva Premium', locked: true }
 ]
 
 // ─── Deliverables ─────────────────────────────────────────────────────────────
 
 const entregas = [
-  { item: 'Sessão individual de Diagnóstico (2h com mentora)',               valor: 800  },
-  { item: 'Análise financeira da carteira — custo e margem por cliente',      valor: 600  },
-  { item: 'Identificação de R$6.000+/mês em contratos deficitários',         valor: 800  },
-  { item: 'Plano de Ação personalizado com cronograma e projeções',           valor: 1200 },
-  { item: 'Proposta Snowland — precificação, piso e análise de margem',       valor: 400  },
-  { item: 'Proposta H. Buona Vitta — precificação e análise de risco',        valor: 400  },
-  { item: 'Central Braun Paisagismo — plataforma digital exclusiva',          valor: 4500 },
-  { item: 'Framework Founder-Led Growth + banco de 20 conteúdos Instagram',   valor: 600  },
-  { item: 'Qualificador de ICP personalizado para a Braun Paisagismo',        valor: 300  },
-  { item: 'Acesso ao Gerador de Propostas Selva Premium',                     valor: 1200 },
-  { item: 'Modelos de contrato B2B (hotéis, condomínios, empresas)',          valor: 300  },
-  { item: 'Acesso ao grupo Selva Premium Fundadores (por mês)',               valor: 500  },
+  { item: 'Sessão individual de Diagnóstico (2h com mentora)',                      valor: 800  },
+  { item: 'Análise financeira — custo real por cliente e identificação de margem',  valor: 600  },
+  { item: 'Plano de Ação para sair do CLT em 90 dias (cronograma + projeções)',     valor: 1200 },
+  { item: 'Mapa de alvos — Belvedere, condomínios e industriais Itatiba',           valor: 400  },
+  { item: 'Proposta Belvedere — precificação com 25% margem (R$8.500)',             valor: 400  },
+  { item: 'Central Alexandre Jardins — plataforma digital exclusiva',               valor: 4500 },
+  { item: 'Framework Founder-Led Growth + banco de 20 conteúdos Instagram',        valor: 600  },
+  { item: 'Qualificador de ICP personalizado para Alexandre Jardins',               valor: 300  },
+  { item: 'Acesso ao Gerador de Propostas Selva Premium',                           valor: 1200 },
+  { item: 'Modelos de contrato B2B (condomínios, empresas, serviços)',              valor: 300  },
+  { item: 'Acesso ao grupo Selva Premium Fundadores (por mês)',                     valor: 500  },
 ]
 const TOTAL_ENTREGAS = entregas.reduce((s, e) => s + e.valor, 0)
 
@@ -104,7 +103,7 @@ export default function MinhaJornada() {
   const [cValor, setCValor]         = useState('')
   const [cData, setCData]           = useState('')
 
-  const lastFaturamento = entries.length > 0 ? entries[entries.length - 1].faturamento : 15945
+  const lastFaturamento = entries.length > 0 ? entries[entries.length - 1].faturamento : 3000
   const progPct = Math.min(100, Math.round((lastFaturamento / META) * 100))
 
   const totalContratosMonth = contratos.reduce((s, c) => s + c.valorMensal, 0)
@@ -143,7 +142,7 @@ export default function MinhaJornada() {
         <div className="mb-8">
           <span className="text-forest-700 text-xs font-bold uppercase tracking-widest">Crescimento real</span>
           <h2 className="text-3xl font-bold text-forest-900 mt-1">Minha Jornada</h2>
-          <p className="text-gray-500 mt-2">De R$15.945 para R$50.000/mês — registre cada passo desta trajetória</p>
+          <p className="text-gray-500 mt-2">De R$3.000 para R$15.000/mês — registre cada passo desta trajetória</p>
         </div>
 
         {/* ── Progresso para meta ── */}
@@ -194,7 +193,7 @@ export default function MinhaJornada() {
                   <input type="text" value={revMes} onChange={e => setRevMes(e.target.value)} placeholder="ex: jun/2026" className="flex-1 text-sm border border-gray-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-forest-400" />
                   <input type="text" value={revFat} onChange={e => setRevFat(e.target.value)} placeholder="Faturamento (R$)" className="flex-1 text-sm border border-gray-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-forest-400" />
                 </div>
-                <input type="text" value={revNota} onChange={e => setRevNota(e.target.value)} placeholder="Nota (opcional) — ex: fechou Snowland" className="w-full text-sm border border-gray-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-forest-400" />
+                <input type="text" value={revNota} onChange={e => setRevNota(e.target.value)} placeholder="Nota (opcional) — ex: fechou Belvedere" className="w-full text-sm border border-gray-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-forest-400" />
                 <div className="flex gap-2">
                   <button onClick={addRevenue} className="text-xs bg-forest-700 hover:bg-forest-600 text-white px-3 py-1.5 rounded-lg font-semibold transition-colors flex items-center gap-1"><Check size={11} /> Salvar</button>
                   <button onClick={() => setAddingRev(false)} className="text-xs text-gray-400 hover:text-gray-600 px-2 py-1.5 flex items-center gap-1"><X size={11} /> Cancelar</button>
@@ -257,7 +256,7 @@ export default function MinhaJornada() {
               <div className="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center">
                 <TrendingUp size={24} className="text-gray-200 mx-auto mb-2" />
                 <p className="text-gray-400 text-sm">Nenhum contrato registrado ainda</p>
-                <p className="text-gray-400 text-xs mt-0.5">Snowland e H. Buona Vitta estão a caminho →</p>
+                <p className="text-gray-400 text-xs mt-0.5">Belvedere e Ville Chamonix estão a caminho →</p>
               </div>
             ) : (
               <div className="space-y-2.5 mb-4">
@@ -324,8 +323,8 @@ export default function MinhaJornada() {
             <div className="grid sm:grid-cols-3 gap-4">
               {[
                 { label: 'Investimento no programa', value: 'R$ 997', color: 'text-white' },
-                { label: 'Se fechar Snowland + H. Buona Vitta', value: 'R$ 281.184/ano', color: 'text-gold-400' },
-                { label: 'ROI potencial', value: '28.100%', color: 'text-green-400' },
+                { label: 'Se fechar Belvedere + 1 condomínio', value: 'R$ 138.000/ano', color: 'text-gold-400' },
+                { label: 'ROI potencial', value: '13.700%', color: 'text-green-400' },
               ].map(item => (
                 <div key={item.label} className="bg-forest-700/50 rounded-xl p-4">
                   <p className="text-white/60 text-xs mb-1">{item.label}</p>

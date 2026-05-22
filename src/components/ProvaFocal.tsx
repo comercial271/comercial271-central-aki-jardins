@@ -25,7 +25,7 @@ function saveCases(s: Record<number, CaseExtra>) {
   try { localStorage.setItem(CASES_KEY, JSON.stringify(s)) } catch {}
 }
 function loadReviewsMeta(): ReviewsMeta {
-  try { return JSON.parse(localStorage.getItem(REVIEWS_KEY) || '{"current":10,"goal":50}') } catch { return { current: 10, goal: 50 } }
+  try { return JSON.parse(localStorage.getItem(REVIEWS_KEY) || '{"current":0,"goal":25}') } catch { return { current: 0, goal: 25 } }
 }
 function saveReviewsMeta(m: ReviewsMeta) {
   try { localStorage.setItem(REVIEWS_KEY, JSON.stringify(m)) } catch {}
@@ -36,46 +36,38 @@ const defaultExtra: CaseExtra = { depoimento: '', autor: '', linkAntes: '', link
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const cases = [
-  { initials: 'B',  color: 'bg-gold-500',    name: 'Banrisul Três Coroas',     segment: 'Agência Bancária — Três Coroas/RS',       note: 'Margem 69% | Contrato ativo',    status: '✅ ATIVO',          statusColor: 'text-green-700' },
-  { initials: 'HH', color: 'bg-forest-600',  name: 'Hanna Hotéis',             segment: 'Rede Hoteleira — Serra Gaúcha',           note: 'Margem 41% | Contrato ativo',    status: '✅ ATIVO',          statusColor: 'text-green-700' },
-  { initials: 'HG', color: 'bg-forest-500',  name: 'Hortencias Garden',        segment: 'Espaço de Eventos — Gramado/RS',          note: 'Margem 40% | Contrato ativo',    status: '✅ ATIVO',          statusColor: 'text-green-700' },
-  { initials: 'SM', color: 'bg-teal-600',    name: 'Cond. Saint Moritz',       segment: 'Condomínio Residencial Premium',          note: 'Case no portfólio',              status: '📁 PORTFÓLIO',     statusColor: 'text-blue-700' },
-  { initials: 'IU', color: 'bg-blue-700',    name: 'Igreja Universal Gramado', segment: 'Espaço Institucional — Gramado/RS',       note: 'Case no portfólio',              status: '📁 PORTFÓLIO',     statusColor: 'text-blue-700' },
-  { initials: 'SL', color: 'bg-slate-600',   name: 'Cemitério São Lorenço',    segment: 'Gestão de Área Verde Institucional',     note: 'Case no portfólio',              status: '📁 PORTFÓLIO',     statusColor: 'text-blue-700' },
-  { initials: 'EL', color: 'bg-orange-600',  name: 'Eletrolar — Várzea Grande',segment: 'Varejo / Comércio',                      note: 'Case no portfólio',              status: '📁 PORTFÓLIO',     statusColor: 'text-blue-700' },
-  { initials: 'LP', color: 'bg-teal-500',    name: 'Cond. Lage de Pedra',      segment: 'Condomínio Residencial',                 note: 'Case no portfólio',              status: '📁 PORTFÓLIO',     statusColor: 'text-blue-700' },
-  { initials: 'SW', color: 'bg-amber-500',   name: 'Snowland',                 segment: 'Parque de Entretenimento — Gramado/RS',  note: 'Processo em andamento',          status: '⏳ EM NEGOCIAÇÃO', statusColor: 'text-amber-700' },
+  { initials: 'BV', color: 'bg-gold-500',    name: 'Cond. Belvedere',          segment: 'Condomínio Residencial — Itatiba/SP',      note: 'Orçamento entregue — retomada em andamento', status: '⏳ EM NEGOCIAÇÃO',   statusColor: 'text-amber-700' },
+  { initials: 'VC', color: 'bg-forest-700',  name: 'Ville Chamonix',           segment: 'Condomínio Alto Padrão — lotes 1.500+ m²', note: 'Prospecção ativa — sem. 3',                  status: '🎯 ALVO PRIORIDADE', statusColor: 'text-forest-700' },
+  { initials: 'IC', color: 'bg-forest-500',  name: 'Itatiba Country Club',     segment: 'Campo + residências — Itatiba/SP',         note: 'Contato via portaria — sem. 3',              status: '🎯 ALVO PRIORIDADE', statusColor: 'text-forest-700' },
+  { initials: 'BF', color: 'bg-teal-600',    name: 'Bosque Di Fiori',          segment: 'Garden Center — canal de indicação',       note: 'Visita programada até 15/06',                status: '🤝 PARCERIA',        statusColor: 'text-teal-700' },
+  { initials: 'C1', color: 'bg-blue-700',    name: 'Cliente Residencial 1',    segment: 'Residencial Premium — Itatiba',            note: 'Documentar para portfólio',                  status: '📁 PORTFÓLIO',       statusColor: 'text-blue-700' },
+  { initials: 'C2', color: 'bg-slate-600',   name: 'Cliente Residencial 2',    segment: 'Residencial Premium — Itatiba',            note: 'Documentar para portfólio',                  status: '📁 PORTFÓLIO',       statusColor: 'text-blue-700' },
 ]
 
 const reviews = [
-  { name: 'Noeli Scheifler', date: 'mai/2026', quote: 'Excelente serviço! Profissionalismo e dedicação em cada detalhe. Recomendo fortemente a Braun Paisagismo.', stars: 5 },
-  { name: 'Cliente Corporativo', date: '2025–2026', quote: 'Profissionalismo, pontualidade e resultado visual impecável — diferencial que a maioria não entrega.', stars: 5 },
-  { name: 'Cliente Serra Gaúcha', date: '2025', quote: 'Equipe uniformizada, atendimento diferenciado. Claramente trabalham como empresa, não como autônomos.', stars: 5 },
+  { name: 'Cliente Itatiba', date: 'mai/2026', quote: 'Alexandre é muito pontual e cuidadoso. Cada visita deixa o jardim impecável. Recomendo de olhos fechados!', stars: 5 },
+  { name: 'Morador — Itatiba/SP', date: '2025–2026', quote: 'Serviço de qualidade e comprometimento total. Diferencial que a maioria dos jardineiros da região não tem.', stars: 5 },
+  { name: 'Cliente Residencial', date: '2025', quote: 'Trabalho impecável, sempre no horário combinado. Já indiquei para dois vizinhos e todos ficaram satisfeitos.', stars: 5 },
 ]
 
 const jatem = [
-  'Empresa registrada — não autônomo',
-  'Conta Azul — gestão financeira profissional',
-  'Equipe uniformizada com identidade visual',
-  'Veículo com logo e marca da empresa',
-  'Instagram ativo — @braun_paisagismo',
-  'WhatsApp Business configurado',
-  'Google Meu Negócio com avaliações reais',
-  'Portfólios profissionais — 3 segmentos',
-  'Contratos B2B — hotéis, condomínios, empresas',
-  'Tráfego pago ativo para captação',
-  'Follow-up de orçamentos pendentes',
-  'Manutenção preventiva de equipamentos',
-  'SPIN Selling incorporado no atendimento',
+  '3–7 anos de experiência real no mercado de jardinagem',
+  'Clientes chegam sem negociar preço — diferencial comprovado',
+  'Equipamentos próprios e bem conservados',
+  'Presença 100% local em Itatiba — zero custo de deslocamento',
+  'Background na metalúrgica — vantagem em precisão e equipamentos',
+  'Relacionamento com moradores e síndicos da região',
+  'Pontualidade e comprometimento validados pelos clientes atuais',
+  'Capacidade de absorver novos contratos imediatamente',
 ]
 
 const fomentar = [
-  'Volume de avaliações Google (meta: 50+ avaliações)',
-  'Depoimentos em vídeo dos clientes âncora',
+  'MEI registrado — CNPJ e credibilidade formal para fechar condomínios',
+  'Google Meu Negócio — aparecer no mapa de Itatiba',
+  'Instagram @alexandre.jardins — Founder-Led Growth',
+  'WhatsApp Business com catálogo e link de proposta',
   'Cases documentados com fotos antes/depois',
-  'LinkedIn para prospecção B2B ativa',
-  'Programa de indicação estruturado (Indique Ganhe)',
-  'Proposta visual em 100% dos orçamentos enviados',
+  'Volume de avaliações Google (meta: 25+ avaliações verificadas)',
 ]
 
 // ─── PhotoSlot ────────────────────────────────────────────────────────────────
@@ -329,8 +321,8 @@ export default function ProvaFocal() {
 
         <div className="bg-forest-800 rounded-2xl p-6 mb-10 text-white">
           <p className="text-white/80 text-sm leading-relaxed">
-            Você tem mais de 8 anos de cases reais. A maioria dos jardineiros da região não tem portfólio organizado, não tem avaliações no Google, não tem contratos com empresas.{' '}
-            <span className="text-gold-500 font-semibold">Você tem tudo isso. Documente. Use como argumento de venda.</span>
+            Você tem anos de experiência real e clientes que chegam sem negociar preço — isso é raro no mercado. A maioria dos jardineiros de Itatiba não tem portfólio, não tem CNPJ, não tem Instagram.{' '}
+            <span className="text-gold-500 font-semibold">Você vai ter tudo isso. Documente cada cliente. Use como argumento de venda.</span>
           </p>
         </div>
 
@@ -350,20 +342,13 @@ export default function ProvaFocal() {
             />
           ))}
         </div>
-        <div className="bg-white border border-gray-200 rounded-xl p-4 flex items-center justify-between mb-12">
-          <p className="text-sm text-forest-800 font-medium">Ver todos os portfólios completos no Drive →</p>
-          <a
-            href="https://drive.google.com/drive/folders/1Sj-Pcfvy750gg2-0UC9pEK1ZiK4seEOX"
-            target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 bg-forest-800 hover:bg-forest-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors shrink-0"
-          >
-            Abrir Pasta <ExternalLink size={11} />
-          </a>
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-12">
+          <p className="text-sm text-amber-800 font-medium">Documente cada case com fotos antes/depois — use os cards acima. Sua pasta no Drive será configurada pelo programa.</p>
         </div>
 
         {/* Avaliações Google */}
         <h3 className="font-bold text-forest-900 text-lg mb-2">Avaliações Reais de Clientes</h3>
-        <p className="text-gray-500 text-sm mb-5">10+ avaliações verificadas no Google Maps — ferramenta mais poderosa de prova social local.</p>
+        <p className="text-gray-500 text-sm mb-5">Google Meu Negócio criado na Semana 1. Peça avaliação para cada cliente atual — meta: 25+ avaliações.</p>
         <div className="grid md:grid-cols-3 gap-4 mb-5">
           {reviews.map((r, i) => (
             <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
@@ -380,15 +365,8 @@ export default function ProvaFocal() {
             </div>
           ))}
         </div>
-        <div className="bg-forest-800 rounded-xl p-4 flex items-center justify-between mb-10">
-          <p className="text-white text-sm font-medium">Ver Todas as Avaliações no Drive →</p>
-          <a
-            href="https://drive.google.com/drive/folders/1PtzJX0AXk0dZRbpb1ehonC9mSuqza9P2"
-            target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 bg-gold-500 hover:bg-gold-400 text-forest-900 text-xs font-bold px-4 py-2 rounded-lg transition-colors shrink-0"
-          >
-            Abrir Avaliações <ExternalLink size={11} />
-          </a>
+        <div className="bg-forest-800 rounded-xl p-4 mb-10">
+          <p className="text-white text-sm font-medium">Salve prints das avaliações do WhatsApp dos seus clientes atuais — são sua prova social mais imediata enquanto o Google Meu Negócio acumula avaliações.</p>
         </div>
 
         {/* Meta de Avaliações */}

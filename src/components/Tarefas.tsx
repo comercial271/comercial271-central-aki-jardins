@@ -30,57 +30,57 @@ type SetAllState = (v: AllState | ((p: AllState) => AllState)) => void
 
 const tarefas = [
   {
-    id: 'clientes-prejuizo',
-    prazo: '22/05 — QUINTA',
+    id: 'formalizar',
+    prazo: '29/05 — URGENTE',
     urgencia: 'red',
-    titulo: 'Identificar os 5 clientes com maior prejuízo',
-    descricao: 'Com base na planilha de análise de clientes, selecionar os 5 que mais drenam margem. Redigir mensagem de desligamento ou reajuste. Estes clientes estão travando seu crescimento.',
-    nota: 'Guilherme Perobelli (-38%), Jonatas (-41%) e Cond. Casa e Gramado (-26%) já foram identificados na análise de 20/05.',
-    link: { label: 'Ver Planilha de Clientes', href: 'https://docs.google.com/spreadsheets/d/1YwSLAciSja6eWzN4llqETchiD2heETWv' },
+    titulo: 'Formalizar o negócio — MEI, GMB, WhatsApp Business e Instagram',
+    descricao: 'Quatro ações que transformam um autônomo em empresa. Sem CNPJ, sem credibilidade para fechar condomínio. O síndico precisa contratar uma empresa registrada, não um jardineiro avulso.',
+    nota: 'MEI é gratuito e leva 15 min em gov.br/mei. Google Meu Negócio coloca você no radar de Itatiba. WhatsApp Business + @alexandre.jardins completam a presença digital.',
+    link: { label: 'Abrir MEI em gov.br/mei', href: 'https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/quero-ser-mei/formalize-se-mei' },
   },
   {
-    id: 'reajuste-carteira',
-    prazo: '22/05 — QUINTA',
+    id: 'mapeamento-clientes',
+    prazo: '29/05 — URGENTE',
     urgencia: 'red',
-    titulo: 'Reajustar clientes com margem baixa (+25% mínimo)',
-    descricao: 'Para os clientes que ficam — não os que serão demitidos — aplicar reajuste de no mínimo 25%. Lembre: a maioria aceita sem reclamar. O medo é seu, não deles.',
-    nota: 'Dado crítico do seu diagnóstico: "A maioria aceita sem reclamar" — você mesmo disse isso.',
+    titulo: 'Mapear todos os clientes desde janeiro na planilha',
+    descricao: 'Liste nome, frequência, dias trabalhados por mês, valor cobrado e valor correto a R$800/dia. Esta planilha vai mostrar exatamente quem está gerando lucro e quem está te custando dinheiro.',
+    nota: 'Dado crítico do seu diagnóstico: você sabe calcular o custo, mas trava na hora de colocar margem. A planilha vai tornar o problema visível demais para ignorar.',
     link: null,
   },
   {
-    id: 'snowland-contato',
-    prazo: '25/05 — DOMINGO',
+    id: 'reajuste-diaria',
+    prazo: '05/06 — SEM. 2',
     urgencia: 'orange',
-    titulo: 'Primeiro contato com Snowland',
-    descricao: 'Ligar ou visitar pessoalmente para retomar o processo. Eles já conhecem seu trabalho — você ligou em 12/05 e disseram que o processo ainda está aberto. Isso é uma retomada, não prospecção fria.',
-    nota: 'Piso recomendado: R$ 7.500/mês | Projeção: R$ 8.800/mês (49% de margem) | Deslocamento: ~40km/visita — controlado.',
-    link: { label: 'Gerar Proposta Snowland', href: 'https://geradordepropostaselva.lovable.app' },
-  },
-  {
-    id: 'buonavitta-contato',
-    prazo: '27/05 — TERÇA',
-    urgencia: 'orange',
-    titulo: 'Primeiro contato com H. Buona Vitta',
-    descricao: 'Marcar visita de diagnóstico. Confirmar localização exata antes de fechar proposta — deslocamento de 57km/visita pode impactar a margem.',
-    nota: 'Piso recomendado: R$ 12.000/mês | Projeção: R$ 14.632/mês (49% de margem). Confirmar que fica em rota com outros clientes.',
-    link: { label: 'Gerar Proposta H. Buona Vitta', href: 'https://geradordepropostaselva.lovable.app' },
-  },
-  {
-    id: 'campanha-indica',
-    prazo: '30/05 — SEXTA',
-    urgencia: 'yellow',
-    titulo: 'Campanha Indique e Ganhe com os 4 clientes âncora',
-    descricao: 'Seus 4 clientes de maior margem têm rede. Uma mensagem personalizada para cada um pedindo indicação pode gerar leads qualificados sem custo de aquisição.',
-    nota: 'Clientes âncora: Banrisul (69%), Hortencias Garden (40%), Pedro (38%), Hanna Hotéis (41%). São eles que devem abrir portas para os próximos contratos.',
+    titulo: 'Reajustar a diária para R$800 em todos os clientes',
+    descricao: 'Sem exceção. Quem não aceita a diária correta está pagando menos do que custa atender. O reajuste não é opcional — é a diferença entre crescer e continuar estagnado.',
+    nota: 'Seu diferencial: clientes chegam sem negociar preço. Use isso. A maioria dos seus clientes vai aceitar. O medo é seu, não deles.',
     link: null,
   },
   {
-    id: 'reativacao-leads',
-    prazo: '11/06 — CHECK-IN',
+    id: 'belvedere-retomada',
+    prazo: '10/06 — SEM. 2-3',
+    urgencia: 'orange',
+    titulo: 'Retomar Condomínio Belvedere — proposta com 25% de margem',
+    descricao: 'O orçamento foi entregue com lucro de 0%. Reenviar com 25% de margem: R$8.500 (era R$6.929). O síndico já conhece você e o processo está aberto — isso é retomada, não prospecção fria.',
+    nota: 'Belvedere é local — sem custo de deslocamento. Fechar este contrato já representa R$8.500/mês e coloca você no caminho dos R$10.500/mês.',
+    link: { label: 'Gerar Proposta Belvedere', href: 'https://geradordepropostaselva.lovable.app' },
+  },
+  {
+    id: 'condominios-itatiba',
+    prazo: '15/06 — PARALELO',
     urgencia: 'yellow',
-    titulo: 'Mapear leads que já passaram pelo funil + Definir ICP',
-    descricao: 'Liste todos os orçamentos enviados nos últimos 12 meses que não fecharam. Quem pediu orçamento e não fechou ainda tem interesse — só precisa de um gatilho. Reativação tem o menor custo de aquisição possível. Use o Qualificador de ICP na seção abaixo para avaliar cada um.',
-    nota: 'Script de reativação: "Diego aqui, da Braun Paisagismo. Ainda tenho aquela proposta disponível. Teria espaço para iniciarmos em junho?" — simples, direto, sem pressão.',
+    titulo: 'Abordagem Ville Chamonix + Itatiba Country Club',
+    descricao: 'Dois alvos de alto padrão em Itatiba. Ville Chamonix tem lotes 1.500+ m² e perfil premium. Itatiba Country Club tem campo e área verde extensa. Aborde o síndico pessoalmente com proposta formal e empresa registrada.',
+    nota: 'Cada um desses condomínios pode valer R$3.000–5.000/mês recorrente. Junto com Belvedere você chega no breakeven CLT.',
+    link: { label: 'Gerar Proposta Condomínio', href: 'https://geradordepropostaselva.lovable.app' },
+  },
+  {
+    id: 'bosque-parceria',
+    prazo: '15/06 — PARALELO',
+    urgencia: 'yellow',
+    titulo: 'Visitar Bosque Di Fiori — proposta de parceria de indicação',
+    descricao: 'Garden center em Itatiba. Vende plantas mas não mantém jardins. Canal de indicação natural — clientes que compram plantas precisam de quem mantenha. Uma visita pode gerar leads qualificados sem custo.',
+    nota: 'Parceria de indicação tem custo zero de aquisição. O cliente que chega via Bosque Di Fiori já está com intenção de compra — é o lead mais quente que existe.',
     link: null,
   },
 ]
@@ -326,8 +326,8 @@ export default function Tarefas() {
         <div className="bg-forest-800 rounded-2xl p-6 mb-8 text-white flex items-start gap-4">
           <AlertTriangle className="text-gold-500 shrink-0 mt-0.5" size={22} />
           <div className="flex-1">
-            <p className="font-bold text-lg">Semana decisiva — 22 a 30/05/2026</p>
-            <p className="text-white/70 text-sm mt-1">Cinco movimentos que podem mudar definitivamente o seu faturamento. Não adie.</p>
+            <p className="font-bold text-lg">Seus 6 movimentos — maio a junho/2026</p>
+            <p className="text-white/70 text-sm mt-1">Seis ações que vão de autônomo informal a empresa com condomínio fechado. Não adie.</p>
             <div className="mt-3 flex items-center gap-3">
               <div className="flex-1 bg-forest-700 rounded-full h-2">
                 <div

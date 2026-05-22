@@ -34,7 +34,7 @@ const builderQuestions: BuilderQ[] = [
     titulo: 'Seus melhores clientes hoje',
     pergunta: 'Pense nos 2 ou 3 clientes que você mais gosta de atender. O que eles têm em comum — tipo de espaço, perfil do responsável, localização, tamanho?',
     dica: 'Não pense no ticket ainda. Pense em quem você atende com orgulho e que indica seu trabalho.',
-    placeholder: 'Ex: São condomínios de médio porte em Gramado, com síndico que valoriza a aparência. Têm área de lazer grande e recebem visitas frequentes...',
+    placeholder: 'Ex: São residências premium em Itatiba, com proprietários que valorizam a aparência. Têm jardins grandes e recebem visitas frequentes...',
   },
   {
     id: 'segmento_ideal',
@@ -42,7 +42,7 @@ const builderQuestions: BuilderQ[] = [
     titulo: 'O segmento que faz mais sentido',
     pergunta: 'Qual tipo de espaço combina com o que você entrega de melhor: residencial premium, condomínio, hotel/pousada, empresa ou misto? Por que esse e não os outros?',
     dica: 'Considere sua experiência, seus casos de sucesso e onde você consegue cobrar o preço justo.',
-    placeholder: 'Ex: Hotéis e pousadas de Serra Gaúcha, porque o jardim é parte do produto deles. Eles entendem que paisagismo valoriza a diária...',
+    placeholder: 'Ex: Condomínios de alto padrão em Itatiba, porque o jardim valoriza o imóvel dos moradores. Eles entendem que paisagismo é parte da imagem do condomínio...',
   },
   {
     id: 'dor_principal',
@@ -58,7 +58,7 @@ const builderQuestions: BuilderQ[] = [
     titulo: 'Por que te escolhem',
     pergunta: 'Por que o cliente ideal escolhe a Braun e não alguém mais barato? O que você entrega que é difícil de copiar?',
     dica: 'Pode ser confiabilidade, apresentação, proposta visual, empresa registrada, follow-up... o que você ouviu de clientes satisfeitos?',
-    placeholder: 'Ex: Empresa registrada, equipe uniformizada, presença constante no Instagram, proposta no papel antes de começar, WhatsApp respondido no mesmo dia...',
+    placeholder: 'Ex: Confiança e pontualidade, clientes chegam por indicação, equipamentos próprios, local de Itatiba — zero deslocamento, proposta no papel antes de começar...',
   },
   {
     id: 'ticket_minimo',
@@ -74,7 +74,7 @@ const builderQuestions: BuilderQ[] = [
     titulo: 'Onde ele está',
     pergunta: 'Qual é o raio de distância viável para você? Que cidades ou regiões fazem parte da rota ideal da sua operação?',
     dica: 'Considere: deslocamento de ida e volta + tempo da equipe. Acima de quanto km o contrato deixa de valer a pena?',
-    placeholder: 'Ex: Três Coroas, Gramado, Canela, Nova Petrópolis — dentro de 50km. Acima disso só vale se for um contrato acima de R$ 3.500...',
+    placeholder: 'Ex: Itatiba, Atibaia, Jarinu, Jundiaí — dentro de 30km. Acima disso só vale se for um contrato acima de R$ 2.000...',
   },
   {
     id: 'anti_icp',
@@ -388,7 +388,7 @@ export default function IcpBraun() {
             <p className="text-amber-700 text-sm mt-1">
               Liste todos os orçamentos enviados nos últimos 12 meses que não fecharam.{' '}
               <strong>Esses leads já demonstraram interesse</strong> — são os mais fáceis de converter.{' '}
-              Script de reativação: <em>"Diego aqui, da Braun Paisagismo. Ainda tenho aquela proposta disponível. Teria espaço para iniciarmos em junho?"</em> — simples, sem pressão.
+              Script de reativação: <em>"Alexandre aqui, da Alexandre Jardins. Ainda tenho aquela proposta disponível. Teria espaço para iniciarmos em junho?"</em> — simples, sem pressão.
             </p>
           </div>
         </div>

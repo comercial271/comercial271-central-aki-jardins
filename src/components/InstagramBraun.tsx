@@ -13,7 +13,7 @@ const pilares = [
     bg: 'bg-forest-700',
     freq: '1-2x/semana',
     desc: 'Antes/depois com contexto. Não só a foto — conta o problema do cliente, o desafio, e o que foi feito.',
-    gancho: '"O jardim do [cliente] estava [situação]. O que a Braun fez em [X dias]:"',
+    gancho: '"O jardim do [cliente] estava [situação]. O que a Alexandre Jardins fez em [X dias]:"',
     formato: 'Reel ou Carrossel',
   },
   {
@@ -22,8 +22,8 @@ const pilares = [
     Icon: Camera,
     bg: 'bg-teal-600',
     freq: '2-3x/semana (Stories)',
-    desc: 'Diego + equipe em ação. Chegada, processo, detalhes que mostram cuidado. Humaniza a marca.',
-    gancho: '"Uma manhã de trabalho na Serra Gaúcha (6h30, POV)" ou "Assim anda minha equipe:"',
+    desc: 'Alexandre em ação. Chegada, processo, detalhes que mostram cuidado. Humaniza a marca.',
+    gancho: '"Uma manhã de trabalho em Itatiba (6h30, POV)" ou "Assim começa meu dia de trabalho:"',
     formato: 'Stories + Reels curtos',
   },
   {
@@ -52,33 +52,33 @@ const pilares = [
     Icon: Mic,
     bg: 'bg-purple-700',
     freq: '1-2x/semana',
-    desc: 'Diego falando diretamente. Sua história, sua visão, suas opiniões. Você cria confiança — não a empresa.',
-    gancho: '"Saí de fábrica de calçados. Hoje tenho contratos com hotéis 4 estrelas. Como aconteceu:"',
+    desc: 'Alexandre falando diretamente. Sua história, sua visão, suas opiniões. Você cria confiança — não a empresa.',
+    gancho: '"Trabalhei anos na metalúrgica. Hoje tenho contratos com condomínios de alto padrão. Como aconteceu:"',
     formato: 'Reel (câmera na cara)',
   },
 ]
 
 const ideias = [
-  { id: '01', pilar: 'transformacao', formato: 'Reel',      hook: 'O jardim do Cond. [X] estava sem manutenção há meses. O que a Braun fez em 2 semanas:',                         visual: 'Gravação chegando no canteiro + corte rápido do trabalho + resultado final com zoom nos detalhes' },
-  { id: '02', pilar: 'transformacao', formato: 'Carrossel', hook: 'Antes e depois: a transformação que o Banrisul Três Coroas nos pediu',                                             visual: 'Fotos antes vs depois lado a lado, último slide = equipe na frente da agência' },
-  { id: '03', pilar: 'transformacao', formato: 'Reel',      hook: 'Hortencias Garden queria um jardim que refletisse o nível do espaço. Entregamos:',                                 visual: 'Tour do espaço antes, zoom nos problemas, corte para o depois com música ambiente' },
-  { id: '04', pilar: 'bastidores',    formato: 'Reel',      hook: 'Como começa um dia de trabalho na Alexandre Jardins — Serra Gaúcha, 6h30',                                          visual: 'POV: entrando na van, arrumando equipamentos, estrada da Serra, chegando no primeiro cliente' },
+  { id: '01', pilar: 'transformacao', formato: 'Reel',      hook: 'O jardim do Cond. [X] estava sem manutenção há meses. O que a Alexandre Jardins entregou em 2 semanas:',                         visual: 'Gravação chegando no canteiro + corte rápido do trabalho + resultado final com zoom nos detalhes' },
+  { id: '02', pilar: 'transformacao', formato: 'Carrossel', hook: 'Antes e depois: a transformação que o Cond. Belvedere nos pediu',                                                  visual: 'Fotos antes vs depois lado a lado, último slide = Alexandre na frente do condomínio' },
+  { id: '03', pilar: 'transformacao', formato: 'Reel',      hook: 'O condomínio queria um jardim que refletisse o nível do espaço. Entregamos:',                                       visual: 'Tour do espaço antes, zoom nos problemas, corte para o depois com música ambiente' },
+  { id: '04', pilar: 'bastidores',    formato: 'Reel',      hook: 'Como começa um dia de trabalho na Alexandre Jardins — Itatiba, 6h30',                                               visual: 'POV: arrumando equipamentos, saindo para o primeiro cliente, chegando no jardim' },
   { id: '05', pilar: 'bastidores',    formato: 'Stories',   hook: 'Minha equipe anda assim — uniforme, logo, nome. Por um motivo.',                                                   visual: 'Foto equipe uniformizada no cliente, close no bordado da camisa, slide com texto explicando o porquê' },
-  { id: '06', pilar: 'bastidores',    formato: 'Reel',      hook: 'Manutenção dos equipamentos antes de ir a campo — o que a maioria das empresas não faz',                           visual: 'Mostrando revisão de cada equipamento, Diego explica o que acontece se não fizer isso' },
-  { id: '07', pilar: 'bastidores',    formato: 'Stories',   hook: 'Visita de diagnóstico: o que eu analiso antes de fechar qualquer contrato',                                        visual: 'Diego mostrando o que observa, explica o processo profissional de avaliação em 3-4 slides' },
+  { id: '06', pilar: 'bastidores',    formato: 'Reel',      hook: 'Manutenção dos equipamentos antes de ir a campo — o que a maioria das empresas não faz',                           visual: 'Mostrando revisão de cada equipamento, Alexandre explica o que acontece se não fizer isso' },
+  { id: '07', pilar: 'bastidores',    formato: 'Stories',   hook: 'Visita de diagnóstico: o que eu analiso antes de fechar qualquer contrato',                                        visual: 'Alexandre mostrando o que observa, explica o processo profissional de avaliação em 3-4 slides' },
   { id: '08', pilar: 'educacao',      formato: 'Carrossel', hook: '3 erros que jardins corporativos cometem — e que custam caro',                                                     visual: '5 slides: erro 1 (frequência errada), erro 2 (serviço amador), erro 3 (sem contrato), solução, CTA' },
-  { id: '09', pilar: 'educacao',      formato: 'Carrossel', hook: 'Quando é hora de trocar o paisagismo da sua empresa? Esses 4 sinais dizem tudo',                                  visual: 'Fotos de antes ruins + explicação de cada sinal, slide final com CTA "chame a Braun"' },
-  { id: '10', pilar: 'educacao',      formato: 'Reel',      hook: 'Quanto custa, na prática, um contrato de manutenção de jardim corporativo? Vou ser direto:',                       visual: 'Diego direto para câmera, fala as faixas de valor sem rodeios, explica o que inclui' },
+  { id: '09', pilar: 'educacao',      formato: 'Carrossel', hook: 'Quando é hora de trocar o paisagismo da sua empresa? Esses 4 sinais dizem tudo',                                  visual: 'Fotos de antes ruins + explicação de cada sinal, slide final com CTA "chame a Alexandre Jardins"' },
+  { id: '10', pilar: 'educacao',      formato: 'Reel',      hook: 'Quanto custa, na prática, um contrato de manutenção de jardim corporativo? Vou ser direto:',                       visual: 'Alexandre direto para câmera, fala as faixas de valor sem rodeios, explica o que inclui' },
   { id: '11', pilar: 'educacao',      formato: 'Carrossel', hook: 'A diferença real entre contratar um jardineiro e contratar uma empresa de paisagismo:',                           visual: 'Tabela comparativa visual: seguro, continuidade, compliance, qualidade, preço final' },
-  { id: '12', pilar: 'b2b',           formato: 'Reel',      hook: 'O jardim do seu hotel é a primeira impressão do hóspede. O que ele está dizendo sobre você?',                     visual: 'Diego caminhando na frente de hotel, apontando os detalhes que hóspedes notam' },
-  { id: '13', pilar: 'b2b',           formato: 'Carrossel', hook: 'Por que hotéis da Serra Gaúcha precisam de paisagismo de nível hospitality',                                       visual: '5 slides: contexto turismo da Serra, fotos de hotéis premium + jardins, diferencial, CTA' },
-  { id: '14', pilar: 'b2b',           formato: 'Reel',      hook: 'Síndico: seu jardim valoriza ou desvaloriza seu condomínio? Resposta direta:',                                    visual: 'Diego falando para câmera com dados sobre valorização imobiliária e percepção de moradores' },
-  { id: '15', pilar: 'b2b',           formato: 'Carrossel', hook: 'A Alexandre Jardins atende quem? Veja se você se encaixa:',                                                         visual: 'Perfil do cliente ideal: hotel, condo, empresa; o que a Braun NÃO faz; CTA para orçamento' },
-  { id: '16', pilar: 'fundador',      formato: 'Reel',      hook: 'Trabalhei em fábrica de calçados. Fui demitido. Hoje tenho contratos com hotéis 4 estrelas. O que aconteceu:',    visual: 'Diego olhando para câmera, tom direto, conta a trajetória real em 60 segundos' },
-  { id: '17', pilar: 'fundador',      formato: 'Reel',      hook: 'Por que eu recuso cliente que só compra por preço — e como isso mudou meu negócio',                               visual: 'Diego direto, opinião, explica o conceito de cliente ideal sem citar nomes' },
-  { id: '18', pilar: 'fundador',      formato: 'Reel',      hook: 'O maior erro que cometi nos primeiros anos da Alexandre Jardins — e o que aprendi:',                               visual: 'Diego honesto, menciona o erro (ceder no preço por medo), conta a virada de mentalidade' },
-  { id: '19', pilar: 'fundador',      formato: 'Reel',      hook: 'Essa descoberta sobre minha carteira de clientes mudou completamente a empresa. Olha:',                           visual: 'Diego conta (sem expor nomes) que 11 clientes eram deficitários, o que aconteceu quando desligou' },
-  { id: '20', pilar: 'fundador',      formato: 'Reel',      hook: 'Por que eu prefiro fechar 2 contratos grandes a ter 20 clientes pequenos. Deixa eu te mostrar os números:',       visual: 'Diego explicando a lógica de margem e deslocamento, mostrando como isso funciona na prática' },
+  { id: '12', pilar: 'b2b',           formato: 'Reel',      hook: 'O jardim do seu condomínio é a primeira impressão do morador. O que ele está dizendo sobre você?',              visual: 'Alexandre caminhando na frente do condomínio, apontando os detalhes que moradores notam' },
+  { id: '13', pilar: 'b2b',           formato: 'Carrossel', hook: 'Por que condomínios de alto padrão em Itatiba precisam de paisagismo profissional',                                visual: '5 slides: contexto valorização imobiliária, fotos de condomínios premium + jardins, diferencial, CTA' },
+  { id: '14', pilar: 'b2b',           formato: 'Reel',      hook: 'Síndico: seu jardim valoriza ou desvaloriza seu condomínio? Resposta direta:',                                    visual: 'Alexandre falando para câmera com dados sobre valorização imobiliária e percepção de moradores' },
+  { id: '15', pilar: 'b2b',           formato: 'Carrossel', hook: 'A Alexandre Jardins atende quem? Veja se você se encaixa:',                                                        visual: 'Perfil do cliente ideal: condomínio, empresa, residencial premium; o que a Alexandre Jardins NÃO faz; CTA' },
+  { id: '16', pilar: 'fundador',      formato: 'Reel',      hook: 'Trabalhei anos na metalúrgica. Hoje tenho contratos com condomínios de alto padrão. Como aconteceu:',             visual: 'Alexandre olhando para câmera, tom direto, conta a trajetória real em 60 segundos' },
+  { id: '17', pilar: 'fundador',      formato: 'Reel',      hook: 'Por que eu recuso cliente que só compra por preço — e como isso mudou meu negócio',                               visual: 'Alexandre direto, opinião, explica o conceito de cliente ideal sem citar nomes' },
+  { id: '18', pilar: 'fundador',      formato: 'Reel',      hook: 'O maior erro que cometi nos primeiros anos da Alexandre Jardins — e o que aprendi:',                               visual: 'Alexandre honesto, menciona o erro (ceder no preço por medo), conta a virada de mentalidade' },
+  { id: '19', pilar: 'fundador',      formato: 'Reel',      hook: 'Essa descoberta sobre minha carteira de clientes mudou completamente a empresa. Olha:',                           visual: 'Alexandre conta como a análise de margem revelou que vários clientes pagavam menos do que custava atender' },
+  { id: '20', pilar: 'fundador',      formato: 'Reel',      hook: 'Por que eu prefiro fechar 2 contratos grandes a ter 20 clientes pequenos. Deixa eu te mostrar os números:',       visual: 'Alexandre explicando a lógica de margem e deslocamento, mostrando como isso funciona na prática' },
 ]
 
 const pilarBadge: Record<string, string> = {
@@ -144,14 +144,14 @@ export default function InstagramBraun() {
         <div className="bg-forest-800 rounded-2xl p-6 mb-10 text-white">
           <div className="flex items-center gap-2 mb-5">
             <Flame size={18} className="text-gold-500" />
-            <p className="font-bold text-lg">Founder-Led Growth — por que funciona para a Braun</p>
+            <p className="font-bold text-lg">Founder-Led Growth — por que funciona para Alexandre</p>
           </div>
           <p className="text-white/70 text-sm mb-6 max-w-2xl leading-relaxed">
-            Em B2B de serviços, as pessoas compram <strong className="text-white">pessoas</strong>. O hotel não contrata "a empresa Alexandre Jardins" — contrata o <strong className="text-white">Diego Braun</strong>, a pessoa que vai chegar toda semana e cuidar da imagem do negócio deles. Instagram é onde você prova quem você é <em>antes</em> da primeira reunião.
+            Em B2B de serviços, as pessoas compram <strong className="text-white">pessoas</strong>. O síndico não contrata "a empresa Alexandre Jardins" — contrata o <strong className="text-white">Alexandre</strong>, a pessoa que vai chegar toda semana e cuidar da imagem do condomínio deles. Instagram é onde você prova quem você é <em>antes</em> da primeira reunião.
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
             {[
-              { n: '01', titulo: 'Apareça', desc: 'Seu rosto é a marca. Um Reel com Diego falando converte mais do que 10 fotos de jardim.' },
+              { n: '01', titulo: 'Apareça', desc: 'Seu rosto é a marca. Um Reel com você falando converte mais do que 10 fotos de jardim.' },
               { n: '02', titulo: 'Ensine', desc: 'Quem ensina, vende. Conteúdo educacional te posiciona como especialista, não como fornecedor.' },
               { n: '03', titulo: 'Prove', desc: 'Cases com contexto. Não "jardim bonito" — o problema do cliente, a solução, o resultado.' },
             ].map(r => (
