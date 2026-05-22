@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Clapperboard, Camera, BookOpen, Building2, Mic, CheckCircle, Circle, Flame, AlertCircle, TrendingUp } from 'lucide-react'
+import { Clapperboard, Camera, BookOpen, Flame, TrendingUp, CheckCircle, Circle, AlertCircle } from 'lucide-react'
 
 const IG_IDEAS_KEY = 'alexandre_ig_ideas_v1'
 
@@ -7,14 +7,34 @@ const IG_IDEAS_KEY = 'alexandre_ig_ideas_v1'
 
 const pilares = [
   {
-    id: 'transformacao',
-    nome: 'Transformação',
+    id: 'transicao',
+    nome: 'Transição',
     Icon: Clapperboard,
     bg: 'bg-forest-700',
     freq: '1-2x/semana',
-    desc: 'Antes/depois com contexto. Não só a foto — conta o problema do cliente, o desafio, e o que foi feito.',
-    gancho: '"O jardim do [cliente] estava [situação]. O que a Alexandre Jardins fez em [X dias]:"',
-    formato: 'Reel ou Carrossel',
+    desc: 'A jornada de deixar a estabilidade pelo sonho. Conteúdo honesto sobre o processo de sair do CLT para empreender na jardinagem.',
+    gancho: '"Tenho um emprego público. E tô largando tudo pela jardinagem. Deixa eu te contar por quê:"',
+    formato: 'Reel (câmera na cara)',
+  },
+  {
+    id: 'perrengue',
+    nome: 'Perrengues',
+    Icon: Flame,
+    bg: 'bg-red-700',
+    freq: '1x/semana',
+    desc: 'Os erros reais, os perrengues e o que ninguém mostra quando começa. Vulnerabilidade gera confiança.',
+    gancho: '"Fiz um orçamento de R$6.929 pra um condomínio. Lucro no campo \'lucro\': zero. Isso é o que acontece quando você tem medo de cobrar."',
+    formato: 'Reel ou Stories',
+  },
+  {
+    id: 'conquista',
+    nome: 'Conquistas',
+    Icon: TrendingUp,
+    bg: 'bg-green-700',
+    freq: '1x/semana',
+    desc: 'Cada vitória merece ser celebrada — pequena ou grande. Marcos da transição que mostram progresso real.',
+    gancho: '"Hoje o condomínio Belvedere voltou pra discutir meu orçamento. Primeira conquista real: eles vieram atrás de mim."',
+    formato: 'Reel ou Stories',
   },
   {
     id: 'bastidores',
@@ -22,78 +42,67 @@ const pilares = [
     Icon: Camera,
     bg: 'bg-teal-600',
     freq: '2-3x/semana (Stories)',
-    desc: 'Alexandre em ação. Chegada, processo, detalhes que mostram cuidado. Humaniza a marca.',
-    gancho: '"Uma manhã de trabalho em Itatiba (6h30, POV)" ou "Assim começa meu dia de trabalho:"',
+    desc: 'Como é a rotina de quem faz os dois: CLT de segunda a sexta + empresa nos fins de semana. Humaniza e cria conexão.',
+    gancho: '"6h30 acordei. Fui pro jardim. Às 18h voltei pro trabalho normal. Essa é minha semana:"',
     formato: 'Stories + Reels curtos',
   },
   {
-    id: 'educacao',
-    nome: 'Educação',
+    id: 'aprendizado',
+    nome: 'Aprendizado',
     Icon: BookOpen,
-    bg: 'bg-blue-700',
-    freq: '1x/semana',
-    desc: 'Você ensina → você posiciona. O que separa paisagismo profissional de amador.',
-    gancho: '"3 erros que jardins corporativos cometem (e que custam caro)" ou "Quando trocar o paisagismo da sua empresa:"',
-    formato: 'Carrossel ou Reel',
-  },
-  {
-    id: 'b2b',
-    nome: 'Posicionamento B2B',
-    Icon: Building2,
-    bg: 'bg-amber-700',
-    freq: '1x/semana',
-    desc: 'Fala diretamente com hotéis, condomínios e empresas. Jardim como investimento, não como custo.',
-    gancho: '"O jardim do seu hotel é a primeira impressão do hóspede. O que ele está dizendo sobre você?"',
-    formato: 'Carrossel ou Reel',
-  },
-  {
-    id: 'fundador',
-    nome: 'Fundador',
-    Icon: Mic,
     bg: 'bg-purple-700',
-    freq: '1-2x/semana',
-    desc: 'Alexandre falando diretamente. Sua história, sua visão, suas opiniões. Você cria confiança — não a empresa.',
-    gancho: '"Trabalhei anos na metalúrgica. Hoje tenho contratos com condomínios de alto padrão. Como aconteceu:"',
-    formato: 'Reel (câmera na cara)',
+    freq: '1x/semana',
+    desc: 'O que cada semana ensina nessa transição. Lições que servem pra qualquer um que pensa em empreender.',
+    gancho: '"3 coisas que ninguém te fala quando você decide sair do CLT pra empreender:"',
+    formato: 'Carrossel ou Reel',
   },
 ]
 
 const ideias = [
-  { id: '01', pilar: 'transformacao', formato: 'Reel',      hook: 'O jardim do Cond. [X] estava sem manutenção há meses. O que a Alexandre Jardins entregou em 2 semanas:',                         visual: 'Gravação chegando no canteiro + corte rápido do trabalho + resultado final com zoom nos detalhes' },
-  { id: '02', pilar: 'transformacao', formato: 'Carrossel', hook: 'Antes e depois: a transformação que o Cond. Belvedere nos pediu',                                                  visual: 'Fotos antes vs depois lado a lado, último slide = Alexandre na frente do condomínio' },
-  { id: '03', pilar: 'transformacao', formato: 'Reel',      hook: 'O condomínio queria um jardim que refletisse o nível do espaço. Entregamos:',                                       visual: 'Tour do espaço antes, zoom nos problemas, corte para o depois com música ambiente' },
-  { id: '04', pilar: 'bastidores',    formato: 'Reel',      hook: 'Como começa um dia de trabalho na Alexandre Jardins — Itatiba, 6h30',                                               visual: 'POV: arrumando equipamentos, saindo para o primeiro cliente, chegando no jardim' },
-  { id: '05', pilar: 'bastidores',    formato: 'Stories',   hook: 'Minha equipe anda assim — uniforme, logo, nome. Por um motivo.',                                                   visual: 'Foto equipe uniformizada no cliente, close no bordado da camisa, slide com texto explicando o porquê' },
-  { id: '06', pilar: 'bastidores',    formato: 'Reel',      hook: 'Manutenção dos equipamentos antes de ir a campo — o que a maioria das empresas não faz',                           visual: 'Mostrando revisão de cada equipamento, Alexandre explica o que acontece se não fizer isso' },
-  { id: '07', pilar: 'bastidores',    formato: 'Stories',   hook: 'Visita de diagnóstico: o que eu analiso antes de fechar qualquer contrato',                                        visual: 'Alexandre mostrando o que observa, explica o processo profissional de avaliação em 3-4 slides' },
-  { id: '08', pilar: 'educacao',      formato: 'Carrossel', hook: '3 erros que jardins corporativos cometem — e que custam caro',                                                     visual: '5 slides: erro 1 (frequência errada), erro 2 (serviço amador), erro 3 (sem contrato), solução, CTA' },
-  { id: '09', pilar: 'educacao',      formato: 'Carrossel', hook: 'Quando é hora de trocar o paisagismo da sua empresa? Esses 4 sinais dizem tudo',                                  visual: 'Fotos de antes ruins + explicação de cada sinal, slide final com CTA "chame a Alexandre Jardins"' },
-  { id: '10', pilar: 'educacao',      formato: 'Reel',      hook: 'Quanto custa, na prática, um contrato de manutenção de jardim corporativo? Vou ser direto:',                       visual: 'Alexandre direto para câmera, fala as faixas de valor sem rodeios, explica o que inclui' },
-  { id: '11', pilar: 'educacao',      formato: 'Carrossel', hook: 'A diferença real entre contratar um jardineiro e contratar uma empresa de paisagismo:',                           visual: 'Tabela comparativa visual: seguro, continuidade, compliance, qualidade, preço final' },
-  { id: '12', pilar: 'b2b',           formato: 'Reel',      hook: 'O jardim do seu condomínio é a primeira impressão do morador. O que ele está dizendo sobre você?',              visual: 'Alexandre caminhando na frente do condomínio, apontando os detalhes que moradores notam' },
-  { id: '13', pilar: 'b2b',           formato: 'Carrossel', hook: 'Por que condomínios de alto padrão em Itatiba precisam de paisagismo profissional',                                visual: '5 slides: contexto valorização imobiliária, fotos de condomínios premium + jardins, diferencial, CTA' },
-  { id: '14', pilar: 'b2b',           formato: 'Reel',      hook: 'Síndico: seu jardim valoriza ou desvaloriza seu condomínio? Resposta direta:',                                    visual: 'Alexandre falando para câmera com dados sobre valorização imobiliária e percepção de moradores' },
-  { id: '15', pilar: 'b2b',           formato: 'Carrossel', hook: 'A Alexandre Jardins atende quem? Veja se você se encaixa:',                                                        visual: 'Perfil do cliente ideal: condomínio, empresa, residencial premium; o que a Alexandre Jardins NÃO faz; CTA' },
-  { id: '16', pilar: 'fundador',      formato: 'Reel',      hook: 'Trabalhei anos na metalúrgica. Hoje tenho contratos com condomínios de alto padrão. Como aconteceu:',             visual: 'Alexandre olhando para câmera, tom direto, conta a trajetória real em 60 segundos' },
-  { id: '17', pilar: 'fundador',      formato: 'Reel',      hook: 'Por que eu recuso cliente que só compra por preço — e como isso mudou meu negócio',                               visual: 'Alexandre direto, opinião, explica o conceito de cliente ideal sem citar nomes' },
-  { id: '18', pilar: 'fundador',      formato: 'Reel',      hook: 'O maior erro que cometi nos primeiros anos da Alexandre Jardins — e o que aprendi:',                               visual: 'Alexandre honesto, menciona o erro (ceder no preço por medo), conta a virada de mentalidade' },
-  { id: '19', pilar: 'fundador',      formato: 'Reel',      hook: 'Essa descoberta sobre minha carteira de clientes mudou completamente a empresa. Olha:',                           visual: 'Alexandre conta como a análise de margem revelou que vários clientes pagavam menos do que custava atender' },
-  { id: '20', pilar: 'fundador',      formato: 'Reel',      hook: 'Por que eu prefiro fechar 2 contratos grandes a ter 20 clientes pequenos. Deixa eu te mostrar os números:',       visual: 'Alexandre explicando a lógica de margem e deslocamento, mostrando como isso funciona na prática' },
+  // Transição
+  { id: '01', pilar: 'transicao',   formato: 'Reel',      hook: 'Tenho um emprego público. E tô largando tudo pela jardinagem. Deixa eu te contar por quê:', visual: 'Alexandre olhando direto pra câmera, tom tranquilo e direto — conta sobre o peso da estabilidade vs o que realmente quer' },
+  { id: '02', pilar: 'transicao',   formato: 'Reel',      hook: 'Todo mundo acha que sou louco. Emprego público, estabilidade pra vida toda. Mas me deixa te mostrar o que é liberdade de verdade:', visual: 'Câmera na cara, emoção real — contraste entre segurança financeira e propósito; cena no jardim no fim' },
+  { id: '03', pilar: 'transicao',   formato: 'Carrossel', hook: 'Meus fins de semana enquanto o resto descansa: construindo minha saída do CLT', visual: 'Fotos de sábado/domingo trabalhando nos jardins — tools, clientes, progressão; último slide com meta do breakeven' },
+  { id: '04', pilar: 'transicao',   formato: 'Reel',      hook: 'Calculei o número exato que preciso ganhar pra poder largar o emprego. É R$10.500/mês. E vou te mostrar como chegar lá:', visual: 'Alexandre mostra a conta no papel/celular — breakeven CLT, projeção, cronograma real de 90 dias' },
+
+  // Perrengues
+  { id: '05', pilar: 'perrengue',   formato: 'Reel',      hook: 'Fiz um orçamento de R$6.929 pra um condomínio. Lucro no campo "lucro": zero. Isso é o que acontece quando você tem medo de cobrar:', visual: 'Alexandre mostrando o PDF do orçamento Belvedere — campo lucro zerado — reflexão honesta sobre o bloqueio de precificação' },
+  { id: '06', pilar: 'perrengue',   formato: 'Stories',   hook: 'Cheguei num jardim hoje e o cliente mudou tudo do que combinamos. Respira. Profissional não entra em pânico. Mas dói.', visual: '3-4 slides: situação real no dia — o que aconteceu, como lidou, o que aprendeu' },
+  { id: '07', pilar: 'perrengue',   formato: 'Reel',      hook: 'Meu primeiro cliente me pagou R$150 por dia. Hoje cobro R$800. O que mudou? Não foi o jardim.', visual: 'Alexandre direto, fala sobre a evolução da autoconfiança na precificação — o que virou a chave' },
+  { id: '08', pilar: 'perrengue',   formato: 'Carrossel', hook: '5 erros que cometi nos primeiros meses que me custaram dinheiro de verdade — e o que aprendi com cada um', visual: 'Lista honesta: erro + lição por slide — tom vulnerável mas construtivo; último slide convida a seguir pra ver a virada' },
+
+  // Conquistas
+  { id: '09', pilar: 'conquista',   formato: 'Reel',      hook: 'Hoje o condomínio Belvedere voltou pra discutir meu orçamento. Primeira conquista real: eles vieram atrás de mim.', visual: 'Alexandre conta a ligação ou mensagem — o que isso significa na jornada; emoção genuína sem exagero' },
+  { id: '10', pilar: 'conquista',   formato: 'Stories',   hook: 'Acabei de formalizar meu MEI. Alexandre Jardins existe oficialmente. Um passo pequeno. Uma sensação enorme.', visual: '3 slides: captura do CNPJ emitido + texto sobre o que significou + próximo passo imediato' },
+  { id: '11', pilar: 'conquista',   formato: 'Reel',      hook: 'Fechei meu primeiro contrato formal com margem de lucro real. Isso aqui é pra quem acha que não tem saída do CLT.', visual: 'Alexandre segurando (ou mostrando no celular) o contrato assinado — tom motivador, real, não performático' },
+  { id: '12', pilar: 'conquista',   formato: 'Carrossel', hook: 'De jardineiro de fim de semana a empresa com contrato: os marcos que me trouxeram até aqui', visual: 'Cronograma visual mês a mês: quando começou, primeiro cliente, primeiro contrato, MEI, Belvedere — progressão real' },
+
+  // Bastidores
+  { id: '13', pilar: 'bastidores',  formato: 'Stories',   hook: 'Como é a minha semana real: metalúrgico/servidor de segunda a sexta + jardineiro nas folgas. Vem ver:', visual: '5-6 slides mostrando a semana — trabalho CLT, saída, ida pro jardim, equip, resultado, descanso' },
+  { id: '14', pilar: 'bastidores',  formato: 'Reel',      hook: '6h30 da manhã. Equipamentos carregados. Mais um dia construindo minha saída. POV:', visual: 'Câmera no carro, equipamentos, chegada no cliente — dia de trabalho real sem roteiro' },
+  { id: '15', pilar: 'bastidores',  formato: 'Stories',   hook: 'Acabei de comprar meu uniforme. Mais um tijolo da Alexandre Jardins. A empresa vai ganhando forma.', visual: '3 slides: foto do uniforme com a logo, quanto custou, o que significa psicologicamente ter uma identidade visual' },
+  { id: '16', pilar: 'bastidores',  formato: 'Reel',      hook: 'O que fica na cabeça de quem trabalha pra si mesmo no fim de semana e volta pro trabalho na segunda:', visual: 'Alexandre em voz over ou direto — reflexão honesta sobre a tensão entre os dois mundos' },
+
+  // Aprendizado
+  { id: '17', pilar: 'aprendizado', formato: 'Carrossel', hook: '3 coisas que ninguém te fala quando você decide sair do CLT pra empreender', visual: 'Um aprendizado por slide com exemplo real da experiência do Alexandre — tom de quem já viveu, não de coach' },
+  { id: '18', pilar: 'aprendizado', formato: 'Reel',      hook: 'Por que eu não saí do CLT antes? A resposta honesta pode te ajudar também:', visual: 'Alexandre direto — fala sobre o medo disfarçado de prudência; o que mudou a cabeça dele' },
+  { id: '19', pilar: 'aprendizado', formato: 'Carrossel', hook: 'Como calculei exatamente quanto preciso ganhar pra largar o emprego público (você pode fazer o mesmo)', visual: 'Mostra o cálculo real: custos pessoais + margem + impostos = breakeven; planilha simples que qualquer um entende' },
+  { id: '20', pilar: 'aprendizado', formato: 'Reel',      hook: 'Daqui 90 dias, tomo a decisão mais importante da minha vida. Esse perfil vai ser o diário dessa jornada.', visual: 'Post de kick-off — Alexandre anuncia a série, convida a acompanhar, mostra onde está agora e onde quer chegar' },
 ]
 
 const pilarBadge: Record<string, string> = {
-  transformacao: 'bg-forest-100 text-forest-800 border-forest-200',
-  bastidores:    'bg-teal-100 text-teal-800 border-teal-200',
-  educacao:      'bg-blue-100 text-blue-800 border-blue-200',
-  b2b:           'bg-amber-100 text-amber-800 border-amber-200',
-  fundador:      'bg-purple-100 text-purple-800 border-purple-200',
+  transicao:   'bg-forest-100 text-forest-800 border-forest-200',
+  perrengue:   'bg-red-100 text-red-800 border-red-200',
+  conquista:   'bg-green-100 text-green-800 border-green-200',
+  bastidores:  'bg-teal-100 text-teal-800 border-teal-200',
+  aprendizado: 'bg-purple-100 text-purple-800 border-purple-200',
 }
 const pilarLabel: Record<string, string> = {
-  transformacao: 'Transformação',
-  bastidores:    'Bastidores',
-  educacao:      'Educação',
-  b2b:           'Posic. B2B',
-  fundador:      'Fundador',
+  transicao:   'Transição',
+  perrengue:   'Perrengue',
+  conquista:   'Conquista',
+  bastidores:  'Bastidores',
+  aprendizado: 'Aprendizado',
 }
 
 function loadUsed(): Set<string> {
@@ -124,36 +133,36 @@ export default function InstagramBraun() {
     <section id="instagram" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4">
         <div className="mb-8">
-          <span className="text-forest-700 text-xs font-bold uppercase tracking-widest">Captação orgânica</span>
-          <h2 className="text-3xl font-bold text-forest-900 mt-1">Instagram — Founder-Led Growth</h2>
-          <p className="text-gray-500 mt-2">@alexandre.jardins é uma alavanca dormindo. Cada post é uma visita de prospecção gratuita.</p>
+          <span className="text-forest-700 text-xs font-bold uppercase tracking-widest">Conteúdo autêntico</span>
+          <h2 className="text-3xl font-bold text-forest-900 mt-1">Instagram — A Transição</h2>
+          <p className="text-gray-500 mt-2">Vem acompanhar comigo a minha transição de servidor público pra jardinagem. Vida real, perrengues e conquistas.</p>
         </div>
 
-        {/* Diagnóstico */}
+        {/* Por que sua história é o marketing */}
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 flex gap-3 items-start">
           <AlertCircle size={20} className="text-amber-600 shrink-0 mt-0.5" />
           <div>
-            <p className="font-bold text-amber-900">Diagnóstico: Instagram negligenciado</p>
+            <p className="font-bold text-amber-900">Tua história é teu marketing</p>
             <p className="text-amber-800 text-sm mt-1">
-              O gerente de hotel que vai te contratar pesquisa o <strong>@alexandre.jardins</strong> antes de responder o orçamento. Um perfil parado passa a mensagem errada. Seus concorrentes <strong>não fazem</strong> Instagram B2B — o espaço está aberto.
+              Você tem uma história que poucas pessoas têm: emprego público estável, escolhendo abrir mão da segurança por um sonho. Isso é <strong>raro</strong>, <strong>autêntico</strong> e <strong>conecta</strong>. Quem segue sua jornada vira cliente — porque já confia antes de contratar.
             </p>
           </div>
         </div>
 
-        {/* Founder-Led Growth */}
+        {/* Narrativa central */}
         <div className="bg-forest-800 rounded-2xl p-6 mb-10 text-white">
           <div className="flex items-center gap-2 mb-5">
-            <Flame size={18} className="text-gold-500" />
-            <p className="font-bold text-lg">Founder-Led Growth — por que funciona para Alexandre</p>
+            <Clapperboard size={18} className="text-gold-500" />
+            <p className="font-bold text-lg">A narrativa que vai te diferenciar de todos</p>
           </div>
           <p className="text-white/70 text-sm mb-6 max-w-2xl leading-relaxed">
-            Em B2B de serviços, as pessoas compram <strong className="text-white">pessoas</strong>. O síndico não contrata "a empresa Alexandre Jardins" — contrata o <strong className="text-white">Alexandre</strong>, a pessoa que vai chegar toda semana e cuidar da imagem do condomínio deles. Instagram é onde você prova quem você é <em>antes</em> da primeira reunião.
+            Não existe nenhum jardineiro em Itatiba contando essa história. Você não é "mais um prestador de serviço" — você é <strong className="text-white">o cara que escolheu o jardim</strong> quando tinha tudo pra ficar quieto. Isso interessa. Isso engaja. Isso vende.
           </p>
           <div className="grid sm:grid-cols-3 gap-4">
             {[
-              { n: '01', titulo: 'Apareça', desc: 'Seu rosto é a marca. Um Reel com você falando converte mais do que 10 fotos de jardim.' },
-              { n: '02', titulo: 'Ensine', desc: 'Quem ensina, vende. Conteúdo educacional te posiciona como especialista, não como fornecedor.' },
-              { n: '03', titulo: 'Prove', desc: 'Cases com contexto. Não "jardim bonito" — o problema do cliente, a solução, o resultado.' },
+              { n: '01', titulo: 'Mostre a escolha', desc: 'Estabilidade vs propósito. A tensão real de quem está no meio do caminho é o conteúdo mais humano que existe.' },
+              { n: '02', titulo: 'Mostre os perrengues', desc: 'Erro no orçamento. Cliente difícil. Dia difícil. Vulnerabilidade real gera confiança — e seguidores fiéis.' },
+              { n: '03', titulo: 'Mostre as conquistas', desc: 'MEI aberto. Primeiro contrato formal. Belvedere voltando. Cada marco publicado é prova social ao vivo.' },
             ].map(r => (
               <div key={r.n} className="bg-forest-700/50 rounded-xl p-4">
                 <p className="text-gold-500 font-bold text-2xl mb-1 leading-none">{r.n}</p>
@@ -209,13 +218,13 @@ export default function InstagramBraun() {
           <p className="text-gray-500 text-sm mb-5">Mínimo realista: 4 posts + Stories diários</p>
           <div className="grid grid-cols-7 gap-1.5">
             {[
-              { dia: 'SEG', acao: 'Transformação',     formato: 'Reel',     bg: 'bg-forest-100 text-forest-800' },
-              { dia: 'TER', acao: 'Bastidores',        formato: 'Stories',  bg: 'bg-teal-100 text-teal-800' },
-              { dia: 'QUA', acao: 'Educacional',       formato: 'Carrossel',bg: 'bg-blue-100 text-blue-800' },
-              { dia: 'QUI', acao: 'Bastidores',        formato: 'Stories',  bg: 'bg-teal-100 text-teal-800' },
-              { dia: 'SEX', acao: 'Fundador ou B2B',   formato: 'Reel',     bg: 'bg-purple-100 text-purple-800' },
-              { dia: 'SAB', acao: 'Resultado da semana',formato: 'Stories', bg: 'bg-gray-100 text-gray-600' },
-              { dia: 'DOM', acao: 'Off ou Repost',     formato: '—',        bg: 'bg-gray-50 text-gray-400' },
+              { dia: 'SEG', acao: 'Transição',          formato: 'Reel',      bg: 'bg-forest-100 text-forest-800' },
+              { dia: 'TER', acao: 'Bastidores',         formato: 'Stories',   bg: 'bg-teal-100 text-teal-800' },
+              { dia: 'QUA', acao: 'Aprendizado',        formato: 'Carrossel', bg: 'bg-purple-100 text-purple-800' },
+              { dia: 'QUI', acao: 'Bastidores',         formato: 'Stories',   bg: 'bg-teal-100 text-teal-800' },
+              { dia: 'SEX', acao: 'Perrengue ou Conquista', formato: 'Reel', bg: 'bg-red-100 text-red-800' },
+              { dia: 'SAB', acao: 'Bastidores do fim de semana', formato: 'Stories', bg: 'bg-gray-100 text-gray-600' },
+              { dia: 'DOM', acao: 'Off ou Repost',      formato: '—',         bg: 'bg-gray-50 text-gray-400' },
             ].map(item => (
               <div key={item.dia} className={`rounded-xl p-2.5 ${item.bg}`}>
                 <p className="font-bold text-xs uppercase tracking-wider mb-2">{item.dia}</p>
@@ -283,10 +292,10 @@ export default function InstagramBraun() {
         {/* CTA final */}
         <div className="bg-forest-800 rounded-2xl p-6 text-white text-center">
           <TrendingUp size={28} className="text-gold-500 mx-auto mb-3" />
-          <p className="font-bold text-lg mb-2">Meta: 1 post por dia nos próximos 30 dias</p>
+          <p className="font-bold text-lg mb-2">Comece pelo post 20 — o kick-off da série</p>
           <p className="text-white/70 text-sm max-w-lg mx-auto">
-            Não precisa ser perfeito. Um Reel de 30 segundos com você falando sobre o trabalho do dia vale mais do que uma semana de planejamento sem publicar.{' '}
-            <span className="text-gold-500 font-semibold">Consistência {'>'} Perfeição.</span>
+            Anuncia publicamente que você vai documentar a transição. Isso cria compromisso e gera curiosidade imediata.{' '}
+            <span className="text-gold-500 font-semibold">Quem declara, executa.</span>
           </p>
         </div>
       </div>

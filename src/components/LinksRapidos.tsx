@@ -80,7 +80,7 @@ Se quiser nos ajudar a crescer, deixar uma avaliação no Google faz toda a dife
 
 É rápido — menos de 2 minutos. Qualquer feedback é muito bem-vindo.
 
-Obrigado, Diego — Alexandre Jardins`,
+Obrigado, Alexandre — Alexandre Jardins`,
   },
   {
     id: 'informal',
@@ -97,7 +97,7 @@ Te peço um favor rápido: se você ficou satisfeito com o trabalho, me ajuda co
 
 Qualquer coisa que eu possa melhorar, pode falar também — fico grato!
 
-Abraço, Diego — Alexandre Jardins`,
+Abraço, Alexandre — Alexandre Jardins`,
   },
 ]
 
@@ -201,18 +201,18 @@ export default function LinksRapidos() {
                 <FolderOpen size={18} className="text-gold-500" />
               </div>
               <div>
-                <p className="font-bold text-forest-900 text-sm">Drive Diego</p>
+                <p className="font-bold text-forest-900 text-sm">Drive Alexandre</p>
                 <p className="text-gray-500 text-xs">Pastas principais da Mentoria</p>
               </div>
             </div>
             <div className="flex flex-col gap-2">
               {[
-                { label: 'Pasta Principal Selva Premium', href: 'https://drive.google.com/drive/folders/1WPDnTNh1BGaaNzHOlO9KA2lsQ7PDsDHj' },
-                { label: 'Materiais do Diego', href: 'https://drive.google.com/drive/folders/1YjfdgUH5kTSn9vIFcuAbh7RACP5QcRnH' },
-                { label: 'Propostas e Portfólios', href: 'https://drive.google.com/drive/folders/1Sj-Pcfvy750gg2-0UC9pEK1ZiK4seEOX' },
-                { label: 'Tarefas e Acompanhamento', href: 'https://drive.google.com/drive/folders/1P1xAxtSC7vm0ktTiCmOMFs8Lb3EZU0mr' },
-                { label: 'Avaliações Google', href: 'https://drive.google.com/drive/folders/1PtzJX0AXk0dZRbpb1ehonC9mSuqza9P2' },
-                { label: 'Lista de Clientes (Planilha)', href: 'https://docs.google.com/spreadsheets/d/1YwSLAciSja6eWzN4llqETchiD2heETWv' },
+                { label: 'Pasta Principal Alexandre', href: 'https://drive.google.com/drive/folders/1xPS3NLg9JR0q8smBiJylIkvvHKXBpwxK' },
+                { label: 'Sessões e Gravações', href: 'https://drive.google.com/drive/folders/1_OktaDlVtrm05N_s94i2Ce49bwYXQ06F' },
+                { label: 'Material da Mentoria', href: 'https://drive.google.com/drive/folders/1rFWXAL_NznUe5AcmYzWx98W19qIx-x1C' },
+                { label: 'Diagnóstico 360°', href: 'https://drive.google.com/drive/folders/10kbb36JnFD0Uj-YvhFadvXfKNc4GT1u1' },
+                { label: 'Tarefas e Acompanhamento', href: 'https://drive.google.com/drive/folders/1ANWzuzZwS_mo13FQWIjpUHhTxr9Fcyvj' },
+                { label: 'Ata Sessão 1 (Doc)', href: 'https://docs.google.com/document/d/1jK0O7Z6XJ6PZu9S47LAc1BeOgW6wR9ahZtQ-wzSJvs0' },
               ].map(link => (
                 <a
                   key={link.label}
@@ -251,7 +251,7 @@ export default function LinksRapidos() {
             <div className="flex flex-col gap-2">
               <EditableLink label="Mídia Kit Residencial" icon={Home} value={midiaKit.residencial} onChange={v => updateMidiaKit('residencial', v)} />
               <EditableLink label="Mídia Kit Condomínios" icon={Building} value={midiaKit.condominios} onChange={v => updateMidiaKit('condominios', v)} />
-              <EditableLink label="Mídia Kit Empresas / Hotéis" icon={Briefcase} value={midiaKit.empresas} onChange={v => updateMidiaKit('empresas', v)} />
+              <EditableLink label="Mídia Kit Condomínios / Empresas" icon={Briefcase} value={midiaKit.empresas} onChange={v => updateMidiaKit('empresas', v)} />
             </div>
           </div>
 
@@ -268,12 +268,12 @@ export default function LinksRapidos() {
             </div>
             <div className="flex flex-col gap-2">
               {[
-                { label: 'Instagram @alexandre.jardins', href: 'https://www.instagram.com/alexandre.jardins' },
-                { label: 'Google Meu Negócio', href: 'https://www.google.com/maps/search/Braun+Paisagismo+Tr%C3%AAs+Coroas' },
-                { label: 'Portfólio Residencial (PDF)', href: 'https://drive.google.com/file/d/1w_4t063chK_XMIWBEymrn9CXr2Hw-ZyA' },
-                { label: 'Portfólio Condomínios (PDF)', href: 'https://drive.google.com/file/d/1fvV9-kpTEa2eaW0BqDNYTp1U5dGpTk7p' },
-                { label: 'Portfólio Empresas (PDF)', href: 'https://drive.google.com/file/d/1GeisOZ-Je3cgaYoL3BAnvtmrbcCR4iJj' },
-                { label: 'Plano de Ação — Mai/2026', href: 'https://docs.google.com/document/d/1zbTY--Cn1R2VCtZMQTEXWHSVkelufUMcX9uofuAP2Co' },
+                { label: 'Instagram @alexandre.nunes.98', href: 'https://www.instagram.com/alexandre.nunes.98' },
+                { label: 'Google Meu Negócio (configurar)', href: 'https://business.google.com' },
+                { label: 'Orçamento Belvedere (PDF)', href: 'https://drive.google.com/file/d/1jAWLele2a4U-X4alZUFpvi2PsKYtvJot' },
+                { label: 'Ata da Sessão 1', href: 'https://docs.google.com/document/d/1jK0O7Z6XJ6PZu9S47LAc1BeOgW6wR9ahZtQ-wzSJvs0' },
+                { label: 'Gravação da Sessão 1', href: 'https://drive.google.com/file/d/1QJKZ9dQZeFKySfg4N_ks128-15FqdYDY' },
+                { label: 'Diagnóstico 360° Completo', href: 'https://docs.google.com/document/d/11CnwqxHJuKfW-GxmwFkRrMmkYO2Kcb4hHK3S0k9KcZw' },
               ].map(link => (
                 <a
                   key={link.label}

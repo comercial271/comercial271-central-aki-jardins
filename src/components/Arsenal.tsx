@@ -1,41 +1,41 @@
-import { Zap, Home, Building, Briefcase, List, Star, FileText, FolderOpen, ExternalLink } from 'lucide-react'
+import { Zap, PlayCircle, Building, List, Star, FileText, FolderOpen, ExternalLink } from 'lucide-react'
 
 const docs = [
   {
-    icon: Home,
-    title: 'Portfólio Residencial',
-    desc: 'Projetos residenciais premium na Serra Gaúcha — fotos antes/depois.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/file/d/1w_4t063chK_XMIWBEymrn9CXr2Hw-ZyA' },
+    icon: FileText,
+    title: 'Ata da Sessão 1',
+    desc: 'Transcrição completa + insights da sessão individual de diagnóstico (21/05/2026).',
+    link: { label: 'Abrir', href: 'https://docs.google.com/document/d/1jK0O7Z6XJ6PZu9S47LAc1BeOgW6wR9ahZtQ-wzSJvs0' },
   },
   {
-    icon: Building,
-    title: 'Portfólio Condomínios',
-    desc: 'Cases de condomínios com manutenção preventiva e gestão de jardins.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/file/d/1fvV9-kpTEa2eaW0BqDNYTp1U5dGpTk7p' },
-  },
-  {
-    icon: Briefcase,
-    title: 'Portfólio Empresas',
-    desc: 'Cases corporativos: bancos, hotéis, estabelecimentos comerciais.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/file/d/1GeisOZ-Je3cgaYoL3BAnvtmrbcCR4iJj' },
+    icon: PlayCircle,
+    title: 'Gravação da Sessão 1',
+    desc: 'Vídeo completo da sessão 1 — diagnóstico, precificação e plano de saída do CLT.',
+    link: { label: 'Abrir', href: 'https://drive.google.com/file/d/1QJKZ9dQZeFKySfg4N_ks128-15FqdYDY' },
   },
   {
     icon: List,
-    title: 'Lista de Clientes — Análise de Custo',
-    desc: 'Todos os clientes, custo por visita, margem real e rentabilidade.',
-    link: { label: 'Abrir', href: 'https://docs.google.com/spreadsheets/d/1YwSLAciSja6eWzN4llqETchiD2heETWv' },
+    title: 'Diagnóstico 360° Completo',
+    desc: 'Análise de mercado Itatiba, concorrentes, condomínios-alvo e estratégia de entrada.',
+    link: { label: 'Abrir', href: 'https://docs.google.com/document/d/11CnwqxHJuKfW-GxmwFkRrMmkYO2Kcb4hHK3S0k9KcZw' },
+  },
+  {
+    icon: Building,
+    title: 'Orçamento Belvedere',
+    desc: 'PDF do orçamento enviado — base para renegociação com 25% de margem (~R$8.500).',
+    link: { label: 'Abrir', href: 'https://drive.google.com/file/d/1jAWLele2a4U-X4alZUFpvi2PsKYtvJot' },
+  },
+  {
+    icon: FolderOpen,
+    title: 'Material da Mentoria',
+    desc: 'Pasta com todos os materiais enviados pela Selva ao longo do programa.',
+    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1rFWXAL_NznUe5AcmYzWx98W19qIx-x1C' },
   },
   {
     icon: Star,
-    title: 'Avaliações Google',
-    desc: '10+ avaliações organizadas incluindo Noeli Scheifler — prova social.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1PtzJX0AXk0dZRbpb1ehonC9mSuqza9P2' },
-  },
-  {
-    icon: FileText,
-    title: 'Proposta Teste — Formato Referência',
-    desc: 'Primeira proposta gerada no Selva. R$ 1.200 com 20% de desconto.',
-    link: { label: 'Abrir', href: 'https://drive.google.com/file/d/1ByMctx8MK4bDDdmT5QeR_TLABKAWDiDh' },
+    title: 'Tarefas e Acompanhamento',
+    desc: 'Histórico de tarefas, checkpoints e evolução na mentoria.',
+    link: { label: 'Abrir', href: 'https://drive.google.com/drive/folders/1ANWzuzZwS_mo13FQWIjpUHhTxr9Fcyvj' },
   },
 ]
 
@@ -92,7 +92,7 @@ export default function Arsenal() {
             <p className="font-semibold text-forest-900 text-sm">Pasta Completa — Propostas e Portfólios</p>
             <p className="text-gray-400 text-xs">Todos os arquivos organizados por categoria</p>
           </div>
-          <a href="https://drive.google.com/drive/folders/1Sj-Pcfvy750gg2-0UC9pEK1ZiK4seEOX" target="_blank" rel="noopener noreferrer"
+          <a href="https://drive.google.com/drive/folders/1xPS3NLg9JR0q8smBiJylIkvvHKXBpwxK" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 bg-forest-800 hover:bg-forest-700 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors shrink-0">
             Abrir <ExternalLink size={10} />
           </a>
